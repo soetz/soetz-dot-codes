@@ -10,6 +10,35 @@
       "isBackground": true
     },
     {
+      "label": "npm: build",
+      "type": "npm",
+      "script": "build",
+      "problemMatcher": [],
+      "detail": "build project with vite"
+    },
+    {
+      "label": "npm: serve",
+      "type": "npm",
+      "script": "serve",
+      "problemMatcher": [],
+      "detail": "serve vite build",
+      "isBackground": true
+    },
+    {
+      "label": "npm: lint",
+      "type": "npm",
+      "script": "lint",
+      "problemMatcher": [],
+      "detail": "lint source code"
+    },
+    {
+      "label": "npm: format",
+      "type": "npm",
+      "script": "format",
+      "problemMatcher": [],
+      "detail": "format source code"
+    },
+    {
       "label": "terminate tasks",
       "type": "shell",
       "command": "echo ${input:terminate tasks}",
