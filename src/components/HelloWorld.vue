@@ -34,6 +34,11 @@ const count = ref(0);
 </template>
 
 <style scoped>
+h1 {
+  font-family: new-spirit, serif;
+  font-weight: 300;
+}
+
 a {
   color: #42b983;
 }
@@ -44,6 +49,7 @@ label {
 }
 
 code {
+  font-family: source-code-pro, monospace;
   background-color: #eee;
   padding: 2px 4px;
   border-radius: 4px;
