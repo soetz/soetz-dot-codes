@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Camera, Plane, Renderer, Scene, ShaderMaterial } from "troisjs";
 import { Vector2, Vector3 } from "three";
+import { palette } from "../colors";
 
 const fragmentShader = `
 precision mediump float;
@@ -87,7 +88,7 @@ float stereotype(float x, float factor, float center) {
 void main()
 {
     vec2 normalizedCoordinates = (gl_FragCoord/max(u_resolution.x, u_resolution.y)).xy;
-    float time = u_time * 0.03;
+    float time = u_time * 0.01;
 
     float secondaryColorHardeningFactor = stereotype(simplex3(normalizedCoordinates, time * 2.0, 0.5, 0.0), 4.0, 0.6);
     float secondaryColorNoise = simplex3(normalizedCoordinates, time, 1.0, 10.0);
@@ -106,6 +107,14 @@ void main()
 }
 `;
 
+const hexColorToVec3 = (color: string) => {
+  color = color[0] === "#" ? color.slice(1, 8) : color.slice(0, 7);
+  const red = parseInt(color.slice(0, 2), 16);
+  const green = parseInt(color.slice(2, 4), 16);
+  const blue = parseInt(color.slice(4, 6), 16);
+  return new Vector3(red / 255.0, green / 255.0, blue / 255.0);
+};
+
 const uniforms = {
   u_time: { type: "f", value: 1.0 },
   u_resolution: {
@@ -114,15 +123,15 @@ const uniforms = {
   },
   u_background_color: {
     type: "v3",
-    value: new Vector3(64.0 / 255.0, 25.0 / 255.0, 12.0 / 255.0),
+    value: hexColorToVec3(palette.orange[900]),
   },
   u_primary_color: {
     type: "v3",
-    value: new Vector3(125.0 / 255.0, 60.0 / 255.0, 27.0 / 255.0),
+    value: hexColorToVec3(palette.orange[700]),
   },
   u_secondary_color: {
     type: "v3",
-    value: new Vector3(232.0 / 255.0, 174.0 / 255.0, 122.0 / 255.0),
+    value: hexColorToVec3(palette.orange[100]),
   },
 };
 
