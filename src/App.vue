@@ -2,10 +2,12 @@
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
 import Background from "./components/Background.vue";
+import Nav from "./components/Nav.vue";
 import { RouterView } from "vue-router";
 </script>
 
 <template>
+  <Nav />
   <RouterView />
   <Background />
 </template>
