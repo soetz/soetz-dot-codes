@@ -1,4 +1,4 @@
-const palette = {
+const palette: Record<string, Record<number, string>> = {
   orange: {
     900: "#210905",
     700: "#40190c",

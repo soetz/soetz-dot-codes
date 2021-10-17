@@ -2,6 +2,8 @@
 import { Camera, Plane, Renderer, Scene, ShaderMaterial } from "troisjs";
 import { Vector2, Vector3 } from "three";
 import { palette } from "../colors";
+import { useRoute } from "vue-router";
+import { watch } from "@vue/runtime-core";
 
 const fragmentShader = `
 precision mediump float;
@@ -150,6 +152,17 @@ const renderShader = () => {
 };
 
 animate();
+
+const route = useRoute();
+
+watch(
+  () => route.meta.color,
+  (newColor: string) => {
+    uniforms.u_background_color.value = hexColorToVec3(palette[newColor][900]);
+    uniforms.u_primary_color.value = hexColorToVec3(palette[newColor][700]);
+    uniforms.u_secondary_color.value = hexColorToVec3(palette[newColor][100]);
+  }
+);
 </script>
 
 <template>
