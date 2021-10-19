@@ -3,7 +3,7 @@ import MenuButton from "./MenuButton.vue";
 import Nav from "./Nav.vue";
 import { ref } from "@vue/reactivity";
 
-const menuIsOpen = ref(true);
+const menuIsOpen = ref(false);
 
 const toggleMenu = () => {
   menuIsOpen.value = !menuIsOpen.value;
@@ -11,14 +11,31 @@ const toggleMenu = () => {
 </script>
 
 <template>
-  <header>
-    <Nav v-if="menuIsOpen" />
+  <header :class="{ 'menu-open': menuIsOpen }">
+    <Nav class="navigation" />
     <MenuButton :menu-is-open="menuIsOpen" @click="toggleMenu" />
   </header>
 </template>
 
 <style scoped>
-img {
-  width: 40px;
+header {
+  display: flex;
+
+  align-items: flex-start;
+
+  width: 100%;
+
+  position: relative;
+  right: calc(100vw - 62px);
+
+  transition: transform 0.5s ease-in-out;
+}
+
+header.menu-open {
+  transform: translateX(calc(100vw - 62px));
+}
+
+.navigation {
+  width: 100%;
 }
 </style>

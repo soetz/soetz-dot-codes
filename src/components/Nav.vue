@@ -22,6 +22,11 @@ import { RouterLink } from "vue-router";
 </template>
 
 <style scoped>
+nav {
+  padding-top: 19px;
+  padding-left: 12px;
+}
+
 ul {
   margin: 0;
   padding: 0;
