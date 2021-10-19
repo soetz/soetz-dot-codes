@@ -1,0 +1,77 @@
+.theme-orange {
+  --theme-900: var(--orange-900);
+  --theme-700: var(--orange-700);
+  --theme-400: var(--orange-400);
+  --theme-100: var(--orange-100);
+  --theme-90: var(--orange-90);
+  --theme-60: var(--orange-60);
+  --theme-40: var(--orange-40);
+  --theme-30: var(--orange-30);
+  --theme-20: var(--orange-20);
+  --theme-10: var(--orange-10);
+}
+
+.theme-red {
+  --theme-900: var(--red-900);
+  --theme-700: var(--red-700);
+  --theme-400: var(--red-400);
+  --theme-100: var(--red-100);
+  --theme-90: var(--red-90);
+  --theme-60: var(--red-60);
+  --theme-40: var(--red-40);
+  --theme-30: var(--red-30);
+  --theme-20: var(--red-20);
+  --theme-10: var(--red-10);
+}
+
+.theme-purple {
+  --theme-900: var(--purple-900);
+  --theme-700: var(--purple-700);
+  --theme-400: var(--purple-400);
+  --theme-100: var(--purple-100);
+  --theme-90: var(--purple-90);
+  --theme-60: var(--purple-60);
+  --theme-40: var(--purple-40);
+  --theme-30: var(--purple-30);
+  --theme-20: var(--purple-20);
+  --theme-10: var(--purple-10);
+}
+
+.theme-blue {
+  --theme-900: var(--blue-900);
+  --theme-700: var(--blue-700);
+  --theme-400: var(--blue-400);
+  --theme-100: var(--blue-100);
+  --theme-90: var(--blue-90);
+  --theme-60: var(--blue-60);
+  --theme-40: var(--blue-40);
+  --theme-30: var(--blue-30);
+  --theme-20: var(--blue-20);
+  --theme-10: var(--blue-10);
+}
+
+.theme-green {
+  --theme-900: var(--green-900);
+  --theme-700: var(--green-700);
+  --theme-400: var(--green-400);
+  --theme-100: var(--green-100);
+  --theme-90: var(--green-90);
+  --theme-60: var(--green-60);
+  --theme-40: var(--green-40);
+  --theme-30: var(--green-30);
+  --theme-20: var(--green-20);
+  --theme-10: var(--green-10);
+}
+
+.theme-gold {
+  --theme-900: var(--gold-900);
+  --theme-700: var(--gold-700);
+  --theme-400: var(--gold-400);
+  --theme-100: var(--gold-100);
+  --theme-90: var(--gold-90);
+  --theme-60: var(--gold-60);
+  --theme-40: var(--gold-40);
+  --theme-30: var(--gold-30);
+  --theme-20: var(--gold-20);
+  --theme-10: var(--gold-10);
+}

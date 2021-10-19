@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { Camera, Plane, Renderer, Scene, ShaderMaterial } from "troisjs";
 import { Vector2, Vector3 } from "three";
+import { onMounted, watch } from "@vue/runtime-core";
 import { palette } from "../colors";
 import { useRoute } from "vue-router";
-import { watch } from "@vue/runtime-core";
 
 const fragmentShader = `
 precision mediump float;
@@ -133,13 +133,8 @@ const uniforms = {
   },
   u_secondary_color: {
     type: "v3",
-    value: hexColorToVec3(palette.orange[100]),
+    value: hexColorToVec3(palette.orange[400]),
   },
-};
-
-const animate = () => {
-  renderShader();
-  requestAnimationFrame(animate);
 };
 
 let initialTime = performance.now();
@@ -151,18 +146,24 @@ const renderShader = () => {
   uniforms.u_resolution.value.y = window.innerHeight;
 };
 
-animate();
+const animate = () => {
+  renderShader();
+  requestAnimationFrame(animate);
+};
 
 const route = useRoute();
 
-watch(
-  () => route.meta.color,
-  (newColor: string) => {
-    uniforms.u_background_color.value = hexColorToVec3(palette[newColor][900]);
-    uniforms.u_primary_color.value = hexColorToVec3(palette[newColor][700]);
-    uniforms.u_secondary_color.value = hexColorToVec3(palette[newColor][100]);
-  }
-);
+const updateBackgroundColors = (newColor: string) => {
+  uniforms.u_background_color.value = hexColorToVec3(palette[newColor][900]);
+  uniforms.u_primary_color.value = hexColorToVec3(palette[newColor][700]);
+  uniforms.u_secondary_color.value = hexColorToVec3(palette[newColor][400]);
+};
+
+onMounted(() => {
+  animate();
+
+  watch(() => route.meta.color, updateBackgroundColors);
+});
 </script>
 
 <template>
@@ -177,12 +178,3 @@ watch(
     </Scene>
   </Renderer>
 </template>
-
-<style>
-.background {
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: -1;
-}
-</style>
