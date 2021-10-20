@@ -10,11 +10,13 @@ const route = useRoute();
 
 <template>
   <div
+    class="general-container theme-dark"
     :class="[route.meta.color ? 'theme-' + route.meta.color : 'theme-orange']"
-    class="theme-dark"
   >
     <Header />
-    <RouterView />
+    <div class="scroll-container">
+      <RouterView />
+    </div>
     <Background class="background" />
   </div>
 </template>
@@ -23,15 +25,8 @@ const route = useRoute();
 @import "./assets/colors.css";
 @import "./assets/theme.css";
 
-#app {
-  font-family: boreal, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: var(--theme-900);
-}
-
-.theme-dark {
-  color: var(--theme-10);
+* {
+  box-sizing: border-box;
 }
 
 html {
@@ -42,12 +37,34 @@ body {
   margin: 0;
 }
 
-* {
-  box-sizing: border-box;
+#app {
+  font-family: boreal, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--theme-900);
+
+  width: 100vw;
+  height: 100vh;
+}
+
+.general-container {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  height: 100%;
+}
+
+.theme-dark {
+  color: var(--theme-10);
+}
+
+.scroll-container {
+  overflow-y: auto;
 }
 
 .background {
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   width: 100vw;

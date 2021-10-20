@@ -54,7 +54,7 @@ watch(
 .menu-button {
   display: block;
 
-  padding: 10px;
+  padding: 8px;
 
   border: none;
   background-color: transparent;

@@ -24,7 +24,7 @@ import { RouterLink } from "vue-router";
 <style scoped>
 nav {
   padding-top: 19px;
-  padding-left: 12px;
+  padding-left: 10px;
 }
 
 ul {
@@ -78,11 +78,11 @@ li.active::after {
 
 @keyframes menu-hover {
   from {
-    box-shadow: var(--theme-20) 7px 7px;
+    box-shadow: var(--theme-20) 4px 4px;
   }
 
   to {
-    box-shadow: var(--theme-20) 4px 4px;
+    box-shadow: var(--theme-20) 7px 7px;
   }
 }
 </style>
