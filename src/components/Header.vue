@@ -13,7 +13,11 @@ const toggleMenu = () => {
 <template>
   <header :class="{ 'menu-open': menuIsOpen }">
     <Nav class="navigation" />
-    <MenuButton :menu-is-open="menuIsOpen" @click="toggleMenu" />
+    <MenuButton
+      class="menu-button"
+      :menu-is-open="menuIsOpen"
+      @click="toggleMenu"
+    />
   </header>
 </template>
 
@@ -24,6 +28,9 @@ header {
   align-items: flex-start;
 
   width: 100%;
+  max-width: 800px;
+
+  margin: auto;
 
   position: relative;
   right: calc(100vw - 62px);
@@ -37,5 +44,21 @@ header.menu-open {
 
 .navigation {
   width: 100%;
+}
+
+@media screen and (min-width: 600px) {
+  header {
+    right: 0;
+
+    transition: none;
+  }
+
+  header.menu-open {
+    transform: none;
+  }
+
+  .menu-button {
+    display: none;
+  }
 }
 </style>
