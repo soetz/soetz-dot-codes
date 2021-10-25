@@ -14,9 +14,9 @@ const route = useRoute();
     :class="[route.meta.color ? 'theme-' + route.meta.color : 'theme-orange']"
   >
     <Header />
-    <div class="scroll-container">
+    <main>
       <RouterView />
-    </div>
+    </main>
     <Background class="background" />
   </div>
 </template>
@@ -30,7 +30,7 @@ const route = useRoute();
 }
 
 html {
-  overflow: hidden;
+  background-color: var(--orange-900);
 }
 
 body {
@@ -48,19 +48,14 @@ body {
 }
 
 .general-container {
-  display: flex;
-  flex-direction: column;
-
   width: 100%;
   height: 100%;
+
+  padding-top: 102px;
 }
 
 .theme-dark {
   color: var(--theme-10);
-}
-
-.scroll-container {
-  overflow-y: auto;
 }
 
 .background {

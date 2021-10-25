@@ -54,10 +54,12 @@ watch(
 .menu-button {
   display: block;
 
-  padding: 8px;
+  padding-left: 8px;
 
   border: none;
   background-color: transparent;
+
+  pointer-events: all;
 }
 
 svg {

@@ -9,6 +9,16 @@
   --theme-30: var(--orange-30);
   --theme-20: var(--orange-20);
   --theme-10: var(--orange-10);
+  --theme-900-rgb: var(--orange-900-rgb);
+  --theme-700-rgb: var(--orange-700-rgb);
+  --theme-400-rgb: var(--orange-400-rgb);
+  --theme-100-rgb: var(--orange-100-rgb);
+  --theme-90-rgb: var(--orange-90-rgb);
+  --theme-60-rgb: var(--orange-60-rgb);
+  --theme-40-rgb: var(--orange-40-rgb);
+  --theme-30-rgb: var(--orange-30-rgb);
+  --theme-20-rgb: var(--orange-20-rgb);
+  --theme-10-rgb: var(--orange-10-rgb);
 }
 
 .theme-red {
@@ -22,6 +32,16 @@
   --theme-30: var(--red-30);
   --theme-20: var(--red-20);
   --theme-10: var(--red-10);
+  --theme-900-rgb: var(--red-900-rgb);
+  --theme-700-rgb: var(--red-700-rgb);
+  --theme-400-rgb: var(--red-400-rgb);
+  --theme-100-rgb: var(--red-100-rgb);
+  --theme-90-rgb: var(--red-90-rgb);
+  --theme-60-rgb: var(--red-60-rgb);
+  --theme-40-rgb: var(--red-40-rgb);
+  --theme-30-rgb: var(--red-30-rgb);
+  --theme-20-rgb: var(--red-20-rgb);
+  --theme-10-rgb: var(--red-10-rgb);
 }
 
 .theme-purple {
@@ -35,6 +55,16 @@
   --theme-30: var(--purple-30);
   --theme-20: var(--purple-20);
   --theme-10: var(--purple-10);
+  --theme-900-rgb: var(--purple-900-rgb);
+  --theme-700-rgb: var(--purple-700-rgb);
+  --theme-400-rgb: var(--purple-400-rgb);
+  --theme-100-rgb: var(--purple-100-rgb);
+  --theme-90-rgb: var(--purple-90-rgb);
+  --theme-60-rgb: var(--purple-60-rgb);
+  --theme-40-rgb: var(--purple-40-rgb);
+  --theme-30-rgb: var(--purple-30-rgb);
+  --theme-20-rgb: var(--purple-20-rgb);
+  --theme-10-rgb: var(--purple-10-rgb);
 }
 
 .theme-blue {
@@ -48,6 +78,16 @@
   --theme-30: var(--blue-30);
   --theme-20: var(--blue-20);
   --theme-10: var(--blue-10);
+  --theme-900-rgb: var(--blue-900-rgb);
+  --theme-700-rgb: var(--blue-700-rgb);
+  --theme-400-rgb: var(--blue-400-rgb);
+  --theme-100-rgb: var(--blue-100-rgb);
+  --theme-90-rgb: var(--blue-90-rgb);
+  --theme-60-rgb: var(--blue-60-rgb);
+  --theme-40-rgb: var(--blue-40-rgb);
+  --theme-30-rgb: var(--blue-30-rgb);
+  --theme-20-rgb: var(--blue-20-rgb);
+  --theme-10-rgb: var(--blue-10-rgb);
 }
 
 .theme-green {
@@ -61,6 +101,16 @@
   --theme-30: var(--green-30);
   --theme-20: var(--green-20);
   --theme-10: var(--green-10);
+  --theme-900-rgb: var(--green-900-rgb);
+  --theme-700-rgb: var(--green-700-rgb);
+  --theme-400-rgb: var(--green-400-rgb);
+  --theme-100-rgb: var(--green-100-rgb);
+  --theme-90-rgb: var(--green-90-rgb);
+  --theme-60-rgb: var(--green-60-rgb);
+  --theme-40-rgb: var(--green-40-rgb);
+  --theme-30-rgb: var(--green-30-rgb);
+  --theme-20-rgb: var(--green-20-rgb);
+  --theme-10-rgb: var(--green-10-rgb);
 }
 
 .theme-gold {
@@ -74,4 +124,14 @@
   --theme-30: var(--gold-30);
   --theme-20: var(--gold-20);
   --theme-10: var(--gold-10);
+  --theme-900-rgb: var(--gold-900-rgb);
+  --theme-700-rgb: var(--gold-700-rgb);
+  --theme-400-rgb: var(--gold-400-rgb);
+  --theme-100-rgb: var(--gold-100-rgb);
+  --theme-90-rgb: var(--gold-90-rgb);
+  --theme-60-rgb: var(--gold-60-rgb);
+  --theme-40-rgb: var(--gold-40-rgb);
+  --theme-30-rgb: var(--gold-30-rgb);
+  --theme-20-rgb: var(--gold-20-rgb);
+  --theme-10-rgb: var(--gold-10-rgb);
 }

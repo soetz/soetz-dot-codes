@@ -152,7 +152,7 @@
 
 <style scoped>
 svg {
-  width: 360px;
+  height: 50px;
 
   padding-top: 12px;
   padding-left: 8px;
@@ -203,7 +203,7 @@ svg:hover .character-end {
 }
 
 svg:hover path {
-  transition: opacity 0.3s 0.5s ease-out, transform 0.4s 0.1s ease-out;
+  transition: opacity 0.5s 0.5s ease-in-out, transform 0.4s 0.1s ease-out;
 }
 
 svg:hover .should-appear {

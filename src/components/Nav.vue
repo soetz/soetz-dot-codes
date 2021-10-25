@@ -23,8 +23,8 @@ import { RouterLink } from "vue-router";
 
 <style scoped>
 nav {
-  padding-top: 19px;
-  padding-left: 10px;
+  padding-top: 32px;
+  padding-left: 12px;
 }
 
 ul {
@@ -39,15 +39,17 @@ li {
 
   position: relative;
 
-  margin-right: 15px;
-  margin-bottom: 46px;
+  margin-right: 20px;
+  margin-bottom: 54px;
+
+  pointer-events: all;
 }
 
 li.active::after {
   display: block;
 
   position: absolute;
-  bottom: -32px;
+  bottom: -36px;
   left: 18px;
 
   width: 100px;
@@ -61,15 +63,15 @@ li.active::after {
   background-color: var(--theme-60);
   color: var(--theme-900);
 
-  font-size: 16px;
+  font-size: 22px;
   font-weight: 500;
   text-decoration: none;
 
   border-color: var(--theme-20);
-  border-width: 4px;
+  border-width: 6px;
   border-style: solid;
 
-  box-shadow: var(--theme-20) 4px 4px;
+  box-shadow: var(--theme-20) 6px 6px;
 }
 
 .nav-link:hover {
@@ -78,11 +80,11 @@ li.active::after {
 
 @keyframes menu-hover {
   from {
-    box-shadow: var(--theme-20) 4px 4px;
+    box-shadow: var(--theme-20) 6px 6px;
   }
 
   to {
-    box-shadow: var(--theme-20) 7px 7px;
+    box-shadow: var(--theme-20) 10px 10px;
   }
 }
 </style>
