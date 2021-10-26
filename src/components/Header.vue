@@ -63,6 +63,7 @@ header {
 
   background-color: rgba(var(--theme-900-rgb), 0);
   backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
   box-shadow: rgba(10, 10, 10, 0) 0 0 20px;
 
   width: 100%;
@@ -73,7 +74,8 @@ header {
   bottom: calc(100vh - 102px);
 
   transition: bottom 0.5s ease-out, background-color 0.4s ease-in-out,
-    backdrop-filter 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+    backdrop-filter 0.4s ease-in-out, -webkit-backdrop-filter 0.4s ease-in-out,
+    box-shadow 0.4s ease-in-out;
 }
 
 .header-responsive-container {
@@ -86,9 +88,19 @@ header {
 
 header.scrolled,
 header.menu-open {
-  background-color: rgba(var(--theme-900-rgb), 0.6);
+  background-color: rgba(var(--theme-900-rgb), 0.85);
   backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   box-shadow: rgba(10, 10, 10, 0.6) 0 0 20px;
+}
+
+@supports (
+  (backdrop-filter: blur(5px)) or (-webkit-backdrop-filter: blur(5px))
+) {
+  header.scrolled,
+  header.menu-open {
+    background-color: rgba(var(--theme-900-rgb), 0.6);
+  }
 }
 
 header.menu-open {

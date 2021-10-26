@@ -4,8 +4,9 @@ import { RouterLink } from "vue-router";
 
 <template>
   <nav>
+    <div class="title-menu">Menu</div>
     <ul>
-      <li class="active">
+      <li>
         <RouterLink class="nav-link" to="/">Home</RouterLink>
       </li>
       <li>
@@ -17,14 +18,25 @@ import { RouterLink } from "vue-router";
       <li>
         <RouterLink class="nav-link" to="/links">Links</RouterLink>
       </li>
+      <li class="extra-line"></li>
     </ul>
   </nav>
 </template>
 
 <style scoped>
 nav {
-  padding-top: 32px;
+  padding-top: 18px;
   padding-left: 12px;
+}
+
+.title-menu {
+  margin-bottom: 13px;
+
+  color: var(--theme-20);
+
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: uppercase;
 }
 
 ul {
@@ -35,56 +47,142 @@ ul {
 }
 
 li {
-  display: inline-block;
+  display: block;
 
   position: relative;
 
   margin-right: 20px;
-  margin-bottom: 54px;
 
   pointer-events: all;
 }
 
-li.active::after {
+li:before {
+  content: "";
+
   display: block;
 
-  position: absolute;
-  bottom: -36px;
-  left: 18px;
+  width: 0;
 
-  width: 100px;
+  border-top: solid 2px var(--theme-20);
 
-  content: "↑ you’re here";
+  transition: width 0.2s ease-out;
+}
+
+.menu-open li:before {
+  width: 100%;
+
+  transition: width 0.5s ease-out;
 }
 
 .nav-link {
-  padding: 4px;
+  display: block;
 
-  background-color: var(--theme-60);
-  color: var(--theme-900);
+  width: 100%;
 
-  font-size: 22px;
-  font-weight: 500;
+  padding-top: 10px;
+  padding-bottom: 13px;
+
+  color: var(--theme-20);
+
+  font-size: 28px;
+  font-weight: 300;
   text-decoration: none;
-
-  border-color: var(--theme-20);
-  border-width: 6px;
-  border-style: solid;
-
-  box-shadow: var(--theme-20) 6px 6px;
 }
 
-.nav-link:hover {
-  animation: menu-hover 0.3s ease-in-out alternate infinite;
+.menu-open li:nth-child(2):before {
+  transition: width 0.5s 0.1s ease-out;
 }
 
-@keyframes menu-hover {
-  from {
-    box-shadow: var(--theme-20) 6px 6px;
+.menu-open li:nth-child(3):before {
+  transition: width 0.5s 0.2s ease-out;
+}
+
+.menu-open li:nth-child(4):before {
+  transition: width 0.5s 0.3s ease-out;
+}
+
+.menu-open li:nth-child(5):before {
+  transition: width 0.5s 0.4s ease-out;
+}
+
+.menu-open li:nth-child(6):before {
+  transition: width 0.5s 0.5s ease-out;
+}
+
+.menu-open li:nth-child(7):before {
+  transition: width 0.5s 0.6s ease-out;
+}
+
+.menu-open li:nth-child(8):before {
+  transition: width 0.5s 0.7s ease-out;
+}
+
+@media screen and (min-width: 600px) {
+  .title-menu {
+    display: none;
   }
 
-  to {
-    box-shadow: var(--theme-20) 10px 10px;
+  nav {
+    padding-left: 0;
+    padding-top: 0;
+  }
+
+  ul {
+    display: flex;
+  }
+
+  li {
+    flex-grow: 1;
+
+    margin-right: 0;
+  }
+
+  li:before {
+    content: none;
+  }
+
+  .nav-link {
+    padding-top: 4px;
+    padding-bottom: 12px;
+
+    font-size: 22px;
+    text-align: center;
+
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .nav-link:hover {
+    transform: translateY(-6px);
+  }
+
+  .nav-link:after {
+    content: "";
+
+    display: block;
+
+    position: absolute;
+
+    left: 50%;
+    transform: translate(-50%, 6px);
+
+    height: 4px;
+    width: 4px;
+
+    border-radius: 100%;
+
+    background-color: var(--theme-20);
+    opacity: 0;
+
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+
+  .nav-link:hover:after {
+    transform: translate(-50%, 0px);
+    opacity: 1;
+  }
+
+  .extra-line {
+    display: none;
   }
 }
 </style>
