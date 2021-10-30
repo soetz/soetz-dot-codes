@@ -7,16 +7,24 @@ import { RouterLink } from "vue-router";
     <div class="title-menu">Menu</div>
     <ul>
       <li>
-        <RouterLink class="nav-link" to="/">Home</RouterLink>
+        <RouterLink class="nav-link" to="/">
+          <div class="nav-text">Home</div>
+        </RouterLink>
       </li>
       <li>
-        <RouterLink class="nav-link" to="/podcast">Podcast</RouterLink>
+        <RouterLink class="nav-link" to="/podcast">
+          <div class="nav-text">Podcast</div>
+        </RouterLink>
       </li>
       <li>
-        <RouterLink class="nav-link" to="/ethics">Ethics</RouterLink>
+        <RouterLink class="nav-link" to="/ethics">
+          <div class="nav-text">Ethics</div>
+        </RouterLink>
       </li>
       <li>
-        <RouterLink class="nav-link" to="/links">Links</RouterLink>
+        <RouterLink class="nav-link" to="/links">
+          <div class="nav-text">Links</div>
+        </RouterLink>
       </li>
       <li class="extra-line"></li>
     </ul>
@@ -147,15 +155,17 @@ li:before {
 
     font-size: 22px;
     text-align: center;
+  }
 
+  .nav-link .nav-text {
     transition: transform 0.2s ease-in-out;
   }
 
-  .nav-link:hover {
+  .nav-link:hover .nav-text {
     transform: translateY(-6px);
   }
 
-  .nav-link:after {
+  .nav-link .nav-text:after {
     content: "";
 
     display: block;
@@ -176,7 +186,7 @@ li:before {
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
   }
 
-  .nav-link:hover:after {
+  .nav-link:hover .nav-text:after {
     transform: translate(-50%, 0px);
     opacity: 1;
   }

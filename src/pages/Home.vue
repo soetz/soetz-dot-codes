@@ -79,6 +79,6 @@
 .page-container {
   margin-left: 13px;
   margin-right: 13px;
-  margin-bottom: 13px;
+  padding-bottom: 13px;
 }
 </style>

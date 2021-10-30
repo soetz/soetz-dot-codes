@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { RouterLink, useRoute } from "vue-router";
 import { onBeforeUnmount, onMounted, watch } from "@vue/runtime-core";
+import BarCode from "./BarCode.vue";
 import Logo from "./Logo.vue";
 import MenuButton from "./MenuButton.vue";
 import Nav from "./Nav.vue";
@@ -40,6 +41,9 @@ onBeforeUnmount(() => {
 
 <template>
   <header :class="{ 'menu-open': menuIsOpen, 'scrolled': isScrolled }">
+    <div class="barcode-container">
+      <BarCode class="barcode" />
+    </div>
     <div class="header-responsive-container">
       <div class="menu-background" @click="menuBackgroundClick"></div>
       <RouterLink to="/">
@@ -141,6 +145,35 @@ header.menu-open {
   width: 100%;
 }
 
+.barcode-container {
+  position: absolute;
+
+  bottom: 0;
+
+  opacity: 0;
+
+  transition: opacity 0.1s ease-in-out;
+}
+
+@media screen and (max-height: 499px) and (max-width: 599px) {
+  .barcode-container {
+    display: none;
+  }
+}
+
+.menu-open .barcode-container {
+  opacity: 1;
+
+  transition: opacity 0.5s 0.2s ease-in-out;
+}
+
+.barcode {
+  padding-left: 13px;
+  padding-bottom: 10px;
+
+  width: 150px;
+}
+
 @media screen and (min-width: 600px) {
   .menu {
     right: 0;
@@ -158,6 +191,31 @@ header.menu-open {
 
   .menu-button {
     display: none;
+  }
+
+  .menu-open .barcode-container {
+    display: none;
+  }
+
+  .barcode-container {
+    transform: rotate(90deg);
+
+    left: calc(50% - 505px);
+    top: 0;
+  }
+
+  .barcode {
+    width: 90px;
+
+    padding-left: 5px;
+    padding-bottom: 0;
+    padding-right: 5px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .barcode-container {
+    opacity: 1;
   }
 }
 </style>
