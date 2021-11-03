@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import EthicsIcon from "./icons/EthicsIcon.vue";
+import HomeIcon from "./icons/HomeIcon.vue";
+import LinksIcon from "./icons/LinksIcon.vue";
+import PodcastIcon from "./icons/PodcastIcon.vue";
 import { RouterLink } from "vue-router";
 </script>
 
@@ -9,21 +13,25 @@ import { RouterLink } from "vue-router";
       <li>
         <RouterLink class="nav-link" to="/">
           <div class="nav-text">Home</div>
+          <HomeIcon class="nav-icon" />
         </RouterLink>
       </li>
       <li>
         <RouterLink class="nav-link" to="/podcast">
           <div class="nav-text">Podcast</div>
+          <PodcastIcon class="nav-icon" />
         </RouterLink>
       </li>
       <li>
         <RouterLink class="nav-link" to="/ethics">
           <div class="nav-text">Ethics</div>
+          <EthicsIcon class="nav-icon" />
         </RouterLink>
       </li>
       <li>
         <RouterLink class="nav-link" to="/links">
           <div class="nav-text">Links</div>
+          <LinksIcon class="nav-icon" />
         </RouterLink>
       </li>
       <li class="extra-line"></li>
@@ -83,7 +91,12 @@ li:before {
 }
 
 .nav-link {
-  display: block;
+  display: flex;
+
+  align-items: flex-end;
+  justify-content: space-between;
+
+  overflow: hidden;
 
   width: 100%;
 
@@ -95,6 +108,21 @@ li:before {
   font-size: 28px;
   font-weight: 300;
   text-decoration: none;
+}
+
+.nav-icon {
+  width: 35px;
+
+  padding-top: 2px;
+
+  transform: translateX(40px) rotate(-45deg);
+  transform-origin: top;
+
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav-link:hover .nav-icon {
+  transform: none;
 }
 
 .menu-open li:nth-child(2):before {
@@ -150,14 +178,15 @@ li:before {
   }
 
   .nav-link {
+    justify-content: space-around;
+
     padding-top: 4px;
     padding-bottom: 12px;
 
     font-size: 22px;
-    text-align: center;
   }
 
-  .nav-link .nav-text {
+  .nav-text {
     transition: transform 0.2s ease-in-out;
   }
 
@@ -165,7 +194,7 @@ li:before {
     transform: translateY(-6px);
   }
 
-  .nav-link .nav-text:after {
+  .nav-text:after {
     content: "";
 
     display: block;
@@ -189,6 +218,10 @@ li:before {
   .nav-link:hover .nav-text:after {
     transform: translate(-50%, 0px);
     opacity: 1;
+  }
+
+  .nav-icon {
+    display: none;
   }
 
   .extra-line {

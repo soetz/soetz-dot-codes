@@ -2,6 +2,7 @@
 import { RouterLink, useRoute } from "vue-router";
 import { onBeforeUnmount, onMounted, watch } from "@vue/runtime-core";
 import BarCode from "./BarCode.vue";
+import Controls from "./Controls.vue";
 import Logo from "./Logo.vue";
 import MenuButton from "./MenuButton.vue";
 import Nav from "./Nav.vue";
@@ -46,11 +47,14 @@ onBeforeUnmount(() => {
     </div>
     <div class="header-responsive-container">
       <div class="menu-background" @click="menuBackgroundClick"></div>
-      <RouterLink to="/">
+      <RouterLink class="main-link" to="/">
         <Logo />
       </RouterLink>
       <div class="menu">
-        <Nav class="navigation" />
+        <div class="menu-content">
+          <Nav class="navigation" />
+          <Controls class="controls-container" />
+        </div>
         <MenuButton
           class="menu-button"
           :menu-is-open="menuIsOpen"
@@ -88,6 +92,13 @@ header {
 
   margin-left: auto;
   margin-right: auto;
+
+  pointer-events: none;
+}
+
+.menu-background,
+.main-link {
+  pointer-events: all;
 }
 
 header.scrolled,
@@ -118,8 +129,6 @@ header.menu-open {
 
   align-items: flex-start;
 
-  pointer-events: none;
-
   width: 100%;
 
   position: relative;
@@ -141,8 +150,33 @@ header.menu-open {
   bottom: 0;
 }
 
+.menu-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  width: 100%;
+}
+
 .navigation {
   width: 100%;
+}
+
+.controls-container {
+  margin-top: 10px;
+  margin-right: 20px;
+
+  pointer-events: all;
+
+  opacity: 0;
+
+  transition: opacity 0.2s ease-in;
+}
+
+.menu-open .controls-container {
+  opacity: 1;
+
+  transition: opacity 0.3s 0.7s ease-in;
 }
 
 .barcode-container {
@@ -193,14 +227,25 @@ header.menu-open {
     display: none;
   }
 
+  .controls-container {
+    position: absolute;
+    top: -48px;
+    right: 0;
+
+    margin-top: 0;
+    margin-right: 14px;
+
+    opacity: 1;
+  }
+
   .menu-open .barcode-container {
     display: none;
   }
 
   .barcode-container {
-    transform: rotate(90deg);
+    transform: rotate(-90deg);
 
-    left: calc(50% - 505px);
+    right: calc(50% - 505px);
     top: 0;
   }
 
