@@ -46,7 +46,9 @@ onBeforeUnmount(() => {
       <BarCode class="barcode" />
     </div>
     <div class="header-responsive-container">
-      <div class="menu-background" @click="menuBackgroundClick"></div>
+      <div class="menu-background-fullscreen"></div>
+      <div class="menu-background-normal"></div>
+      <div class="menu-background-hitbox" @click="menuBackgroundClick"></div>
       <RouterLink class="main-link" to="/">
         <Logo />
       </RouterLink>
@@ -69,18 +71,12 @@ onBeforeUnmount(() => {
 header {
   z-index: 10;
 
-  background-color: rgba(var(--theme-900-rgb), 0);
-  backdrop-filter: blur(0px);
-  -webkit-backdrop-filter: blur(0px);
-  box-shadow: 3px 6px 6px rgba(0, 0, 0, 0), 7px 14px 15px rgba(0, 0, 0, 0),
-    15px 30px 33px rgba(0, 0, 0, 0), 50px 100px 120px rgba(0, 0, 0, 0);
-
   width: 100%;
 
   position: fixed;
 
   top: 0;
-  bottom: calc(100vh - 102px);
+  bottom: 100vh;
 
   transition: bottom 0.5s ease-out, background-color 0.4s ease-in-out,
     backdrop-filter 0.4s ease-in-out, -webkit-backdrop-filter 0.4s ease-in-out,
@@ -97,13 +93,41 @@ header {
   pointer-events: none;
 }
 
-.menu-background,
+.menu-background-hitbox,
 .main-link {
   pointer-events: all;
 }
 
-header.scrolled,
 header.menu-open {
+  bottom: 0;
+
+  transition: bottom 0.5s ease-in;
+}
+
+.menu-background-normal {
+  z-index: -10;
+
+  background-color: rgba(var(--theme-900-rgb), 0);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  box-shadow: 3px 6px 6px rgba(0, 0, 0, 0), 7px 14px 15px rgba(0, 0, 0, 0),
+    15px 30px 33px rgba(0, 0, 0, 0), 50px 100px 120px rgba(0, 0, 0, 0);
+
+  width: 100%;
+  height: 102px;
+
+  position: fixed;
+
+  left: 0;
+  top: 0;
+  right: 0;
+
+  transition: background-color 0.4s ease-in-out,
+    backdrop-filter 0.4s ease-in-out, -webkit-backdrop-filter 0.4s ease-in-out,
+    box-shadow 0.4s ease-in-out;
+}
+
+header.scrolled .menu-background-normal {
   background-color: rgba(var(--theme-900-rgb), 0.85);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
@@ -112,19 +136,50 @@ header.menu-open {
     50px 100px 120px rgba(0, 0, 0, 0.07);
 }
 
-@supports (
-  (backdrop-filter: blur(5px)) or (-webkit-backdrop-filter: blur(5px))
-) {
-  header.scrolled,
-  header.menu-open {
-    background-color: rgba(var(--theme-900-rgb), 0.6);
-  }
+header.scrolled.menu-open .menu-background-normal {
+  background-color: rgba(var(--theme-900-rgb), 0);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  box-shadow: 3px 6px 6px rgba(0, 0, 0, 0), 7px 14px 15px rgba(0, 0, 0, 0),
+    15px 30px 33px rgba(0, 0, 0, 0), 50px 100px 120px rgba(0, 0, 0, 0);
 }
 
-header.menu-open {
+.menu-background-fullscreen {
+  z-index: -10;
+
+  position: fixed;
+
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 100vh;
+
+  background-color: rgba(var(--theme-900-rgb), 0.85);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.02),
+    7px 14px 15px rgba(0, 0, 0, 0.032), 15px 30px 33px rgba(0, 0, 0, 0.044),
+    50px 100px 120px rgba(0, 0, 0, 0.07);
+
+  transition: bottom 0.5s ease-out;
+}
+
+header.menu-open .menu-background-fullscreen {
   bottom: 0;
 
   transition: bottom 0.5s ease-in;
+}
+
+@supports (
+  (backdrop-filter: blur(5px)) or (-webkit-backdrop-filter: blur(5px))
+) {
+  header.scrolled .menu-background-normal {
+    background-color: rgba(var(--theme-900-rgb), 0.6);
+  }
+
+  .menu-background-fullscreen {
+    background-color: rgba(var(--theme-900-rgb), 0.6);
+  }
 }
 
 .menu {
@@ -144,7 +199,7 @@ header.menu-open {
   transform: translateX(calc(100vw - 56px));
 }
 
-.menu-background {
+.menu-background-hitbox {
   position: absolute;
 
   left: 0;
