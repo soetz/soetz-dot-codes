@@ -72,7 +72,8 @@ header {
   background-color: rgba(var(--theme-900-rgb), 0);
   backdrop-filter: blur(0px);
   -webkit-backdrop-filter: blur(0px);
-  box-shadow: rgba(10, 10, 10, 0) 0 0 20px;
+  box-shadow: 3px 6px 6px rgba(0, 0, 0, 0), 7px 14px 15px rgba(0, 0, 0, 0),
+    15px 30px 33px rgba(0, 0, 0, 0), 50px 100px 120px rgba(0, 0, 0, 0);
 
   width: 100%;
 
@@ -106,7 +107,9 @@ header.menu-open {
   background-color: rgba(var(--theme-900-rgb), 0.85);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  box-shadow: rgba(10, 10, 10, 0.6) 0 0 20px;
+  box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.02),
+    7px 14px 15px rgba(0, 0, 0, 0.032), 15px 30px 33px rgba(0, 0, 0, 0.044),
+    50px 100px 120px rgba(0, 0, 0, 0.07);
 }
 
 @supports (
@@ -229,7 +232,7 @@ header.menu-open {
 
   .controls-container {
     position: absolute;
-    top: -48px;
+    top: -46px;
     right: 0;
 
     margin-top: 0;

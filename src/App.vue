@@ -3,6 +3,7 @@
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
 import { RouterView, useRoute } from "vue-router";
 import Background from "./components/Background.vue";
+import ContactCallToAction from "./components/ContactCallToAction.vue";
 import Header from "./components/Header.vue";
 
 const route = useRoute();
@@ -17,6 +18,7 @@ const route = useRoute();
     <main>
       <RouterView />
     </main>
+    <ContactCallToAction />
     <Background class="background" />
   </div>
 </template>
