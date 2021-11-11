@@ -1,38 +1,35 @@
 <script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
 import { RouterView, useRoute } from "vue-router";
 import Background from "./components/Background.vue";
 import ContactCallToAction from "./components/ContactCallToAction.vue";
 import Header from "./components/Header.vue";
+import ThemeContainer from "./components/ThemeContainer.vue";
+import { themeService } from "./services";
+import { watch } from "@vue/runtime-core";
 
 const route = useRoute();
+watch(
+  () => route.meta.color,
+  (newColor: string) => {
+    themeService.setThemeColor(newColor);
+  }
+);
 </script>
 
 <template>
-  <div
-    class="general-container theme-dark"
-    :class="[route.meta.color ? 'theme-' + route.meta.color : 'theme-orange']"
-  >
+  <ThemeContainer class="general-container">
     <Header />
     <main>
       <RouterView />
     </main>
     <ContactCallToAction />
     <Background class="background" />
-  </div>
+  </ThemeContainer>
 </template>
 
 <style>
-@import "./assets/colors.css";
-@import "./assets/theme.css";
-
 * {
   box-sizing: border-box;
-}
-
-html {
-  background-color: var(--orange-900);
 }
 
 body {
@@ -56,10 +53,6 @@ body {
   padding-top: 102px;
 }
 
-.theme-dark {
-  color: var(--theme-10);
-}
-
 .background {
   position: fixed;
   left: 0;
@@ -67,6 +60,8 @@ body {
   width: 100vw;
   height: 100vh;
   z-index: -1;
+
+  background-color: var(--theme-900);
 }
 
 .fade-enter-active,

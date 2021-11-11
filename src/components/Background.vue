@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { Camera, Plane, Renderer, Scene, ShaderMaterial } from "troisjs";
 import { Vector2, Vector3 } from "three";
-import { onMounted, watch } from "@vue/runtime-core";
+import { onMounted, onUnmounted } from "@vue/runtime-core";
+import gsap from "gsap/all";
 import { palette } from "../colors";
-import { useRoute } from "vue-router";
+import { themeService } from "../services";
 
 const fragmentShader = `
 precision mediump float;
@@ -117,6 +118,8 @@ const hexColorToVec3 = (color: string) => {
   return new Vector3(red / 255.0, green / 255.0, blue / 255.0);
 };
 
+const themeColor = themeService.getThemeColor();
+
 const uniforms = {
   u_time: { type: "f", value: 1.0 },
   u_resolution: {
@@ -125,15 +128,21 @@ const uniforms = {
   },
   u_background_color: {
     type: "v3",
-    value: hexColorToVec3(palette.orange[900]),
+    value: themeService.isDisplayedThemeDark()
+      ? hexColorToVec3(palette[themeColor][900])
+      : hexColorToVec3(palette[themeColor][10]),
   },
   u_primary_color: {
     type: "v3",
-    value: hexColorToVec3(palette.orange[700]),
+    value: themeService.isDisplayedThemeDark()
+      ? hexColorToVec3(palette[themeColor][700])
+      : hexColorToVec3(palette[themeColor][30]),
   },
   u_secondary_color: {
     type: "v3",
-    value: hexColorToVec3(palette.orange[400]),
+    value: themeService.isDisplayedThemeDark()
+      ? hexColorToVec3(palette[themeColor][400])
+      : hexColorToVec3(palette[themeColor][40]),
   },
 };
 
@@ -151,30 +160,69 @@ const animate = () => {
   requestAnimationFrame(animate);
 };
 
-const route = useRoute();
+const transitionColors = () => {
+  const themeColor = themeService.getThemeColor();
 
-const updateBackgroundColors = (newColor: string) => {
-  uniforms.u_background_color.value = hexColorToVec3(palette[newColor][900]);
-  uniforms.u_primary_color.value = hexColorToVec3(palette[newColor][700]);
-  uniforms.u_secondary_color.value = hexColorToVec3(palette[newColor][400]);
+  let newBackgroundColor = new Vector3();
+  let newPrimaryColor = new Vector3();
+  let newSecondaryColor = new Vector3();
+
+  if (themeService.isDisplayedThemeDark()) {
+    newBackgroundColor = hexColorToVec3(palette[themeColor][900]);
+    newPrimaryColor = hexColorToVec3(palette[themeColor][700]);
+    newSecondaryColor = hexColorToVec3(palette[themeColor][400]);
+  } else {
+    newBackgroundColor = hexColorToVec3(palette[themeColor][10]);
+    newPrimaryColor = hexColorToVec3(palette[themeColor][30]);
+    newSecondaryColor = hexColorToVec3(palette[themeColor][40]);
+  }
+  gsap.to(uniforms.u_background_color.value, {
+    duration: 0.5,
+    ease: "power1.inOut",
+    x: newBackgroundColor.x,
+    y: newBackgroundColor.y,
+    z: newBackgroundColor.z,
+  });
+  gsap.to(uniforms.u_primary_color.value, {
+    duration: 0.5,
+    ease: "power1.inOut",
+    x: newPrimaryColor.x,
+    y: newPrimaryColor.y,
+    z: newPrimaryColor.z,
+  });
+  gsap.to(uniforms.u_secondary_color.value, {
+    duration: 0.5,
+    ease: "power1.inOut",
+    x: newSecondaryColor.x,
+    y: newSecondaryColor.y,
+    z: newSecondaryColor.z,
+  });
 };
 
 onMounted(() => {
   animate();
 
-  watch(() => route.meta.color, updateBackgroundColors);
+  themeService.addEventListener("theme-color", transitionColors);
+  themeService.addEventListener("theme-change", transitionColors);
+});
+
+onUnmounted(() => {
+  themeService.addEventListener("theme-color", transitionColors);
+  themeService.removeEventListener("theme-change", transitionColors);
 });
 </script>
 
 <template>
-  <Renderer class="background" resize="window">
-    <Camera :position="{ z: 1 }" />
-    <Scene>
-      <Plane :width="2" :height="2">
-        <ShaderMaterial
-          :props="{ uniforms: uniforms, fragmentShader: fragmentShader }"
-        />
-      </Plane>
-    </Scene>
-  </Renderer>
+  <div>
+    <Renderer resize="window">
+      <Camera :position="{ z: 1 }" />
+      <Scene>
+        <Plane :width="2" :height="2">
+          <ShaderMaterial
+            :props="{ uniforms: uniforms, fragmentShader: fragmentShader }"
+          />
+        </Plane>
+      </Scene>
+    </Renderer>
+  </div>
 </template>

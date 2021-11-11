@@ -42,6 +42,12 @@
 <style scoped>
 .stroke {
   fill: none;
+
+  stroke: var(--theme-700);
+  transition: stroke 0.5s ease-in-out;
+}
+
+.theme-dark .stroke {
   stroke: var(--theme-20);
 }
 

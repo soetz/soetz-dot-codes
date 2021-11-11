@@ -76,7 +76,7 @@ header {
   position: fixed;
 
   top: 0;
-  bottom: 100vh;
+  bottom: calc(100vh - 102px);
 
   transition: bottom 0.5s ease-out, background-color 0.4s ease-in-out,
     backdrop-filter 0.4s ease-in-out, -webkit-backdrop-filter 0.4s ease-in-out,
@@ -107,7 +107,7 @@ header.menu-open {
 .menu-background-normal {
   z-index: -10;
 
-  background-color: rgba(var(--theme-900-rgb), 0);
+  background-color: rgba(var(--theme-10-rgb), 0);
   backdrop-filter: blur(0px);
   -webkit-backdrop-filter: blur(0px);
   box-shadow: 3px 6px 6px rgba(0, 0, 0, 0), 7px 14px 15px rgba(0, 0, 0, 0),
@@ -127,21 +127,33 @@ header.menu-open {
     box-shadow 0.4s ease-in-out;
 }
 
+.theme-dark .menu-background-normal {
+  background-color: rgba(var(--theme-900-rgb), 0);
+}
+
 header.scrolled .menu-background-normal {
-  background-color: rgba(var(--theme-900-rgb), 0.85);
+  background-color: rgba(var(--theme-10-rgb), 0.85);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.02),
-    7px 14px 15px rgba(0, 0, 0, 0.032), 15px 30px 33px rgba(0, 0, 0, 0.044),
-    50px 100px 120px rgba(0, 0, 0, 0.07);
+  box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.01),
+    7px 14px 15px rgba(0, 0, 0, 0.016), 15px 30px 33px rgba(0, 0, 0, 0.022),
+    50px 100px 120px rgba(0, 0, 0, 0.035);
+}
+
+.theme-dark header.scrolled .menu-background-normal {
+  background-color: rgba(var(--theme-900-rgb), 0.85);
 }
 
 header.scrolled.menu-open .menu-background-normal {
-  background-color: rgba(var(--theme-900-rgb), 0);
+  background-color: rgba(var(--theme-10-rgb), 0);
   backdrop-filter: blur(0px);
   -webkit-backdrop-filter: blur(0px);
   box-shadow: 3px 6px 6px rgba(0, 0, 0, 0), 7px 14px 15px rgba(0, 0, 0, 0),
     15px 30px 33px rgba(0, 0, 0, 0), 50px 100px 120px rgba(0, 0, 0, 0);
+}
+
+.theme-dark header.scrolled.menu-open .menu-background-normal {
+  background-color: rgba(var(--theme-900-rgb), 0);
 }
 
 .menu-background-fullscreen {
@@ -154,14 +166,18 @@ header.scrolled.menu-open .menu-background-normal {
   right: 0;
   bottom: 100vh;
 
-  background-color: rgba(var(--theme-900-rgb), 0.85);
+  background-color: rgba(var(--theme-10-rgb), 0.85);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.02),
-    7px 14px 15px rgba(0, 0, 0, 0.032), 15px 30px 33px rgba(0, 0, 0, 0.044),
-    50px 100px 120px rgba(0, 0, 0, 0.07);
+  box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.01),
+    7px 14px 15px rgba(0, 0, 0, 0.016), 15px 30px 33px rgba(0, 0, 0, 0.022),
+    50px 100px 120px rgba(0, 0, 0, 0.035);
 
-  transition: bottom 0.5s ease-out;
+  transition: bottom 0.5s ease-out, background-color 0.5s ease-in-out;
+}
+
+.theme-dark .menu-background-fullscreen {
+  background-color: rgba(var(--theme-900-rgb), 0.85);
 }
 
 header.menu-open .menu-background-fullscreen {
@@ -174,10 +190,18 @@ header.menu-open .menu-background-fullscreen {
   (backdrop-filter: blur(5px)) or (-webkit-backdrop-filter: blur(5px))
 ) {
   header.scrolled .menu-background-normal {
+    background-color: rgba(var(--theme-10-rgb), 0.6);
+  }
+
+  .theme-dark header.scrolled .menu-background-normal {
     background-color: rgba(var(--theme-900-rgb), 0.6);
   }
 
   .menu-background-fullscreen {
+    background-color: rgba(var(--theme-10-rgb), 0.6);
+  }
+
+  .theme-dark .menu-background-fullscreen {
     background-color: rgba(var(--theme-900-rgb), 0.6);
   }
 }

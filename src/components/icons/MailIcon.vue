@@ -16,7 +16,9 @@
 rect,
 polyline {
   fill: none;
+
   stroke: var(--theme-700);
+  transition: stroke 0.5s ease-in-out;
 }
 
 rect {

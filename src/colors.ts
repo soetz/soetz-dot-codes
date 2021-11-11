@@ -1,6 +1,6 @@
 const palette: Record<string, Record<number, string>> = {
   orange: {
-    900: "#210905",
+    900: "#1b0704",
     700: "#40190c",
     400: "#7d3c1b",
     100: "#bb6529",
@@ -12,7 +12,7 @@ const palette: Record<string, Record<number, string>> = {
     10: "#faf4e6",
   },
   red: {
-    900: "#29030b",
+    900: "#1c0208",
     700: "#571628",
     400: "#943853",
     100: "#ca5a7c",
@@ -36,7 +36,7 @@ const palette: Record<string, Record<number, string>> = {
     10: "#f8f4f9",
   },
   blue: {
-    900: "#06090d",
+    900: "#0a0f15",
     700: "#1a2635",
     400: "#395175",
     100: "#5776b1",
@@ -48,7 +48,7 @@ const palette: Record<string, Record<number, string>> = {
     10: "#f4f4fb",
   },
   green: {
-    900: "#080b01",
+    900: "#0d1202",
     700: "#1d280a",
     400: "#3e561e",
     100: "#5a8036",
@@ -60,7 +60,7 @@ const palette: Record<string, Record<number, string>> = {
     10: "#eff9ed",
   },
   gold: {
-    900: "#0d0b00",
+    900: "#141100",
     700: "#2b2505",
     400: "#584e15",
     100: "#81752c",

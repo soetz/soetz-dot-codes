@@ -8,12 +8,13 @@ import {
   lightInitiation,
   lightToDarkTransitionCreate,
 } from "../../animations/theme";
-import { onMounted, watch } from "@vue/runtime-core";
+import { onMounted, onUnmounted, watch } from "@vue/runtime-core";
+import { ThemeChangeEvent } from "../../utilities/ThemeChangeEvent";
 import gsap from "gsap";
+import { themeService } from "../../services";
 
 const props = defineProps({
   isHovered: Boolean,
-  themeIsDark: Boolean,
 });
 
 // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -107,22 +108,26 @@ const transitionFromDarkToLight = () => {
   currentAnimations.push(darkToLightTransition);
 };
 
+const themeChange = (event: Event) => {
+  if ((event as ThemeChangeEvent).newStateIsDark) {
+    transitionFromLightToDark();
+  } else {
+    transitionFromDarkToLight();
+  }
+};
+
 onMounted(() => {
-  if (props.themeIsDark) {
+  if (themeService.isDisplayedThemeDark()) {
     routineThemeDark();
   } else {
     routineThemeLight();
   }
 
-  const themeChange = (themeIsDark: boolean) => {
-    if (themeIsDark) {
-      transitionFromLightToDark();
-    } else {
-      transitionFromDarkToLight();
-    }
-  };
+  themeService.addEventListener("theme-change", themeChange);
+});
 
-  watch(() => props.themeIsDark, themeChange);
+onUnmounted(() => {
+  themeService.removeEventListener("theme-change", themeChange);
 });
 </script>
 
@@ -200,8 +205,15 @@ onMounted(() => {
 .sun,
 .moon {
   fill: none;
-  stroke: var(--theme-20);
   stroke-width: 2;
+
+  stroke: var(--theme-700);
+  transition: stroke 0.5s ease-in-out;
+}
+
+.theme-dark .sun,
+.theme-dark .moon {
+  stroke: var(--theme-20);
 }
 
 .sun {
@@ -214,6 +226,12 @@ onMounted(() => {
 
 .rays {
   fill: none;
+
+  stroke: var(--theme-700);
+  transition: stroke 0.5s ease-in-out;
+}
+
+.theme-dark .rays {
   stroke: var(--theme-20);
 }
 
@@ -228,6 +246,11 @@ onMounted(() => {
 }
 
 .stars {
+  fill: var(--theme-700);
+  transition: fill 0.5s ease-in-out;
+}
+
+.theme-dark .stars {
   fill: var(--theme-20);
 }
 

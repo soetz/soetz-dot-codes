@@ -18,7 +18,13 @@
 <style scoped>
 path {
   fill: none;
-  stroke: var(--theme-20);
   stroke-width: 2;
+
+  stroke: var(--theme-700);
+  transition: stroke 0.5s ease-in-out;
+}
+
+.theme-dark path {
+  stroke: var(--theme-20);
 }
 </style>

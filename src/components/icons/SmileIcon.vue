@@ -20,11 +20,22 @@
 <style scoped>
 .stroke {
   fill: none;
-  stroke: var(--theme-20);
   stroke-width: 2;
+
+  stroke: var(--theme-700);
+  transition: stroke 0.5s ease-in-out;
+}
+
+.theme-dark .stroke {
+  stroke: var(--theme-20);
 }
 
 .fill {
+  fill: var(--theme-700);
+  transition: fill 0.5s ease-in-out;
+}
+
+.theme-dark .fill {
   fill: var(--theme-20);
 }
 </style>

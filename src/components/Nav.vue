@@ -48,11 +48,17 @@ nav {
 .title-menu {
   margin-bottom: 13px;
 
-  color: var(--theme-20);
-
   font-size: 16px;
   font-weight: 400;
   text-transform: uppercase;
+
+  color: var(--theme-700);
+
+  transition: color 0.5s ease-in-out;
+}
+
+.theme-dark .title-menu {
+  color: var(--theme-20);
 }
 
 ul {
@@ -79,15 +85,20 @@ li:before {
 
   width: 0;
 
-  border-top: solid 2px var(--theme-20);
+  border-top: solid 2px;
+  border-color: var(--theme-700);
 
-  transition: width 0.2s ease-out;
+  transition: width 0.2s ease-out, border-color 0.5s ease-in-out;
+}
+
+.theme-dark li:before {
+  border-color: var(--theme-20);
 }
 
 .menu-open li:before {
   width: 100%;
 
-  transition: width 0.5s ease-out;
+  transition: width 0.5s ease-out, border-color 0.5s ease-in-out;
 }
 
 .nav-link {
@@ -103,11 +114,17 @@ li:before {
   padding-top: 10px;
   padding-bottom: 13px;
 
-  color: var(--theme-20);
-
   font-size: 28px;
   font-weight: 300;
   text-decoration: none;
+
+  color: var(--theme-700);
+
+  transition: color 0.5s ease-in-out;
+}
+
+.theme-dark .nav-link {
+  color: var(--theme-20);
 }
 
 .nav-icon {
@@ -126,31 +143,31 @@ li:before {
 }
 
 .menu-open li:nth-child(2):before {
-  transition: width 0.5s 0.1s ease-out;
+  transition: width 0.5s 0.1s ease-out, border-color 0.5s ease-in-out;
 }
 
 .menu-open li:nth-child(3):before {
-  transition: width 0.5s 0.2s ease-out;
+  transition: width 0.5s 0.2s ease-out, border-color 0.5s ease-in-out;
 }
 
 .menu-open li:nth-child(4):before {
-  transition: width 0.5s 0.3s ease-out;
+  transition: width 0.5s 0.3s ease-out, border-color 0.5s ease-in-out;
 }
 
 .menu-open li:nth-child(5):before {
-  transition: width 0.5s 0.4s ease-out;
+  transition: width 0.5s 0.4s ease-out, border-color 0.5s ease-in-out;
 }
 
 .menu-open li:nth-child(6):before {
-  transition: width 0.5s 0.5s ease-out;
+  transition: width 0.5s 0.5s ease-out, border-color 0.5s ease-in-out;
 }
 
 .menu-open li:nth-child(7):before {
-  transition: width 0.5s 0.6s ease-out;
+  transition: width 0.5s 0.6s ease-out, border-color 0.5s ease-in-out;
 }
 
 .menu-open li:nth-child(8):before {
-  transition: width 0.5s 0.7s ease-out;
+  transition: width 0.5s 0.7s ease-out, border-color 0.5s ease-in-out;
 }
 
 @media screen and (min-width: 600px) {
@@ -209,10 +226,15 @@ li:before {
 
     border-radius: 100%;
 
-    background-color: var(--theme-20);
     opacity: 0;
 
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    background-color: var(--theme-700);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out,
+      background-color 0.5s ease-in-out;
+  }
+
+  .theme-dark .nav-text:after {
+    background-color: var(--theme-20);
   }
 
   .nav-link:hover .nav-text:after {

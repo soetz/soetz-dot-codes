@@ -4,16 +4,16 @@ import SmileIcon from "./icons/SmileIcon.vue";
 import ThemeIcon from "./icons/ThemeIcon.vue";
 import gsap from "gsap/all";
 import { ref } from "vue";
+import { themeService } from "../services";
 
 const themeHovered = ref(false);
-const themeIsDark = ref(true);
 const contactHovered = ref(false);
 
 const themeHoverChange = (hovered: boolean) => {
   themeHovered.value = hovered;
 };
 const themeToggle = () => {
-  themeIsDark.value = !themeIsDark.value;
+  themeService.explicitlySetThemeIsDark(!themeService.isDisplayedThemeDark());
 };
 const contactHoverChange = (hovered: boolean) => {
   contactHovered.value = hovered;
@@ -40,7 +40,6 @@ const contactHoverChange = (hovered: boolean) => {
     <ThemeIcon
       class="control"
       :is-hovered="themeHovered"
-      :theme-is-dark="themeIsDark"
       @mouseenter="themeHoverChange(true)"
       @mouseleave="themeHoverChange(false)"
       @click="themeToggle"

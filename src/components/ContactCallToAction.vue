@@ -109,14 +109,15 @@ import { RouterLink } from "vue-router";
   height: 100%;
 
   border-radius: 50%;
-  background-color: var(--theme-40);
   box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.02),
     7px 14px 15px rgba(0, 0, 0, 0.032), 15px 30px 33px rgba(0, 0, 0, 0.044),
     50px 100px 120px rgba(0, 0, 0, 0.07);
 
   transform: translate(-50%, -50%) scale(80%);
 
-  transition: transform 0.5s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  background-color: var(--theme-40);
+  transition: transform 0.5s cubic-bezier(0.68, -0.6, 0.32, 1.6),
+    background-color 0.5s ease-in-out;
 }
 
 .contact-call-to-action:hover .call-to-action-background {
@@ -158,6 +159,7 @@ import { RouterLink } from "vue-router";
 
 path {
   fill: var(--theme-700);
+  transition: fill 0.5s ease-in-out;
 }
 
 @keyframes rotating-text {

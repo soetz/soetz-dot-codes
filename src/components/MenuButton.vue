@@ -68,7 +68,13 @@ svg {
   width: 42px;
 
   fill: none;
-  stroke: var(--theme-20);
   stroke-width: 2;
+
+  stroke: var(--theme-700);
+  transition: stroke 0.5s ease-in-out;
+}
+
+.theme-dark svg {
+  stroke: var(--theme-20);
 }
 </style>
