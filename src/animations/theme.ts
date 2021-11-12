@@ -206,6 +206,15 @@ const darkToLightTransitionCreate = (callback: () => void): GSAPTimeline => {
     "-=85%"
   );
   animation.to(
+    ".rays",
+    {
+      duration: 0.8,
+      transformOrigin: "center",
+      rotation: 0,
+    },
+    "<"
+  );
+  animation.to(
     "#moon-limit circle",
     {
       duration: 0.8,
@@ -242,12 +251,31 @@ const darkToLightTransitionCreate = (callback: () => void): GSAPTimeline => {
 };
 
 const lightInitiation = (): void => {
+  gsap.set(".stars path", {
+    alpha: 0,
+  });
   gsap.set("#sun-to-moon circle, .moon", {
     transformOrigin: "19px 5px",
     rotation: -180,
   });
-  gsap.set(".stars path", {
-    alpha: 0,
+  gsap.set(".sun", {
+    attr: { r: 5 },
+  });
+  gsap.set(".rays", {
+    transformOrigin: "center",
+    rotation: 0,
+  });
+  gsap.set("#moon-limit circle", {
+    attr: { r: 6 },
+  });
+  gsap.set(".inner-rays", {
+    attr: { r: 8 },
+  });
+  gsap.set("#rays-large-limit .outer-rays", {
+    attr: { r: 12 },
+  });
+  gsap.set("#rays-small-limit .outer-rays", {
+    attr: { r: 10 },
   });
 };
 
