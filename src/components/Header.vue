@@ -183,7 +183,7 @@ header.scrolled.menu-open .menu-background-normal {
 header.menu-open .menu-background-fullscreen {
   bottom: 0;
 
-  transition: bottom 0.5s ease-in;
+  transition: bottom 0.5s ease-in, background-color 0.5s ease-in-out;
 }
 
 @supports (
@@ -214,13 +214,13 @@ header.menu-open .menu-background-fullscreen {
   width: 100%;
 
   position: relative;
-  right: calc(100vw - 56px);
+  right: calc(100% - 56px);
 
   transition: transform 0.5s ease-in-out;
 }
 
 .menu-open .menu {
-  transform: translateX(calc(100vw - 56px));
+  transform: translateX(calc(100% - 56px));
 }
 
 .menu-background-hitbox {
