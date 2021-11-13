@@ -53,6 +53,10 @@ body {
   padding-top: 102px;
 }
 
+main {
+  padding-bottom: 150px;
+}
+
 .background {
   position: fixed;
   left: 0;
