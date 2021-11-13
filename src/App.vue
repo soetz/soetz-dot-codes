@@ -2,6 +2,7 @@
 import { RouterView, useRoute } from "vue-router";
 import Background from "./components/Background.vue";
 import ContactCallToAction from "./components/ContactCallToAction.vue";
+import Footer from "./components/Footer.vue";
 import Header from "./components/Header.vue";
 import ThemeContainer from "./components/ThemeContainer.vue";
 import { themeService } from "./services";
@@ -19,9 +20,12 @@ watch(
 <template>
   <ThemeContainer class="general-container">
     <Header />
-    <main>
-      <RouterView />
-    </main>
+    <div class="footer-spacer">
+      <main>
+        <RouterView />
+      </main>
+      <Footer />
+    </div>
     <ContactCallToAction />
     <Background class="background" />
   </ThemeContainer>
@@ -32,8 +36,15 @@ watch(
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+}
+
 body {
   margin: 0;
+
+  --scrollbar-width: 0px;
+  --fullWidth: calc(100vw - var(--scrollbar-width));
 }
 
 #app {
@@ -41,6 +52,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--theme-900);
+  font-weight: 400;
 
   width: 100%;
   height: 100vh;
@@ -54,7 +66,15 @@ body {
 }
 
 main {
-  padding-bottom: 150px;
+  padding-bottom: 80px;
+}
+
+.footer-spacer {
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .background {
@@ -66,20 +86,5 @@ main {
   z-index: -1;
 
   background-color: var(--theme-900);
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  transition-property: opacity;
-  transition-duration: 0.25s;
-}
-
-.fade-enter-active {
-  transition-delay: 0.25s;
-}
-
-.fade-enter-from,
-.fade-leave-active {
-  opacity: 0;
 }
 </style>

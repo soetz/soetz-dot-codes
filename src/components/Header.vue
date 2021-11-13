@@ -132,7 +132,7 @@ header.menu-open {
 }
 
 header.scrolled .menu-background-normal {
-  background-color: rgba(var(--theme-10-rgb), 1);
+  background-color: var(--theme-10);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.01),
@@ -141,7 +141,7 @@ header.scrolled .menu-background-normal {
 }
 
 .theme-dark header.scrolled .menu-background-normal {
-  background-color: rgba(var(--theme-900-rgb), 1);
+  background-color: var(--theme-700);
 }
 
 header.scrolled.menu-open .menu-background-normal {
@@ -166,7 +166,7 @@ header.scrolled.menu-open .menu-background-normal {
   right: 0;
   bottom: 100vh;
 
-  background-color: rgba(var(--theme-10-rgb), 1);
+  background-color: var(--theme-10);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.01),
@@ -177,7 +177,7 @@ header.scrolled.menu-open .menu-background-normal {
 }
 
 .theme-dark .menu-background-fullscreen {
-  background-color: rgba(var(--theme-900-rgb), 1);
+  background-color: var(--theme-700);
 }
 
 header.menu-open .menu-background-fullscreen {

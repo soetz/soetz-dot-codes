@@ -88,7 +88,7 @@ import { RouterLink } from "vue-router";
 
   position: fixed;
   right: max(20px, calc(50% - 530px));
-  bottom: 20px;
+  bottom: 30px;
 
   width: 110px;
   height: 110px;
