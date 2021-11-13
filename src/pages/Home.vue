@@ -3,21 +3,23 @@
     <div class="page-container">
       <h1>Hi !</h1>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vitae
-        lacus sed augue aliquet elementum. Phasellus vitae tortor vestibulum,
-        laoreet metus nec, euismod sem. Morbi dictum, massa id venenatis
-        viverra, ipsum justo pretium mauris, nec accumsan felis nunc ut lectus.
-        Morbi interdum vulputate libero at tempus. Aenean rutrum nisi feugiat
-        magna ultricies, eget finibus ligula bibendum. Morbi eu lacus pretium,
-        lobortis lectus in, aliquam dolor. Pellentesque habitant morbi tristique
-        senectus et netus et malesuada fames ac turpis egestas. Vestibulum a
-        eleifend nulla. Ut sollicitudin mi nunc, ac condimentum leo blandit in.
-        Nunc tempus arcu lorem, vitae tincidunt dui ultrices quis. Donec
-        lobortis tellus et nisi maximus, quis condimentum velit porta. Aliquam
-        hendrerit justo quis orci blandit sodales. Vivamus gravida est ut lectus
-        tincidunt, a finibus sapien rhoncus. Suspendisse a tempor mi. Quisque
-        pretium, massa sed ornare posuere, lacus nulla mattis mi, ultricies
-        mattis sapien libero a leo.
+        Lorem ipsum dolor sit amet,
+        <a class="link-block" href="https://www.github.com/soetz">
+          consectetur adipiscing elit</a
+        >. Vivamus vitae lacus sed augue aliquet elementum. Phasellus vitae
+        tortor vestibulum, laoreet metus nec, euismod sem. Morbi dictum, massa
+        id venenatis viverra, ipsum justo pretium mauris, nec accumsan felis
+        nunc ut lectus. Morbi interdum vulputate libero at tempus. Aenean rutrum
+        nisi feugiat magna ultricies, eget finibus ligula bibendum. Morbi eu
+        lacus pretium, lobortis lectus in, aliquam dolor. Pellentesque habitant
+        morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+        Vestibulum a eleifend nulla. Ut sollicitudin mi nunc, ac condimentum leo
+        blandit in. Nunc tempus arcu lorem, vitae tincidunt dui ultrices quis.
+        Donec lobortis tellus et nisi maximus, quis condimentum velit porta.
+        Aliquam hendrerit justo quis orci blandit sodales. Vivamus gravida est
+        ut lectus tincidunt, a finibus sapien rhoncus. Suspendisse a tempor mi.
+        Quisque pretium, massa sed ornare posuere, lacus nulla mattis mi,
+        ultricies mattis sapien libero a leo.
       </p>
       <p>
         Proin tempus tortor tortor, id hendrerit quam interdum a. Phasellus

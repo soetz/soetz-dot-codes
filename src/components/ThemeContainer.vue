@@ -50,9 +50,40 @@ onUnmounted(() => {
 .theme-container {
   color: var(--theme-900);
   transition: color 0.5s ease-in-out;
+
+  --link-block-opacity: 0.5;
+  --link-block-color: var(--theme-60-rgb);
 }
 
 .theme-container.theme-dark {
   color: var(--theme-10);
+
+  --link-block-color: var(--theme-90-rgb);
+}
+
+.link-block,
+a.link-block {
+  font-weight: 600;
+
+  z-index: 1;
+
+  box-shadow: inset 0 -9px 0 rgba(var(--link-block-color), var(--link-block-opacity));
+
+  color: var(--theme-900);
+  transition: color 0.5s ease-in-out, box-shadow 0.2s ease-out;
+}
+
+.theme-dark .link-block,
+.theme-dark a.link-block {
+  color: var(--theme-10);
+}
+
+.link-block:hover,
+a.link-block:hover,
+.link-block:focus,
+a.link-block:focus {
+  box-shadow: inset 0 -6px 0 rgba(var(--link-block-color), var(--link-block-opacity));
+
+  --link-block-opacity: 0.9;
 }
 </style>

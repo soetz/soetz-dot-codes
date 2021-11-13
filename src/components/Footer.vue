@@ -26,7 +26,9 @@ import TwitterIcon from "./icons/social/TwitterIcon.vue";
             </a>
           </li>
         </ul>
-        <RouterLink to="/legal">Legal stuff (french)</RouterLink>
+        <RouterLink class="link-block" to="/legal">
+          Legal stuff (french)
+        </RouterLink>
       </div>
       <div>Made with ❤️ and Vue. Also, work.</div>
     </div>
@@ -88,6 +90,7 @@ footer {
 .links-container {
   display: flex;
   flex-direction: column;
+  align-items: start;
 }
 
 ul {
@@ -109,14 +112,8 @@ li {
 }
 
 a {
-  font-weight: 600;
-
   color: var(--theme-700);
   transition: color 0.5s ease-in-out;
-}
-
-.theme-dark a {
-  color: var(--theme-10);
 }
 
 .social-icon {
