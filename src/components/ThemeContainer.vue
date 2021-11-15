@@ -53,6 +53,9 @@ onUnmounted(() => {
 
   --link-block-opacity: 0.5;
   --link-block-color: var(--theme-60-rgb);
+
+  --button-block-color: var(--theme-90);
+  --button-block-side-color: var(--theme-100);
 }
 
 .theme-container.theme-dark {
@@ -85,5 +88,46 @@ a.link-block:focus {
   box-shadow: inset 0 -6px 0 rgba(var(--link-block-color), var(--link-block-opacity));
 
   --link-block-opacity: 0.9;
+}
+
+.button-block,
+button.button-block {
+  margin-top: 12px;
+  padding-left: 8px;
+  padding-top: 6px;
+  padding-right: 8px;
+  padding-bottom: 6px;
+
+  border: none;
+  border-bottom: 4px solid var(--button-block-side-color);
+  background-color: var(--button-block-color);
+
+  color: var(--theme-10);
+
+  font-size: 16px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: border-bottom-width 0.05s ease-out, margin-bottom 0.05s ease-out,
+    transform 0.05s ease-out, background-color 0.5s ease-in-out,
+    border-bottom-color 0.5s ease-in-out;
+}
+
+.button-block:active,
+button.button-block:active {
+  margin-bottom: 3px;
+  transform: translateY(3px);
+
+  border-bottom-width: 1px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: new-spirit, serif;
 }
 </style>

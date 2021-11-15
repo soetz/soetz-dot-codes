@@ -2,6 +2,7 @@
 import { RouterView, useRoute } from "vue-router";
 import Background from "./components/Background.vue";
 import ContactCallToAction from "./components/ContactCallToAction.vue";
+import CookiesPopup from "./components/CookiesPopup.vue";
 import Footer from "./components/Footer.vue";
 import Header from "./components/Header.vue";
 import ThemeContainer from "./components/ThemeContainer.vue";
@@ -27,6 +28,7 @@ watch(
       <Footer />
     </div>
     <ContactCallToAction />
+    <CookiesPopup />
     <Background class="background" />
   </ThemeContainer>
 </template>
