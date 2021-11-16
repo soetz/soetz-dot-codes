@@ -45,11 +45,15 @@
 path,
 polygon {
   fill: var(--theme-700);
-  transition: fill 0.5s ease-in-out;
 }
 
 .theme-dark path,
 .theme-dark polygon {
   fill: var(--theme-20);
+}
+
+.theme-transition path,
+.theme-transition polygon {
+  transition: fill 0.5s ease-in-out;
 }
 </style>

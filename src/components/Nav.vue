@@ -53,12 +53,14 @@ nav {
   text-transform: uppercase;
 
   color: var(--theme-700);
-
-  transition: color 0.5s ease-in-out;
 }
 
 .theme-dark .title-menu {
   color: var(--theme-20);
+}
+
+.theme-transition .title-menu {
+  transition: color 0.5s ease-in-out;
 }
 
 ul {
@@ -88,16 +90,24 @@ li:before {
   border-top: solid 2px;
   border-color: var(--theme-700);
 
-  transition: width 0.2s ease-out, border-color 0.5s ease-in-out;
+  transition: width 0.2s ease-out;
 }
 
 .theme-dark li:before {
   border-color: var(--theme-20);
 }
 
+.theme-transition li:before {
+  transition: width 0.2s ease-out, border-color 0.5s ease-in-out;
+}
+
 .menu-open li:before {
   width: 100%;
 
+  transition: width 0.5s ease-out;
+}
+
+.theme-transition .menu-open li:before {
   transition: width 0.5s ease-out, border-color 0.5s ease-in-out;
 }
 
@@ -119,12 +129,14 @@ li:before {
   text-decoration: none;
 
   color: var(--theme-700);
-
-  transition: color 0.5s ease-in-out;
 }
 
 .theme-dark .nav-link {
   color: var(--theme-20);
+}
+
+.theme-transition .nav-link {
+  transition: color 0.5s ease-in-out;
 }
 
 .nav-icon {
@@ -229,12 +241,16 @@ li:before {
     opacity: 0;
 
     background-color: var(--theme-700);
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out,
-      background-color 0.5s ease-in-out;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
   }
 
   .theme-dark .nav-text:after {
     background-color: var(--theme-20);
+  }
+
+  .theme-transition .nav-text:after {
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out,
+      background-color 0.5s ease-in-out;
   }
 
   .nav-link:hover .nav-text:after {

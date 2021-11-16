@@ -2,6 +2,7 @@
 import { Camera, Plane, Renderer, Scene, ShaderMaterial } from "troisjs";
 import { Vector2, Vector3 } from "three";
 import { onMounted, onUnmounted } from "@vue/runtime-core";
+import { ThemeTransitionEvent } from "../utilities/ThemeTransitionEvent";
 import gsap from "gsap/all";
 import { palette } from "../colors";
 import { themeService } from "../services";
@@ -118,8 +119,6 @@ const hexColorToVec3 = (color: string) => {
   return new Vector3(red / 255.0, green / 255.0, blue / 255.0);
 };
 
-const themeColor = themeService.getThemeColor();
-
 const uniforms = {
   u_time: { type: "f", value: 1.0 },
   u_resolution: {
@@ -128,21 +127,15 @@ const uniforms = {
   },
   u_background_color: {
     type: "v3",
-    value: themeService.isDisplayedThemeDark()
-      ? hexColorToVec3(palette[themeColor][900])
-      : hexColorToVec3(palette[themeColor][10]),
+    value: hexColorToVec3(palette.gray[900]),
   },
   u_primary_color: {
     type: "v3",
-    value: themeService.isDisplayedThemeDark()
-      ? hexColorToVec3(palette[themeColor][700])
-      : hexColorToVec3(palette[themeColor][30]),
+    value: hexColorToVec3(palette.gray[700]),
   },
   u_secondary_color: {
     type: "v3",
-    value: themeService.isDisplayedThemeDark()
-      ? hexColorToVec3(palette[themeColor][400])
-      : hexColorToVec3(palette[themeColor][40]),
+    value: hexColorToVec3(palette.gray[400]),
   },
 };
 
@@ -158,6 +151,26 @@ const renderShader = () => {
 const animate = () => {
   renderShader();
   requestAnimationFrame(animate);
+};
+
+let shouldTransition = false;
+
+const setShouldTransition = (transitionEvent: Event) => {
+  shouldTransition = (transitionEvent as ThemeTransitionEvent).transition;
+};
+
+const initiateColors = () => {
+  const themeColor = themeService.getThemeColor();
+
+  uniforms.u_background_color.value = themeService.isDisplayedThemeDark()
+    ? hexColorToVec3(palette[themeColor][900])
+    : hexColorToVec3(palette[themeColor][10]);
+  uniforms.u_primary_color.value = themeService.isDisplayedThemeDark()
+    ? hexColorToVec3(palette[themeColor][700])
+    : hexColorToVec3(palette[themeColor][20]);
+  uniforms.u_secondary_color.value = themeService.isDisplayedThemeDark()
+    ? hexColorToVec3(palette[themeColor][400])
+    : hexColorToVec3(palette[themeColor][30]);
 };
 
 const transitionColors = () => {
@@ -176,32 +189,55 @@ const transitionColors = () => {
     newPrimaryColor = hexColorToVec3(palette[themeColor][30]);
     newSecondaryColor = hexColorToVec3(palette[themeColor][40]);
   }
-  gsap.to(uniforms.u_background_color.value, {
-    duration: 0.5,
-    ease: "power1.inOut",
-    x: newBackgroundColor.x,
-    y: newBackgroundColor.y,
-    z: newBackgroundColor.z,
-  });
-  gsap.to(uniforms.u_primary_color.value, {
-    duration: 0.5,
-    ease: "power1.inOut",
-    x: newPrimaryColor.x,
-    y: newPrimaryColor.y,
-    z: newPrimaryColor.z,
-  });
-  gsap.to(uniforms.u_secondary_color.value, {
-    duration: 0.5,
-    ease: "power1.inOut",
-    x: newSecondaryColor.x,
-    y: newSecondaryColor.y,
-    z: newSecondaryColor.z,
-  });
+  if (shouldTransition) {
+    gsap.to(uniforms.u_background_color.value, {
+      duration: 0.5,
+      ease: "power1.inOut",
+      x: newBackgroundColor.x,
+      y: newBackgroundColor.y,
+      z: newBackgroundColor.z,
+    });
+    gsap.to(uniforms.u_primary_color.value, {
+      duration: 0.5,
+      ease: "power1.inOut",
+      x: newPrimaryColor.x,
+      y: newPrimaryColor.y,
+      z: newPrimaryColor.z,
+    });
+    gsap.to(uniforms.u_secondary_color.value, {
+      duration: 0.5,
+      ease: "power1.inOut",
+      x: newSecondaryColor.x,
+      y: newSecondaryColor.y,
+      z: newSecondaryColor.z,
+    });
+  } else {
+    gsap.set(uniforms.u_background_color.value, {
+      ease: "power1.inOut",
+      x: newBackgroundColor.x,
+      y: newBackgroundColor.y,
+      z: newBackgroundColor.z,
+    });
+    gsap.set(uniforms.u_primary_color.value, {
+      ease: "power1.inOut",
+      x: newPrimaryColor.x,
+      y: newPrimaryColor.y,
+      z: newPrimaryColor.z,
+    });
+    gsap.set(uniforms.u_secondary_color.value, {
+      ease: "power1.inOut",
+      x: newSecondaryColor.x,
+      y: newSecondaryColor.y,
+      z: newSecondaryColor.z,
+    });
+  }
 };
 
 onMounted(() => {
+  initiateColors();
   animate();
 
+  themeService.addEventListener("theme-transition", setShouldTransition);
   themeService.addEventListener("theme-color", transitionColors);
   themeService.addEventListener("theme-change", transitionColors);
 });

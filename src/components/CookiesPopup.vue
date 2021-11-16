@@ -1,13 +1,18 @@
 <script setup lang="ts">
 import CookieIcon from "./icons/CookieIcon.vue";
+import { onMounted } from "@vue/runtime-core";
 import { ref } from "@vue/reactivity";
 
-const hidden = ref(!!localStorage.getItem("cookies-popup"));
+const hidden = ref(true);
 
 const hide = () => {
   hidden.value = true;
   localStorage.setItem("cookies-popup", "true");
 };
+
+onMounted(() => {
+  hidden.value = !!localStorage.getItem("cookies-popup");
+});
 </script>
 
 <template>
@@ -66,12 +71,14 @@ aside {
     50px 100px 120px rgba(0, 0, 0, 0.035);
 
   text-align: center;
-
-  transition: background-color 0.5s ease-in-out;
 }
 
 .theme-dark .message-container {
   background-color: var(--theme-700);
+}
+
+.theme-transition .message-container {
+  transition: background-color 0.5s ease-in-out;
 }
 
 @supports (

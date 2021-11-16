@@ -135,3 +135,26 @@
   --theme-20-rgb: var(--gold-20-rgb);
   --theme-10-rgb: var(--gold-10-rgb);
 }
+
+.theme-gray {
+  --theme-900: var(--gray-900);
+  --theme-700: var(--gray-700);
+  --theme-400: var(--gray-400);
+  --theme-100: var(--gray-100);
+  --theme-90: var(--gray-90);
+  --theme-60: var(--gray-60);
+  --theme-40: var(--gray-40);
+  --theme-30: var(--gray-30);
+  --theme-20: var(--gray-20);
+  --theme-10: var(--gray-10);
+  --theme-900-rgb: var(--gray-900-rgb);
+  --theme-700-rgb: var(--gray-700-rgb);
+  --theme-400-rgb: var(--gray-400-rgb);
+  --theme-100-rgb: var(--gray-100-rgb);
+  --theme-90-rgb: var(--gray-90-rgb);
+  --theme-60-rgb: var(--gray-60-rgb);
+  --theme-40-rgb: var(--gray-40-rgb);
+  --theme-30-rgb: var(--gray-30-rgb);
+  --theme-20-rgb: var(--gray-20-rgb);
+  --theme-10-rgb: var(--gray-10-rgb);
+}

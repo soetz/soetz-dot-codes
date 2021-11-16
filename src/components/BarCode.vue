@@ -56,11 +56,13 @@
 <style scoped>
 rect {
   fill: var(--theme-700);
-
-  transition: fill 0.5s ease-in-out;
 }
 
 .theme-dark rect {
   fill: var(--theme-20);
+}
+
+.theme-transition rect {
+  transition: fill 0.5s ease-in-out;
 }
 </style>

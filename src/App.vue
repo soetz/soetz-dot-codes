@@ -86,7 +86,5 @@ main {
   width: 100%;
   height: 100vh;
   z-index: -1;
-
-  background-color: var(--theme-900);
 }
 </style>

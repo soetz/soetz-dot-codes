@@ -116,6 +116,10 @@ import { RouterLink } from "vue-router";
   transform: translate(-50%, -50%) scale(80%);
 
   background-color: var(--theme-40);
+  transition: transform 0.5s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+.theme-transition .call-to-action-background {
   transition: transform 0.5s cubic-bezier(0.68, -0.6, 0.32, 1.6),
     background-color 0.5s ease-in-out;
 }
@@ -159,6 +163,9 @@ import { RouterLink } from "vue-router";
 
 path {
   fill: var(--theme-700);
+}
+
+.theme-transition path {
   transition: fill 0.5s ease-in-out;
 }
 

@@ -71,6 +71,18 @@ const palette: Record<string, Record<number, string>> = {
     20: "#f0e7b6",
     10: "#f9f5e0",
   },
+  gray: {
+    900: "#090b0a",
+    700: "#252b28",
+    400: "#48534f",
+    100: "#6b7b76",
+    90: "#7e918c",
+    60: "#a9b5b3",
+    40: "#c7cfcd",
+    30: "#dadfde",
+    20: "#e9eceb",
+    10: "#fafafa",
+  },
 };
 
 export { palette };

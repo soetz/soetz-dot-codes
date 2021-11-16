@@ -1,11 +1,17 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from "@vue/runtime-core";
+import { ThemeTransitionEvent } from "../utilities/ThemeTransitionEvent";
 import { palette } from "../colors";
 import { themeService } from "../services";
 
-const themeIsDark = ref(false);
-const themeColor = ref("orange");
-const documentBackgroundColor = ref("white");
+const themeIsDark = ref(true);
+const themeColor = ref("gray");
+const themeTransition = ref(false);
+const documentBackgroundColor = ref(palette[themeColor.value][900]);
+
+const setThemeTransition = (transitionEvent: Event) => {
+  themeTransition.value = (transitionEvent as ThemeTransitionEvent).transition;
+};
 
 const changeThemeColor = () => {
   themeColor.value = themeService.getThemeColor();
@@ -19,7 +25,9 @@ const changeThemeColor = () => {
 };
 
 onMounted(() => {
+  themeService.initiate();
   changeThemeColor();
+  themeService.addEventListener("theme-transition", setThemeTransition);
   themeService.addEventListener("theme-color", changeThemeColor);
   themeService.addEventListener("theme-change", changeThemeColor);
 });
@@ -34,8 +42,9 @@ onUnmounted(() => {
   <div
     class="theme-container"
     :class="[
-      themeColor ? 'theme-' + themeColor : 'theme-orange',
+      themeColor ? 'theme-' + themeColor : 'theme-gray',
       themeIsDark ? 'theme-dark' : 'theme-light',
+      themeTransition ? 'theme-transition' : '',
     ]"
   >
     <VStyle> html { background-color: {{ documentBackgroundColor }}; } </VStyle>
@@ -49,7 +58,6 @@ onUnmounted(() => {
 
 .theme-container {
   color: var(--theme-900);
-  transition: color 0.5s ease-in-out;
 
   --link-block-opacity: 0.5;
   --link-block-color: var(--theme-60-rgb);
@@ -64,6 +72,10 @@ onUnmounted(() => {
   --link-block-color: var(--theme-90-rgb);
 }
 
+.theme-container.theme-transition {
+  transition: color 0.5s ease-in-out;
+}
+
 .link-block,
 a.link-block {
   font-weight: 600;
@@ -73,12 +85,16 @@ a.link-block {
   box-shadow: inset 0 -9px 0 rgba(var(--link-block-color), var(--link-block-opacity));
 
   color: var(--theme-900);
-  transition: color 0.5s ease-in-out, box-shadow 0.2s ease-out;
 }
 
 .theme-dark .link-block,
 .theme-dark a.link-block {
   color: var(--theme-10);
+}
+
+.theme-transition .link-block,
+.theme-transition a.link-block {
+  transition: color 0.5s ease-in-out, box-shadow 0.2s ease-out;
 }
 
 .link-block:hover,
@@ -110,8 +126,7 @@ button.button-block {
   cursor: pointer;
 
   transition: border-bottom-width 0.05s ease-out, margin-bottom 0.05s ease-out,
-    transform 0.05s ease-out, background-color 0.5s ease-in-out,
-    border-bottom-color 0.5s ease-in-out;
+    transform 0.05s ease-out;
 }
 
 .button-block:active,
@@ -120,6 +135,13 @@ button.button-block:active {
   transform: translateY(3px);
 
   border-bottom-width: 1px;
+}
+
+.theme-transition .button-block,
+.theme-transition button.button-block {
+  transition: border-bottom-width 0.05s ease-out, margin-bottom 0.05s ease-out,
+    transform 0.05s ease-out, background-color 0.5s ease-in-out,
+    border-bottom-color 0.5s ease-in-out;
 }
 
 h1,

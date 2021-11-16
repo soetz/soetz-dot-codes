@@ -117,12 +117,17 @@ const themeChange = (event: Event) => {
 };
 
 onMounted(() => {
-  if (themeService.isDisplayedThemeDark()) {
-    routineThemeDark();
-  } else {
-    routineThemeLight();
-  }
+  const routine = () => {
+    if (themeService.isDisplayedThemeDark()) {
+      routineThemeDark();
+    } else {
+      routineThemeLight();
+    }
+  };
 
+  routine();
+
+  themeService.addEventListener("theme-transition", routine);
   themeService.addEventListener("theme-change", themeChange);
 });
 
@@ -208,12 +213,16 @@ onUnmounted(() => {
   stroke-width: 2;
 
   stroke: var(--theme-700);
-  transition: stroke 0.5s ease-in-out;
 }
 
 .theme-dark .sun,
 .theme-dark .moon {
   stroke: var(--theme-20);
+}
+
+.theme-transition .sun,
+.theme-transition .moon {
+  transition: stroke 0.5s ease-in-out;
 }
 
 .sun {
@@ -228,11 +237,14 @@ onUnmounted(() => {
   fill: none;
 
   stroke: var(--theme-700);
-  transition: stroke 0.5s ease-in-out;
 }
 
 .theme-dark .rays {
   stroke: var(--theme-20);
+}
+
+.theme-transition .rays {
+  transition: stroke 0.5s ease-in-out;
 }
 
 .rays-large {
@@ -247,11 +259,14 @@ onUnmounted(() => {
 
 .stars {
   fill: var(--theme-700);
-  transition: fill 0.5s ease-in-out;
 }
 
 .theme-dark .stars {
   fill: var(--theme-20);
+}
+
+.theme-transition .stars {
+  transition: fill 0.5s ease-in-out;
 }
 
 #sun-to-moon rect,

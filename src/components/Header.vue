@@ -7,6 +7,7 @@ import Logo from "./Logo.vue";
 import MenuButton from "./MenuButton.vue";
 import Nav from "./Nav.vue";
 import { ref } from "@vue/reactivity";
+import { throttle } from "lodash";
 
 const menuIsOpen = ref(false);
 const isScrolled = ref(false);
@@ -20,9 +21,9 @@ const menuBackgroundClick = () => {
   menuIsOpen.value = false;
 };
 
-const defineScrolled = () => {
-  isScrolled.value = window.scrollY !== 0;
-};
+const defineScrolled = throttle(() => {
+  isScrolled.value = window.scrollY > 2;
+}, 100);
 
 onMounted(() => {
   watch(
@@ -78,9 +79,7 @@ header {
   top: 0;
   bottom: calc(100vh - 102px);
 
-  transition: bottom 0.5s ease-out, background-color 0.4s ease-in-out,
-    backdrop-filter 0.4s ease-in-out, -webkit-backdrop-filter 0.4s ease-in-out,
-    box-shadow 0.4s ease-in-out;
+  transition: bottom 0.5s ease-out;
 }
 
 .header-responsive-container {
@@ -121,14 +120,16 @@ header.menu-open {
   left: 0;
   top: 0;
   right: 0;
-
-  transition: background-color 0.4s ease-in-out,
-    backdrop-filter 0.4s ease-in-out, -webkit-backdrop-filter 0.4s ease-in-out,
-    box-shadow 0.4s ease-in-out;
 }
 
 .theme-dark .menu-background-normal {
   background-color: rgba(var(--theme-900-rgb), 0);
+}
+
+.theme-transition .menu-background-normal {
+  transition: background-color 0.4s ease-in-out,
+    backdrop-filter 0.4s ease-in-out, -webkit-backdrop-filter 0.4s ease-in-out,
+    box-shadow 0.4s ease-in-out;
 }
 
 header.scrolled .menu-background-normal {
@@ -173,16 +174,24 @@ header.scrolled.menu-open .menu-background-normal {
     7px 14px 15px rgba(0, 0, 0, 0.016), 15px 30px 33px rgba(0, 0, 0, 0.022),
     50px 100px 120px rgba(0, 0, 0, 0.035);
 
-  transition: bottom 0.5s ease-out, background-color 0.5s ease-in-out;
+  transition: bottom 0.5s ease-out;
 }
 
 .theme-dark .menu-background-fullscreen {
   background-color: var(--theme-700);
 }
 
+.theme-transition .menu-background-fullscreen {
+  transition: bottom 0.5s ease-out, background-color 0.5s ease-in-out;
+}
+
 header.menu-open .menu-background-fullscreen {
   bottom: 0;
 
+  transition: bottom 0.5s ease-in;
+}
+
+.theme-transition header.menu-open .menu-background-fullscreen {
   transition: bottom 0.5s ease-in, background-color 0.5s ease-in-out;
 }
 

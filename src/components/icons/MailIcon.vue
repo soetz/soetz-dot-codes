@@ -18,6 +18,10 @@ polyline {
   fill: none;
 
   stroke: var(--theme-700);
+}
+
+.theme-transition rect,
+.theme-transition polyline {
   transition: stroke 0.5s ease-in-out;
 }
 

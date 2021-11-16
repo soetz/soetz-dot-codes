@@ -1,21 +1,39 @@
 import { KeptEventListener } from "../utilities/KeptEventListener";
 import { ThemeChangeEvent } from "../utilities/ThemeChangeEvent";
 import { ThemeColorEvent } from "../utilities/ThemeColorEvent";
+import { ThemeTransitionEvent } from "../utilities/ThemeTransitionEvent";
 
 interface ThemeService extends EventTarget {
   explicitlySetThemeIsDark(themeIsDark: boolean): void;
   isDisplayedThemeDark(): boolean;
   setThemeColor(color: string): void;
   getThemeColor(): string;
+  initiate(): void;
 }
 
 const themeServiceFactory = (): ThemeService => {
-  let displayedThemeIsDark = false;
+  let displayedThemeIsDark = true;
   let explicitlyDefinedThemeIsDark: null | boolean = null;
   let implicitlyDefinedThemeIsDark: null | boolean = null;
-  let themeColor = "orange";
+  let themeColor = "gray";
 
   const eventListeners: KeptEventListener[] = [];
+
+  const updateDisplayedTheme = () => {
+    const oldDisplayedThemeIsDark = displayedThemeIsDark;
+
+    if (explicitlyDefinedThemeIsDark !== null) {
+      displayedThemeIsDark = explicitlyDefinedThemeIsDark;
+    } else if (implicitlyDefinedThemeIsDark !== null) {
+      displayedThemeIsDark = implicitlyDefinedThemeIsDark;
+    }
+
+    if (oldDisplayedThemeIsDark !== displayedThemeIsDark) {
+      const themeChangeEvent = new Event("theme-change") as ThemeChangeEvent;
+      themeChangeEvent.newStateIsDark = displayedThemeIsDark;
+      service.dispatchEvent(themeChangeEvent);
+    }
+  };
 
   const service: ThemeService = {
     addEventListener(
@@ -86,39 +104,32 @@ const themeServiceFactory = (): ThemeService => {
     getThemeColor: () => {
       return themeColor;
     },
-  };
-
-  const updateDisplayedTheme = () => {
-    const oldDisplayedThemeIsDark = displayedThemeIsDark;
-
-    if (explicitlyDefinedThemeIsDark !== null) {
-      displayedThemeIsDark = explicitlyDefinedThemeIsDark;
-    } else if (implicitlyDefinedThemeIsDark !== null) {
-      displayedThemeIsDark = implicitlyDefinedThemeIsDark;
-    }
-
-    if (oldDisplayedThemeIsDark !== displayedThemeIsDark) {
-      const themeChangeEvent = new Event("theme-change") as ThemeChangeEvent;
-      themeChangeEvent.newStateIsDark = displayedThemeIsDark;
-      service.dispatchEvent(themeChangeEvent);
-    }
-  };
-
-  const storedTheme = localStorage.getItem("theme");
-  if (storedTheme) {
-    explicitlyDefinedThemeIsDark = localStorage.getItem("theme") === "dark";
-  }
-  implicitlyDefinedThemeIsDark = window.matchMedia(
-    "(prefers-color-scheme: dark)"
-  ).matches;
-  updateDisplayedTheme();
-
-  window
-    .matchMedia("(prefers-color-scheme: dark)")
-    .addEventListener("change", (mediaQueryChange) => {
-      implicitlyDefinedThemeIsDark = mediaQueryChange.matches;
+    initiate: () => {
+      const storedTheme = localStorage.getItem("theme");
+      if (storedTheme) {
+        explicitlyDefinedThemeIsDark = localStorage.getItem("theme") === "dark";
+      }
+      implicitlyDefinedThemeIsDark = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      ).matches;
       updateDisplayedTheme();
-    });
+
+      window
+        .matchMedia("(prefers-color-scheme: dark)")
+        .addEventListener("change", (mediaQueryChange) => {
+          implicitlyDefinedThemeIsDark = mediaQueryChange.matches;
+          updateDisplayedTheme();
+        });
+
+      setTimeout(() => {
+        const themeTransitionEvent = new Event(
+          "theme-transition"
+        ) as ThemeTransitionEvent;
+        themeTransitionEvent.transition = true;
+        service.dispatchEvent(themeTransitionEvent);
+      }, 10);
+    },
+  };
 
   return service;
 };

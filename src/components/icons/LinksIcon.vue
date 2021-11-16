@@ -25,10 +25,13 @@
 <style scoped>
 path {
   fill: var(--theme-700);
-  transition: fill 0.5s ease-in-out;
 }
 
 .theme-dark path {
   fill: var(--theme-20);
+}
+
+.theme-transition path {
+  transition: fill 0.5s ease-in-out;
 }
 </style>

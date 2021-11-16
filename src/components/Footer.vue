@@ -50,12 +50,15 @@ footer {
   font-size: 16px;
 
   color: var(--theme-700);
-  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
 }
 
 .theme-dark footer {
   background-color: var(--theme-700);
   color: var(--theme-10);
+}
+
+.theme-transition footer {
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
 }
 
 @supports (
@@ -113,6 +116,9 @@ li {
 
 a {
   color: var(--theme-700);
+}
+
+.theme-transition a {
   transition: color 0.5s ease-in-out;
 }
 

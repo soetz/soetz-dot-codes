@@ -162,12 +162,16 @@ svg {
 path {
   fill: var(--theme-700);
 
-  transition: opacity 0.3s ease-in-out, transform 0.4s 0.3s ease-in-out,
-    fill 0.5s ease-in-out;
+  transition: opacity 0.3s ease-in-out, transform 0.4s 0.3s ease-in-out;
 }
 
 .theme-dark path {
   fill: var(--theme-20);
+}
+
+.theme-transition path {
+  transition: opacity 0.3s ease-in-out, transform 0.4s 0.3s ease-in-out,
+    fill 0.5s ease-in-out;
 }
 
 .should-appear {
@@ -179,6 +183,11 @@ path {
   transform: scale(1);
   transform-origin: 61.5px 16.5px;
 
+  transition: opacity 0.1s 1s ease-out,
+    transform 0.2s 1s cubic-bezier(0.365, 0.005, 0.67, 3);
+}
+
+.theme-transition .should-disappear {
   transition: opacity 0.1s 1s ease-out,
     transform 0.2s 1s cubic-bezier(0.365, 0.005, 0.67, 3), fill 0.5s ease-in-out;
 }
@@ -208,6 +217,10 @@ svg:hover .character-end {
 }
 
 svg:hover path {
+  transition: opacity 0.5s 0.5s ease-in-out, transform 0.4s 0.1s ease-out;
+}
+
+.theme-transition svg:hover path {
   transition: opacity 0.5s 0.5s ease-in-out, transform 0.4s 0.1s ease-out,
     fill 0.5s ease-in-out;
 }
@@ -220,6 +233,10 @@ svg:hover .should-disappear {
   opacity: 0;
   transform: scale(0.6);
 
+  transition: opacity 0.2s ease-in, transform 0.5s;
+}
+
+.theme-transition svg:hover .should-disappear {
   transition: opacity 0.2s ease-in, transform 0.5s, fill 0.5s ease-in-out;
 }
 </style>
