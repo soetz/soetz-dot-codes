@@ -174,7 +174,6 @@ header.scrolled.menu-open .menu-background-normal {
     7px 14px 15px rgba(0, 0, 0, 0.016), 15px 30px 33px rgba(0, 0, 0, 0.022),
     50px 100px 120px rgba(0, 0, 0, 0.035);
 
-  /* TODO remove transition on bigger screens */
   transition: bottom 0.5s ease-out;
 }
 
@@ -301,6 +300,10 @@ header.menu-open .menu-background-fullscreen {
 }
 
 @media screen and (min-width: 600px) {
+  header {
+    transition: none;
+  }
+
   .menu {
     right: 0;
 
@@ -313,6 +316,14 @@ header.menu-open .menu-background-fullscreen {
 
   header.menu-open {
     transform: none;
+  }
+
+  .menu-background-fullscreen {
+    transition: none;
+  }
+
+  .theme-transition .menu-background-fullscreen {
+    transition: background-color 0.5s ease-in-out;
   }
 
   .menu-button {
