@@ -11,8 +11,7 @@
   "dependencies": {
     "gsap": "^3.8.0",
     "lodash": "^4.17.21",
-    "three": "^0.127.0",
-    "troisjs": "^0.3.2",
+    "three": "^0.134.0",
     "vue": "^3.2.6",
     "vue-router": "^4.0.12"
   },

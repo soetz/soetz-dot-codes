@@ -174,6 +174,7 @@ header.scrolled.menu-open .menu-background-normal {
     7px 14px 15px rgba(0, 0, 0, 0.016), 15px 30px 33px rgba(0, 0, 0, 0.022),
     50px 100px 120px rgba(0, 0, 0, 0.035);
 
+  /* TODO remove transition on bigger screens */
   transition: bottom 0.5s ease-out;
 }
 
