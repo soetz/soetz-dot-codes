@@ -3,7 +3,7 @@ import { Clock, Vector3 } from "three";
 import { MyScene, createScene } from "../3d/scene";
 import { onMounted, onUnmounted } from "@vue/runtime-core";
 import { ThemeTransitionEvent } from "../utilities/ThemeTransitionEvent";
-import gsap from "gsap/all";
+import gsap from "gsap";
 import { hexColorToVector3 } from "../utilities/hexColorToVector3";
 import { palette } from "../colors";
 import { ref } from "@vue/reactivity";

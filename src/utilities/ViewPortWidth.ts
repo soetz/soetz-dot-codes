@@ -9,9 +9,13 @@ export const updateViewportWidth = (): void => {
   });
 };
 
-window.addEventListener(
-  "resize",
-  throttle(() => {
-    updateViewportWidth();
-  }, 100)
-);
+// can’t access window in SSR context
+// import.meta.env.SSR is injected by Vite.
+if (!import.meta.env.SSR) {
+  window.addEventListener(
+    "resize",
+    throttle(() => {
+      updateViewportWidth();
+    }, 100)
+  );
+}

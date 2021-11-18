@@ -2,7 +2,7 @@
 import { RouterLink } from "vue-router";
 import SmileIcon from "./icons/SmileIcon.vue";
 import ThemeIcon from "./icons/ThemeIcon.vue";
-import gsap from "gsap/all";
+import gsap from "gsap";
 import { ref } from "vue";
 import { themeService } from "../services";
 

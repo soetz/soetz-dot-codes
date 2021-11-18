@@ -1,7 +1,30 @@
-import "vue-router";
+import {
+  Router,
+  createMemoryHistory,
+  createRouter,
+  createWebHistory,
+} from "vue-router";
+import Contact from "./pages/Contact.vue";
+import Ethics from "./pages/ethics/Ethics.vue";
+import Home from "./pages/Home.vue";
+import Legal from "./pages/Legal.vue";
+import LinksList from "./pages/links/LinksList.vue";
+import PodcastList from "./pages/podcast/PodcastList.vue";
 
-declare module "vue-router" {
-  interface RouteMeta {
-    color: string;
-  }
+const routes = [
+  { path: "/", component: Home, meta: { color: "orange" } },
+  { path: "/contact", component: Contact, meta: { color: "orange" } },
+  { path: "/legal", component: Legal, meta: { color: "orange" } },
+  { path: "/podcast", component: PodcastList, meta: { color: "purple" } },
+  { path: "/ethics", component: Ethics, meta: { color: "green" } },
+  { path: "/links", component: LinksList, meta: { color: "gold" } },
+];
+
+export function createMyRouter(): Router {
+  return createRouter({
+    // use appropriate history implementation for server/client
+    // import.meta.env.SSR is injected by Vite.
+    history: import.meta.env.SSR ? createMemoryHistory() : createWebHistory(),
+    routes,
+  });
 }

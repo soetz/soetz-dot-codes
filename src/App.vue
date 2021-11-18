@@ -10,6 +10,7 @@ import { themeService } from "./services";
 import { watch } from "@vue/runtime-core";
 
 const route = useRoute();
+themeService.setThemeColor(route.meta.color);
 watch(
   () => route.meta.color,
   (newColor: string) => {

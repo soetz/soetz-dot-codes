@@ -1,5 +1,6 @@
 module.exports = {
   root: true,
+  ignorePatterns: ["server.js"],
   env: {
     browser: true,
     es2021: true,
