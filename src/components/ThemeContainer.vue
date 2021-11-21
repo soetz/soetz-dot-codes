@@ -66,10 +66,18 @@ onUnmounted(() => {
   --button-block-side-color: var(--theme-100);
 }
 
+::selection {
+  background-color: var(--theme-60);
+}
+
 .theme-container.theme-dark {
   color: var(--theme-10);
 
   --link-block-color: var(--theme-90-rgb);
+}
+
+.theme-dark ::selection {
+  background-color: var(--theme-100);
 }
 
 .theme-container.theme-transition {
