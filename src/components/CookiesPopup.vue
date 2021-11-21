@@ -58,14 +58,17 @@ aside {
 }
 
 .message-container {
-  padding: 15px;
+  padding-left: 15px;
+  padding-top: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
 
   border-top-right-radius: 6px;
   border-bottom-right-radius: 6px;
 
   background-color: var(--theme-10);
-  backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
   box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.01),
     7px 14px 15px rgba(0, 0, 0, 0.016), 15px 30px 33px rgba(0, 0, 0, 0.022),
     50px 100px 120px rgba(0, 0, 0, 0.035);

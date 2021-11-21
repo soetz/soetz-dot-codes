@@ -63,11 +63,14 @@ watch(
 }
 
 a {
-  text-decoration: none;
+  text-decoration-line: none;
 }
 
 body {
-  margin: 0;
+  margin-left: 0;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 0;
 
   --scrollbar-width: 0px;
   --fullWidth: calc(100vw - var(--scrollbar-width));

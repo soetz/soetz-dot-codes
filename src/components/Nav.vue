@@ -64,8 +64,14 @@ nav {
 }
 
 ul {
-  margin: 0;
-  padding: 0;
+  margin-left: 0;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
 
   list-style-type: none;
 }
@@ -87,18 +93,19 @@ li:before {
 
   width: 0;
 
-  border-top: solid 2px;
-  border-color: var(--theme-700);
+  border-top-color: var(--theme-700);
+  border-top-style: solid;
+  border-top-width: 2px;
 
   transition: width 0.2s ease-out;
 }
 
 .theme-dark li:before {
-  border-color: var(--theme-20);
+  border-top-color: var(--theme-20);
 }
 
 .theme-transition li:before {
-  transition: width 0.2s ease-out, border-color 0.5s ease-in-out;
+  transition: width 0.2s ease-out, border-top-color 0.5s ease-in-out;
 }
 
 .menu-open li:before {
@@ -108,7 +115,7 @@ li:before {
 }
 
 .theme-transition .menu-open li:before {
-  transition: width 0.5s ease-out, border-color 0.5s ease-in-out;
+  transition: width 0.5s ease-out, border-top-color 0.5s ease-in-out;
 }
 
 .nav-link {
@@ -117,7 +124,7 @@ li:before {
   align-items: flex-end;
   justify-content: space-between;
 
-  overflow: hidden;
+  overflow-x: hidden;
 
   width: 100%;
 
@@ -126,7 +133,7 @@ li:before {
 
   font-size: 28px;
   font-weight: 300;
-  text-decoration: none;
+  text-decoration-line: none;
 
   color: var(--theme-700);
 }
@@ -155,31 +162,31 @@ li:before {
 }
 
 .menu-open li:nth-child(2):before {
-  transition: width 0.5s 0.1s ease-out, border-color 0.5s ease-in-out;
+  transition: width 0.5s 0.1s ease-out, border-top-color 0.5s ease-in-out;
 }
 
 .menu-open li:nth-child(3):before {
-  transition: width 0.5s 0.2s ease-out, border-color 0.5s ease-in-out;
+  transition: width 0.5s 0.2s ease-out, border-top-color 0.5s ease-in-out;
 }
 
 .menu-open li:nth-child(4):before {
-  transition: width 0.5s 0.3s ease-out, border-color 0.5s ease-in-out;
+  transition: width 0.5s 0.3s ease-out, border-top-color 0.5s ease-in-out;
 }
 
 .menu-open li:nth-child(5):before {
-  transition: width 0.5s 0.4s ease-out, border-color 0.5s ease-in-out;
+  transition: width 0.5s 0.4s ease-out, border-top-color 0.5s ease-in-out;
 }
 
 .menu-open li:nth-child(6):before {
-  transition: width 0.5s 0.5s ease-out, border-color 0.5s ease-in-out;
+  transition: width 0.5s 0.5s ease-out, border-top-color 0.5s ease-in-out;
 }
 
 .menu-open li:nth-child(7):before {
-  transition: width 0.5s 0.6s ease-out, border-color 0.5s ease-in-out;
+  transition: width 0.5s 0.6s ease-out, border-top-color 0.5s ease-in-out;
 }
 
 .menu-open li:nth-child(8):before {
-  transition: width 0.5s 0.7s ease-out, border-color 0.5s ease-in-out;
+  transition: width 0.5s 0.7s ease-out, border-top-color 0.5s ease-in-out;
 }
 
 @media screen and (min-width: 600px) {
@@ -236,7 +243,10 @@ li:before {
     height: 4px;
     width: 4px;
 
-    border-radius: 100%;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 50%;
 
     opacity: 0;
 

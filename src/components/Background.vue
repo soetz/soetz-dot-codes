@@ -154,7 +154,8 @@ onUnmounted(() => {
 
 <style scoped>
 .background-container {
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 canvas {

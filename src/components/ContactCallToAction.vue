@@ -93,7 +93,10 @@ import { RouterLink } from "vue-router";
   width: 110px;
   height: 110px;
 
-  border-radius: 50%;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
 }
 
 .contact-call-to-action > * {
@@ -108,7 +111,10 @@ import { RouterLink } from "vue-router";
   width: 100%;
   height: 100%;
 
-  border-radius: 50%;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
   box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.02),
     7px 14px 15px rgba(0, 0, 0, 0.032), 15px 30px 33px rgba(0, 0, 0, 0.044),
     50px 100px 120px rgba(0, 0, 0, 0.07);

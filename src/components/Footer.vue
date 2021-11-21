@@ -41,8 +41,8 @@ footer {
   min-height: 160px;
 
   background-color: var(--theme-20);
-  backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
   box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.02),
     7px 14px 15px rgba(0, 0, 0, 0.032), 15px 30px 33px rgba(0, 0, 0, 0.044),
     50px 100px 120px rgba(0, 0, 0, 0.07);
@@ -83,7 +83,8 @@ footer {
   padding-right: 13px;
   padding-bottom: 15px;
 
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
 
   display: flex;
   flex-direction: column;
@@ -103,9 +104,14 @@ ul {
   display: inline-flex;
   justify-content: space-between;
 
-  margin: 0;
+  margin-left: 0;
+  margin-top: 0;
+  margin-right: 0;
   margin-bottom: 4px;
-  padding: 0;
+  padding-left: 0;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
 
   list-style-type: none;
 }
@@ -124,7 +130,10 @@ a {
 
 .social-icon {
   width: 58px;
-  padding: 8px;
+  padding-left: 8px;
+  padding-top: 8px;
+  padding-right: 8px;
+  padding-bottom: 8px;
 }
 
 @media screen and (min-width: 600px) {

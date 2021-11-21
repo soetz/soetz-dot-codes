@@ -56,7 +56,10 @@ watch(
 
   padding-left: 8px;
 
-  border: none;
+  border-left-style: none;
+  border-top-style: none;
+  border-right-style: none;
+  border-bottom-style: none;
   background-color: transparent;
 
   cursor: pointer;

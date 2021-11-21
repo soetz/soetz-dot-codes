@@ -107,8 +107,8 @@ header.menu-open {
   z-index: -10;
 
   background-color: rgba(var(--theme-10-rgb), 0);
-  backdrop-filter: blur(0px);
   -webkit-backdrop-filter: blur(0px);
+  backdrop-filter: blur(0px);
   box-shadow: 3px 6px 6px rgba(0, 0, 0, 0), 7px 14px 15px rgba(0, 0, 0, 0),
     15px 30px 33px rgba(0, 0, 0, 0), 50px 100px 120px rgba(0, 0, 0, 0);
 
@@ -134,8 +134,8 @@ header.menu-open {
 
 header.scrolled .menu-background-normal {
   background-color: var(--theme-10);
-  backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
   box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.01),
     7px 14px 15px rgba(0, 0, 0, 0.016), 15px 30px 33px rgba(0, 0, 0, 0.022),
     50px 100px 120px rgba(0, 0, 0, 0.035);
@@ -147,8 +147,8 @@ header.scrolled .menu-background-normal {
 
 header.scrolled.menu-open .menu-background-normal {
   background-color: rgba(var(--theme-10-rgb), 0);
-  backdrop-filter: blur(0px);
   -webkit-backdrop-filter: blur(0px);
+  backdrop-filter: blur(0px);
   box-shadow: 3px 6px 6px rgba(0, 0, 0, 0), 7px 14px 15px rgba(0, 0, 0, 0),
     15px 30px 33px rgba(0, 0, 0, 0), 50px 100px 120px rgba(0, 0, 0, 0);
 }
@@ -168,8 +168,8 @@ header.scrolled.menu-open .menu-background-normal {
   bottom: 100vh;
 
   background-color: var(--theme-10);
-  backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
   box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.01),
     7px 14px 15px rgba(0, 0, 0, 0.016), 15px 30px 33px rgba(0, 0, 0, 0.022),
     50px 100px 120px rgba(0, 0, 0, 0.035);

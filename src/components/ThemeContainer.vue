@@ -114,8 +114,12 @@ button.button-block {
   padding-right: 8px;
   padding-bottom: 6px;
 
-  border: none;
-  border-bottom: 4px solid var(--button-block-side-color);
+  border-left-style: none;
+  border-top-style: none;
+  border-right-style: none;
+  border-bottom-color: var(--button-block-side-color);
+  border-bottom-style: solid;
+  border-bottom-width: 4px;
   background-color: var(--button-block-color);
 
   color: var(--theme-10);

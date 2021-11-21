@@ -62,7 +62,10 @@ const contactHoverChange = (hovered: boolean) => {
 .control {
   height: 65px;
 
-  padding: 15px;
+  padding-left: 15px;
+  padding-top: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
 
   cursor: pointer;
 }
