@@ -25,5 +25,6 @@ module.exports = {
     defineEmits: "readonly",
     defineExpose: "readonly",
     withDefaults: "readonly",
+    SESSION_TOKEN: "readonly",
   },
 };

@@ -1,8 +1,18 @@
 const fs = require("fs");
 const path = require("path");
 const express = require("express");
+const { MongoClient } = require("mongodb");
+const environment = require("./environment.server");
 
 const isTest = process.env.NODE_ENV === "test" || !!process.env.VITE_TEST_BUILD;
+
+const username = encodeURIComponent(environment.db.username);
+const password = encodeURIComponent(environment.db.password);
+const database = encodeURIComponent(environment.db.database);
+
+const mongoClient = new MongoClient(
+  `mongodb://${username}:${password}@${environment.db.server}:${environment.db.port}/${database}`
+);
 
 async function createServer(
   root = process.cwd(),
@@ -59,9 +69,14 @@ async function createServer(
         render = require("./dist/server/entry-server.js").render;
       }
 
-      const [appHtml, preloadLinks] = await render(url, manifest, __dirname);
+      const [appHtml, preloadLinks, sessionToken] = await render(
+        url,
+        manifest,
+        mongoClient
+      );
 
       const html = template
+        .replace(`<!--session-token-->`, sessionToken)
         .replace(`<!--preload-links-->`, preloadLinks)
         .replace(`<!--app-html-->`, appHtml);
 

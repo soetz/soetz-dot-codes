@@ -1,13 +1,36 @@
 <script setup lang="ts">
 import { RouterView, useRoute } from "vue-router";
+import { analyticsService, themeService } from "./services";
+import { useSSRContext, watch } from "@vue/runtime-core";
 import Background from "./components/Background.vue";
 import ContactCallToAction from "./components/ContactCallToAction.vue";
 import CookiesPopup from "./components/CookiesPopup.vue";
 import Footer from "./components/Footer.vue";
 import Header from "./components/Header.vue";
 import ThemeContainer from "./components/ThemeContainer.vue";
-import { themeService } from "./services";
-import { watch } from "@vue/runtime-core";
+
+declare global {
+  const SESSION_TOKEN: string;
+}
+
+const assignSessionTokenRoutine = () => {
+  let sessionToken = "";
+  if (import.meta.env.SSR) {
+    sessionToken = (useSSRContext() as Record<string, string>).sessionToken;
+  } else {
+    if (SESSION_TOKEN) {
+      sessionToken = SESSION_TOKEN;
+    }
+  }
+  analyticsService.setCurrentSessionToken(sessionToken);
+  if (!import.meta.env.SSR) {
+    setTimeout(() => {
+      analyticsService.registerConfirmation();
+    }, 20000);
+  }
+};
+
+assignSessionTokenRoutine();
 
 const route = useRoute();
 themeService.setThemeColor(route.meta.color);
