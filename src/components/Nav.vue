@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import EthicsIcon from "./icons/EthicsIcon.vue";
 import HomeIcon from "./icons/HomeIcon.vue";
 import LinksIcon from "./icons/LinksIcon.vue";
 import PodcastIcon from "./icons/PodcastIcon.vue";
 import { RouterLink } from "vue-router";
+import WorkIcon from "./icons/WorkIcon.vue";
 </script>
 
 <template>
@@ -17,15 +17,15 @@ import { RouterLink } from "vue-router";
         </RouterLink>
       </li>
       <li>
-        <RouterLink class="nav-link" to="/podcast">
-          <div class="nav-text">Podcast</div>
-          <PodcastIcon class="nav-icon" />
+        <RouterLink class="nav-link" to="/work/projects">
+          <div class="nav-text">Work</div>
+          <WorkIcon class="nav-icon" />
         </RouterLink>
       </li>
       <li>
-        <RouterLink class="nav-link" to="/ethics">
-          <div class="nav-text">Ethics</div>
-          <EthicsIcon class="nav-icon" />
+        <RouterLink class="nav-link" to="/podcast">
+          <div class="nav-text">Podcast</div>
+          <PodcastIcon class="nav-icon" />
         </RouterLink>
       </li>
       <li>
