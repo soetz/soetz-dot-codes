@@ -93,6 +93,8 @@ a.link-block {
   box-shadow: inset 0 -9px 0 rgba(var(--link-block-color), var(--link-block-opacity));
 
   color: var(--theme-900);
+
+  cursor: pointer;
 }
 
 .theme-dark .link-block,

@@ -3,7 +3,6 @@ import HomeIcon from "./icons/HomeIcon.vue";
 import LinksIcon from "./icons/LinksIcon.vue";
 import PodcastIcon from "./icons/PodcastIcon.vue";
 import { RouterLink } from "vue-router";
-import WorkIcon from "./icons/WorkIcon.vue";
 </script>
 
 <template>
@@ -14,12 +13,6 @@ import WorkIcon from "./icons/WorkIcon.vue";
         <RouterLink class="nav-link" to="/">
           <div class="nav-text">Home</div>
           <HomeIcon class="nav-icon" />
-        </RouterLink>
-      </li>
-      <li>
-        <RouterLink class="nav-link" to="/work/projects">
-          <div class="nav-text">Work</div>
-          <WorkIcon class="nav-icon" />
         </RouterLink>
       </li>
       <li>

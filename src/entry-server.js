@@ -13,6 +13,7 @@ async function createNewAnalyticsSession(client, sessionId, pageUrl) {
   const database = client.db();
   const sessionsCollection = database.collection("sessions");
   const timestamp = new Date();
+  // TODO: make it possible to use a special link to identify a session
   await sessionsCollection.insertOne({
     _id: convertToBinaryUuid(sessionId),
     started: timestamp,
@@ -93,12 +94,6 @@ function renderPreloadLink(file) {
     return ` <link rel="preload" href="${file}" as="font" type="font/woff" crossorigin>`;
   } else if (file.endsWith(".woff2")) {
     return ` <link rel="preload" href="${file}" as="font" type="font/woff2" crossorigin>`;
-  } else if (file.endsWith(".gif")) {
-    return ` <link rel="preload" href="${file}" as="image" type="image/gif">`;
-  } else if (file.endsWith(".jpg") || file.endsWith(".jpeg")) {
-    return ` <link rel="preload" href="${file}" as="image" type="image/jpeg">`;
-  } else if (file.endsWith(".png")) {
-    return ` <link rel="preload" href="${file}" as="image" type="image/png">`;
   } else {
     return "";
   }
