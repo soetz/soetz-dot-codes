@@ -33,14 +33,14 @@ const showStorytelling = () => {
     <Appear>
       <h1>
         Oh, hey! <span class="waving-hand">👋</span><br />
-        <span class="my-name-is">My name’s Simon Lecutiez</span>,
+        <em class="my-name-is">My name’s Simon Lecutiez</em>,
       </h1>
       <p class="short-bio">
         I’m {{ age }},<br />
         and I’m a frenchy junior front-end developer.
       </p>
       <p>
-        Also, I’m a he/him. You can
+        Also, my pronouns are he/him. You can
         <a class="link-block" target="_blank">download my resume</a> and/or
         continue scrolling&nbsp;:)
       </p>
@@ -115,22 +115,22 @@ const showStorytelling = () => {
         <h3>Cool projects</h3>
         <ul>
           <ProjectLink
-            :name="'MIÀM - Overall project'"
-            :type="'school project'"
-            :symbol="'🏗'"
-            :to="'/work/miam'"
+            name="MIÀM - Overall project"
+            type="school project"
+            symbol="🏗"
+            to="/work/miam"
           />
           <ProjectLink
-            :name="'MIÀM - Teaching'"
-            :type="'school project'"
-            :symbol="'👨‍🏫'"
-            :to="'/work/miam-teaching'"
+            name="MIÀM - Teaching"
+            type="school project"
+            symbol="👨‍🏫"
+            to="/work/miam-teaching"
           />
           <ProjectLink
-            :name="'This site’s custom analytics'"
-            :type="'personal project'"
-            :symbol="'📊'"
-            :to="'/work/analytics'"
+            name="This site’s custom analytics"
+            type="personal project"
+            symbol="📊"
+            to="/work/analytics"
           />
         </ul>
       </Appear>
@@ -138,51 +138,51 @@ const showStorytelling = () => {
         <h3>Working</h3>
         <ul>
           <Experience
-            :when-start="'2019'"
-            :when-end="'2021'"
-            :where="'Ciril Group'"
-            :what="'Web developer (R&D)'"
-            :notes="'apprenticeship'"
+            when-start="2019"
+            when-end="2021"
+            where="Ciril Group"
+            what="Web developer (R&D)"
+            notes="apprenticeship"
           />
           <Experience
-            :when-start="'2019'"
-            :when-months="'four months'"
-            :when-months-short="'4 mos.'"
-            :where="'Kryzalid'"
-            :what="'Web developer'"
-            :notes="'internship in montreal, qc'"
+            when-start="2019"
+            when-months="four months"
+            when-months-short="4 mos."
+            where="Kryzalid"
+            what="Web developer"
+            notes="internship in montreal, qc"
           />
           <Experience
-            :when-start="'2018'"
-            :when-months="'three months'"
-            :when-months-short="'3 mos.'"
-            :where="'Tilkee'"
-            :what="'Web developer'"
-            :notes="'internship'"
+            when-start="2018"
+            when-months="three months"
+            when-months-short="3 mos."
+            where="Tilkee"
+            what="Web developer"
+            notes="internship"
           />
         </ul>
         <h3>Learning</h3>
         <ul>
           <Experience
-            :when-start="'2019'"
-            :when-end="'2021'"
-            :where="'Institut G4'"
-            :what="'IT Project Manager title (equivalent to Master’s)'"
-            :notes="'project management'"
+            when-start="2019"
+            when-end="2021"
+            where="Institut G4"
+            what="IT Project Manager title (equivalent to Master’s)"
+            notes="project management"
           />
           <Experience
-            :when-start="'2018'"
-            :when-end="'2019'"
-            :where="'ICOM Lyon 2'"
-            :what="'LP Métiers du Numérique (equivalent to Bachelor’s)'"
-            :notes="'communication + media'"
+            when-start="2018"
+            when-end="2019"
+            where="ICOM Lyon 2"
+            what="LP Métiers du Numérique (equivalent to Bachelor’s)"
+            notes="communication + media"
           />
           <Experience
-            :when-start="'2016'"
-            :when-end="'2018'"
-            :where="'IUT Lyon 1'"
-            :what="'DUT Informatique (two-year degree)'"
-            :notes="'computer science'"
+            when-start="2016"
+            when-end="2018"
+            where="IUT Lyon 1"
+            what="DUT Informatique (two-year degree)"
+            notes="computer science"
           />
         </ul>
         <h3>Colleagues saying stuff</h3>
@@ -216,6 +216,10 @@ const showStorytelling = () => {
   overflow-x: hidden;
 }
 
+.limited-width-small {
+  max-width: 480px;
+}
+
 .intro {
   display: flex;
   flex-direction: column;
@@ -247,6 +251,7 @@ h1,
 
 .my-name-is {
   font-weight: 600;
+  font-style: normal;
 }
 
 .short-bio {
@@ -305,10 +310,6 @@ h1,
   transition: background-color 0.5s ease-in-out;
 }
 
-.limited-width-small {
-  max-width: 480px;
-}
-
 .appear-enter-active {
   transform-origin: bottom;
   transition: opacity 1s, transform 1.5s;
@@ -316,7 +317,7 @@ h1,
 
 .appear-enter-from {
   opacity: 0.3;
-  transform: translateY(100px) scaleY(0.9);
+  transform: scaleY(0.9);
 }
 
 .two-columns {

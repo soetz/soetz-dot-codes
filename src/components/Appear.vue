@@ -49,7 +49,7 @@ onUnmounted(() => {
 @keyframes appear {
   0% {
     opacity: 0.3;
-    transform: translateY(100px) scaleY(0.9);
+    transform: scaleY(0.9);
   }
 
   67% {

@@ -86,6 +86,7 @@ onUnmounted(() => {
 
 .link-block,
 a.link-block {
+  font-family: boreal, Helvetica, Arial, sans-serif;
   font-weight: 600;
 
   z-index: 1;

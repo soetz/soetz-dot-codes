@@ -252,6 +252,7 @@ const props = defineProps({
   }
 
   .years > * {
+    margin-left: 0;
     margin-top: 6px;
   }
 
