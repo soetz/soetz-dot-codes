@@ -81,7 +81,7 @@ li:last-child {
 }
 
 .theme-dark .visual {
-  background-color: var(--theme-400);
+  background-color: var(--theme-700);
 }
 
 .theme-transition .visual {

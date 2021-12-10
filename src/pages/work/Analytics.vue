@@ -190,6 +190,8 @@ h1 {
   text-shadow: 0.4px 0.7px 0.8px rgba(0, 0, 0, 0.06),
     0.8px 1.7px 1.9px rgba(0, 0, 0, 0.09),
     1.8px 3.6px 4.1px rgba(0, 0, 0, 0.125), 6px 12px 15px rgba(0, 0, 0, 0.2);
+
+  cursor: default;
 }
 
 @media screen and (min-width: 800px) {

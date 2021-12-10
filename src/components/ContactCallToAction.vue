@@ -65,16 +65,8 @@ import { RouterLink } from "vue-router";
           </g>
         </defs>
         <use xlink:href="#contact-me-text" />
-        <use
-          xlink:href="#contact-me-text"
-          transform="rotate(120)"
-          transform-origin="45 45"
-        />
-        <use
-          xlink:href="#contact-me-text"
-          transform="rotate(240)"
-          transform-origin="45 45"
-        />
+        <use xlink:href="#contact-me-text" transform="rotate(120, 45, 45)" />
+        <use xlink:href="#contact-me-text" transform="rotate(240, 45, 45)" />
       </svg>
     </div>
   </RouterLink>
@@ -119,7 +111,7 @@ import { RouterLink } from "vue-router";
     7px 14px 15px rgba(0, 0, 0, 0.032), 15px 30px 33px rgba(0, 0, 0, 0.044),
     50px 100px 120px rgba(0, 0, 0, 0.07);
 
-  transform: translate(-50%, -50%) scale(80%);
+  transform: translate(-50%, -50%) scale(0.8);
 
   background-color: var(--theme-40);
   transition: transform 0.5s cubic-bezier(0.68, -0.6, 0.32, 1.6);
@@ -137,7 +129,7 @@ import { RouterLink } from "vue-router";
 .mail-icon {
   width: 42px;
 
-  transform: translate(-50%, -50%) scale(80%);
+  transform: translate(-50%, -50%) scale(0.8);
 
   transition: transform 0.5s cubic-bezier(0.68, -0.6, 0.32, 1.6);
 }
@@ -150,7 +142,7 @@ import { RouterLink } from "vue-router";
   width: 120px;
   height: 120px;
 
-  transform: translate(-50%, -50%) scale(85%);
+  transform: translate(-50%, -50%) scale(0.85);
 
   transition: transform 0.5s cubic-bezier(0.68, -0.6, 0.32, 1.6);
 
