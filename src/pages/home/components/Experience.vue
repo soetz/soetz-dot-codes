@@ -48,7 +48,7 @@ const props = defineProps({
       <div class="where">{{ props.where }}</div>
       <div class="what">{{ " " + props.what }}</div>
     </div>
-    <div class="notes">{{ props.notes }}</div>
+    <div v-if="props.notes" class="notes">{{ props.notes }}</div>
     <div class="experience-background"></div>
   </li>
 </template>
@@ -126,6 +126,10 @@ const props = defineProps({
 
 .theme-dark .years {
   color: var(--theme-60);
+}
+
+.theme-transition .years {
+  transition: color 0.5s ease-in-out;
 }
 
 .years > *:first-child {

@@ -1,10 +1,14 @@
 <script setup lang="ts">
 import Appear from "../../components/Appear.vue";
 import Experience from "./components/Experience.vue";
+import More from "../../components/More.vue";
 import Parallax from "../../components/Parallax.vue";
 import Photo from "./components/Photo.vue";
 import PhotoEffect from "./components/PhotoEffect.vue";
 import ProjectLink from "./components/ProjectLink.vue";
+import { RouterLink } from "vue-router";
+import SkillElement from "../../components/SkillElement.vue";
+import SkillsList from "../../components/SkillsList.vue";
 import { ref } from "@vue/reactivity";
 
 // TODO add resume download
@@ -22,9 +26,19 @@ const age = beforeBirthdayInYear
   : today.getFullYear() - birthday.getFullYear();
 
 const storytellingShown = ref(false);
+const moreTechonologiesShown = ref(false);
+const moreOtherShown = ref(false);
 
 const showStorytelling = () => {
   storytellingShown.value = true;
+};
+
+const showTechnologies = () => {
+  moreTechonologiesShown.value = true;
+};
+
+const showOther = () => {
+  moreOtherShown.value = true;
 };
 </script>
 
@@ -61,11 +75,17 @@ const showStorytelling = () => {
         </p>
         <p>
           I have a strong belief in the idea that we are the product of what we
-          experience, especially as children, so I have
-          <a class="link-block" @click="showStorytelling()">
-            a few stories that tell a bit about me</a
-          >, if you’re interested&nbsp;😇
+          experience, especially as children, so I have a few stories that tell
+          a bit about me, if you’re interested&nbsp;😇
         </p>
+
+        <button
+          v-if="!storytellingShown"
+          class="more-button reset-button more-target"
+          @click="showStorytelling()"
+        >
+          <More bold vertical>read them</More>
+        </button>
         <transition name="appear">
           <div v-show="storytellingShown">
             <p>
@@ -106,6 +126,103 @@ const showStorytelling = () => {
           </div>
         </transition>
       </div>
+    </Appear>
+  </div>
+  <div class="skills">
+    <Appear class="skills-content limited-width">
+      <h2 class="skills-title">
+        What I can handle
+        <em>− but there’s always room for improvement</em>
+      </h2>
+      <h3>Technologies</h3>
+      <SkillsList>
+        <SkillElement>Typescript</SkillElement>
+        <SkillElement>Vue</SkillElement>
+        <SkillElement>Angular</SkillElement>
+        <SkillElement>SVG</SkillElement>
+        <transition name="appear">
+          <SkillElement v-show="moreTechonologiesShown">d3</SkillElement>
+        </transition>
+        <transition name="appear">
+          <SkillElement v-show="moreTechonologiesShown">three.js</SkillElement>
+        </transition>
+        <transition name="appear">
+          <SkillElement v-show="moreTechonologiesShown"
+            >Tailwind CSS</SkillElement
+          >
+        </transition>
+        <transition name="appear">
+          <SkillElement v-show="moreTechonologiesShown"
+            >Git/Gitflow</SkillElement
+          >
+        </transition>
+        <transition name="appear">
+          <SkillElement v-show="moreTechonologiesShown">PHP</SkillElement>
+        </transition>
+        <transition name="appear">
+          <SkillElement v-show="moreTechonologiesShown">Laravel</SkillElement>
+        </transition>
+        <transition name="appear">
+          <SkillElement v-show="moreTechonologiesShown">Wordpress</SkillElement>
+        </transition>
+        <transition name="appear">
+          <SkillElement v-show="moreTechonologiesShown">Webflow</SkillElement>
+        </transition>
+        <transition name="appear">
+          <SkillElement v-show="moreTechonologiesShown">MySQL</SkillElement>
+        </transition>
+        <transition name="appear">
+          <SkillElement v-show="moreTechonologiesShown"
+            >PostgreSQL</SkillElement
+          >
+        </transition>
+        <transition name="appear">
+          <SkillElement v-show="moreTechonologiesShown">MongoDB</SkillElement>
+        </transition>
+        <transition name="appear">
+          <SkillElement v-show="moreTechonologiesShown">Cordova</SkillElement>
+        </transition>
+      </SkillsList>
+      <button
+        v-if="!moreTechonologiesShown"
+        class="more-button reset-button more-target"
+        @click="showTechnologies()"
+      >
+        <More bold vertical>and more</More>
+      </button>
+      <h3>Other</h3>
+      <SkillsList :keep-small="!moreOtherShown">
+        <SkillElement>SEO</SkillElement>
+        <SkillElement>Jira</SkillElement>
+        <transition name="appear">
+          <SkillElement v-show="moreOtherShown"
+            >Illustrator&nbsp;+ Inkscape</SkillElement
+          >
+        </transition>
+        <transition name="appear">
+          <SkillElement v-show="moreOtherShown"
+            >Photoshop&nbsp;+ GIMP</SkillElement
+          >
+        </transition>
+        <transition name="appear">
+          <SkillElement v-show="moreOtherShown">InDesign</SkillElement>
+        </transition>
+        <transition name="appear">
+          <SkillElement v-show="moreOtherShown">XD</SkillElement>
+        </transition>
+        <transition name="appear">
+          <SkillElement v-show="moreOtherShown"
+            >Audition&nbsp;+ Audacity</SkillElement
+          >
+        </transition>
+      </SkillsList>
+      <button
+        v-if="!moreOtherShown"
+        class="more-button reset-button more-target"
+        @click="showOther()"
+      >
+        <More bold vertical size="m">and more</More>
+      </button>
     </Appear>
   </div>
   <div class="past limited-width">
@@ -160,8 +277,15 @@ const showStorytelling = () => {
             what="Web developer"
             notes="internship"
           />
+          <Experience
+            when-start="2017"
+            when-end="2018"
+            where="Lyon 1 University"
+            what="Student tutor"
+            notes="around two hours a week"
+          />
         </ul>
-        <h3>Learning</h3>
+        <h3>Studying</h3>
         <ul>
           <Experience
             when-start="2019"
@@ -185,18 +309,41 @@ const showStorytelling = () => {
             notes="computer science"
           />
         </ul>
+        <h3>Volunteering</h3>
+        <ul>
+          <Experience
+            when-start="2019"
+            when-end="2020"
+            where="Gaelis"
+            what="Solidarity grocery shop co-manager"
+          />
+        </ul>
         <h3>Colleagues saying stuff</h3>
       </Appear>
     </div>
   </div>
-  <div class="future">
-    <Appear class="limited-width">
-      <h2>What I’d like to do now!</h2>
-    </Appear>
-  </div>
   <div class="aside-from-work">
     <Appear class="limited-width">
-      <h2>Aside from work…</h2>
+      <div class="limited-width-small">
+        <h2>Aside from work</h2>
+        <ul>
+          <li>
+            Maybe you noticed the
+            <RouterLink class="link-block" to="/podcast">Podcast</RouterLink>
+            section to this website. This is because I host a podcast called
+            Regard 9&nbsp;− it’s in french only, sorry. It’s mostly an excuse to
+            get to interview cool artists.
+          </li>
+          <li>
+            I can be a big football nerd, and I’m a lifelong supporter of
+            Olympique Lyonnais.
+          </li>
+          <li>
+            I love animals. Especially dogs. I don’t own a dog though, but I
+            live with a cat called Mirabelle.
+          </li>
+        </ul>
+      </div>
     </Appear>
   </div>
 </template>
@@ -310,7 +457,14 @@ h1,
   transition: background-color 0.5s ease-in-out;
 }
 
-.appear-enter-active {
+.more-button {
+  padding-bottom: 22px;
+
+  cursor: pointer;
+}
+
+.appear-enter-active,
+.theme-transition li.appear-enter-active {
   transform-origin: bottom;
   transition: opacity 1s, transform 1.5s;
 }
@@ -320,25 +474,32 @@ h1,
   transform: scaleY(0.9);
 }
 
+.skills h3,
+.past h3 {
+  font-family: boreal, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.skills,
+.aside-from-work {
+  margin-top: 60px;
+}
+
+.skills-title em {
+  font-weight: 400;
+}
+
 .two-columns {
   display: grid;
   column-gap: 20px;
 }
 
-.projects-container {
-  overflow-x: visible;
-  overflow-y: visible;
-}
-
+.skills-content,
+.projects-container,
 .past {
   overflow-x: visible;
   overflow-y: visible;
-}
-
-.past h3 {
-  font-family: boreal, Helvetica, Arial, sans-serif;
-  font-weight: 400;
-  text-transform: uppercase;
 }
 
 .past ul {
@@ -352,6 +513,18 @@ h1,
   padding-bottom: 0;
 
   list-style-type: none;
+}
+
+.aside-from-work h2 {
+  margin-top: 0;
+}
+
+.aside-from-work li {
+  margin-bottom: 12px;
+}
+
+.aside-from-work li:last-child {
+  margin-bottom: 0;
 }
 
 @media screen and (min-width: 800px) {

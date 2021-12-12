@@ -84,6 +84,34 @@ onUnmounted(() => {
   transition: color 0.5s ease-in-out;
 }
 
+.reset-button {
+  margin-left: 0;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+
+  overflow-x: visible;
+  overflow-y: visible;
+
+  border-left-style: none;
+  border-top-style: none;
+  border-right-style: none;
+  border-bottom-style: none;
+
+  color: inherit;
+  background-color: transparent;
+
+  font-family: inherit;
+  font-size: 100%;
+  text-transform: none;
+
+  -webkit-appearance: none;
+}
+
 .link-block,
 a.link-block {
   font-family: boreal, Helvetica, Arial, sans-serif;

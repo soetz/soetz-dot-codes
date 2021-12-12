@@ -78,10 +78,12 @@ body {
 
 #app {
   font-family: boreal, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
   color: var(--theme-900);
-  font-weight: 400;
 
   width: 100%;
   height: 100vh;

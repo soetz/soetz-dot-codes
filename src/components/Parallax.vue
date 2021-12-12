@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted } from "@vue/runtime-core";
+import { onMounted, onUnmounted } from "@vue/runtime-core";
 import { ref } from "@vue/reactivity";
 import { throttle } from "lodash";
 
@@ -12,12 +12,18 @@ const props = defineProps({
   },
 });
 
-onMounted(() => {
-  const updateParallaxOffset = throttle(() => {
-    parallaxStyle.value = { top: `${window.scrollY * props.speed}px` };
-  }, 10);
+const updateParallaxOffset = throttle(() => {
+  parallaxStyle.value = {
+    transform: `translateY(${window.scrollY * props.speed}px)`,
+  };
+}, 10);
 
+onMounted(() => {
   window.addEventListener("scroll", updateParallaxOffset);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("scroll", updateParallaxOffset);
 });
 </script>
 
@@ -30,7 +36,5 @@ onMounted(() => {
 <style scoped>
 .parallax {
   position: relative;
-
-  transition: top 0.02s linear;
 }
 </style>

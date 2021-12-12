@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import More from "../../../components/More.vue";
+
 const props = defineProps({
   name: {
     default: "",
@@ -21,25 +23,14 @@ const props = defineProps({
 
 <template>
   <li>
-    <RouterLink class="project-link" :to="props.to">
+    <RouterLink class="project-link more-target" :to="props.to">
       <div class="visual">
         <span class="symbol">{{ props.symbol }}</span>
       </div>
       <div class="description">
         <div class="project-type">{{ props.type }}</div>
         <div class="project-name">{{ props.name }}</div>
-        <div class="see-more">
-          see more
-          <svg
-            version="1.1"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-            viewBox="0 0 24 24"
-          >
-            <polyline points="5.93,19.07 12,12 5.93,4.93" />
-            <polyline points="13.93,19.07 21,12 13.93,4.93" />
-          </svg>
-        </div>
+        <More size="s" class="see-more">see the details</More>
       </div>
     </RouterLink>
   </li>
@@ -131,55 +122,10 @@ li:last-child {
 }
 
 .see-more {
-  display: flex;
-  align-items: flex-end;
-
   position: absolute;
 
   left: 14px;
   bottom: 8px;
-
-  font-size: 14px;
-}
-
-.see-more svg {
-  display: inline-block;
-
-  height: 15px;
-
-  margin-left: 4px;
-
-  transform: translateX(-6px);
-
-  transition: transform 0.2s ease-out;
-}
-
-.see-more svg polyline {
-  fill: none;
-  stroke: var(--theme-900);
-  stroke-width: 2;
-
-  transition: opacity 0.2s ease-out;
-}
-
-.theme-dark .see-more svg polyline {
-  stroke: var(--theme-10);
-}
-
-.theme-transition .see-more svg polyline {
-  transition: opacity 0.2s ease-out, stroke 0.5s ease-in-out;
-}
-
-.see-more svg polyline:first-child {
-  opacity: 0;
-}
-
-.project-link:hover .see-more svg {
-  transform: translateX(0);
-}
-
-.project-link:hover .see-more svg polyline:first-child {
-  opacity: 1;
 }
 
 @media screen and (min-width: 800px) {
