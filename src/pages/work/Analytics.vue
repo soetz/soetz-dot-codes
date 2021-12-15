@@ -47,13 +47,14 @@ import SkillElement from "../../components/SkillElement.vue";
 
       <p>
         The app may be server-side rendered, it’s still an SPA, so navigations
-        don’t require a new server render (at least when JavaScript is enabled).
-        Which means we need some kind of server to record navigations. I
-        could’ve used a websocket for this because the ‘connected’ philosophy
-        made sense, but I was concerned with the server-side cost of maintaining
-        a certain number of connections. That is why I chose to make it a good
-        old REST API. I used Express for it because the needs were extra simple
-        and that is what the client app is using for SSR.
+        don’t require a new server render (at least when JavaScript is enabled
+        on the client side). Which means we need some kind of server to record
+        navigations. I could’ve used a websocket for this because the
+        ‘connected’ philosophy made sense, but I was concerned with the
+        server-side cost of maintaining a certain number of connections. That is
+        why I chose to make it a good old REST API. I used Express for it
+        because the needs were extra simple and that is what the client app is
+        using for SSR.
       </p>
     </template>
     <template #problem-solving>
@@ -74,8 +75,8 @@ import SkillElement from "../../components/SkillElement.vue";
         First, each server-side render generates a new ‘session token’ that is
         required to register navigations afterwards. And second, a session is
         ‘confirmed’ if the user is still active 20 seconds after the first page
-        was loaded by the browser. This filters out users that stay less than 20
-        seconds, but they were not very relevant anyway.
+        was loaded by the browser. This is useful to distinguish between people
+        really wanting to visit the site and bounce (or bots).
       </p>
 
       <p>

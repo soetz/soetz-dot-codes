@@ -56,10 +56,10 @@ import SkillElement from "../../components/SkillElement.vue";
       <p>
         One of the key challenges that we faced was how to keep track of the
         students’ individual progression. That is why we set the training goals
-        even before starting redacting, and a series of questions evaluating the
-        level of a student relative to these goals. We made everyone (even fifth
-        year students) answer these questions individually so that we could
-        assess who needed the most training.
+        even before starting writing the course, and a series of questions
+        evaluating the level of a student relative to these goals. We made
+        everyone (even fifth year students) answer these questions individually
+        so that we could assess who needed the most training.
       </p>
 
       <p>

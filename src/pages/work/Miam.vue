@@ -52,7 +52,12 @@ import SkillElement from "../../components/SkillElement.vue";
       <p>
         These final projects exist in part to teach V-model to Institut G4
         students so obviously that was one of the constraints. And most of the
-        project was done remotely due to Covid.
+        project was (sadly) done remotely due to Covid.
+      </p>
+
+      <p>
+        It was a great experience to work on this project with my whole year
+        group, especially since we were building software for the greater good!
       </p>
     </template>
     <template #choices>

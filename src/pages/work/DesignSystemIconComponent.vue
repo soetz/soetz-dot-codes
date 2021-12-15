@@ -23,10 +23,10 @@ import SkillElement from "../../components/SkillElement.vue";
     <template #context>
       <p>
         We’ve started working on a common Ciril Group design system around the
-        end of 2020. It required that we build a lot of different components
-        (buttons, inputs, images, cards, … you name it) and I was tasked with
-        exploring how to manage icons to make them as easy to use as possible
-        for the implementers.
+        end of 2020. It was a really exciting project that required that we
+        build a lot of different components (buttons, inputs, images, cards, …
+        you name it) and I was tasked with exploring how to manage icons to make
+        them as easy to use as possible for the implementers.
       </p>
 
       <p>
@@ -56,11 +56,11 @@ import SkillElement from "../../components/SkillElement.vue";
       </p>
 
       <p>
-        The solution I suggested involved using inline SVG over webfonts or img
+        The solution I suggested involved using inline SVG over webfonts or
+        <code>img</code>
         tags because it is the most flexible solution in terms of styling, and
-        providing an icon server so that they could be lazyloaded if necessary
-        and also because that would allow for leveraging the browser’s cache
-        system.
+        providing an icon server because that would allow for leveraging the
+        browser’s cache system.
       </p>
     </template>
     <template #problem-solving>

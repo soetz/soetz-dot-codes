@@ -199,4 +199,19 @@ h5,
 h6 {
   font-family: new-spirit, serif;
 }
+
+code {
+  padding-left: 6px;
+  padding-right: 6px;
+
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+
+  background-color: rgba(var(--theme-60-rgb), 0.4);
+
+  font-family: source-code-pro, monospace;
+  font-size: 0.96em;
+}
 </style>
