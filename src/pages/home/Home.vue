@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Appear from "../../components/Appear.vue";
+import CyrilPhoto from "./components/CyrilPhoto.vue";
 import Experience from "./components/Experience.vue";
 import More from "../../components/More.vue";
 import Parallax from "../../components/Parallax.vue";
@@ -357,12 +358,10 @@ const showProjects = () => {
             class="name reset-link"
             target="_blank"
           >
-            <picture>
-              <img />
-            </picture>
+            <CyrilPhoto class="picture" />
             <div class="author">
               <span class="name">Cyril Richard</span>
-              <span>Lead developer @ Ciril Group</span>
+              <span>Lead developer&nbsp;@ Ciril Group</span>
             </div>
           </a>
         </figcaption>
@@ -383,7 +382,7 @@ const showProjects = () => {
           </p>
           <p>
             On the personal level, he is an excellent teammate, is likeable,
-            mature and curious… but not very punctual ^^
+            mature and curious… just not very punctual&nbsp;^^
           </p>
           <p>
             He certainly still has a lot to learn, but his capacity to reassess
@@ -561,11 +560,6 @@ h1,
   margin-top: 60px;
 }
 
-.reference,
-.aside-from-work {
-  margin-top: 20px;
-}
-
 .skills-title em {
   font-weight: 400;
 }
@@ -596,6 +590,10 @@ h1,
   list-style-type: none;
 }
 
+.reference {
+  margin-top: 40px;
+}
+
 .reference figure,
 .reference blockquote {
   margin-left: 0;
@@ -608,22 +606,7 @@ h1,
   display: flex;
 }
 
-.reference picture {
-  width: 64px;
-  height: 64px;
-
-  margin-right: 12px;
-
-  border-top-left-radius: 50%;
-  border-top-right-radius: 50%;
-  border-bottom-left-radius: 50%;
-  border-bottom-right-radius: 50%;
-
-  background-color: var(--theme-900);
-
-  box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.02),
-    7px 14px 15px rgba(0, 0, 0, 0.032), 15px 30px 33px rgba(0, 0, 0, 0.044),
-    50px 100px 120px rgba(0, 0, 0, 0.07);
+.reference .picture {
 }
 
 .reference .author {
@@ -692,6 +675,10 @@ h1,
   bottom: -38px;
 }
 
+.aside-from-work {
+  margin-top: 20px;
+}
+
 .aside-from-work h2 {
   margin-top: 0;
 }
@@ -707,6 +694,10 @@ h1,
 @media screen and (min-width: 800px) {
   .two-columns {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .reference {
+    margin-top: 20px;
   }
 }
 
