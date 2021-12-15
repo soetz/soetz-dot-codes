@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { RouterView, useRoute } from "vue-router";
+import { RouterLink, RouterView, useRoute } from "vue-router";
 import { analyticsService, themeService } from "./services";
 import { useSSRContext, watch } from "@vue/runtime-core";
 import Background from "./components/Background.vue";
@@ -48,6 +48,10 @@ watch(
     <div class="footer-spacer">
       <main>
         <RouterView />
+        <div v-if="route.name !== 'home'" class="reached-bottom">
+          Looks like you reached the bottom of this page. Want to
+          <RouterLink class="link-block" to="/">go back home</RouterLink>?
+        </div>
       </main>
       <Footer />
     </div>
@@ -106,6 +110,16 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.reached-bottom {
+  max-width: 800px;
+
+  margin-left: auto;
+  margin-top: 50px;
+  margin-right: auto;
+  padding-left: 13px;
+  padding-right: 13px;
 }
 
 .background {
