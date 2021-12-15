@@ -93,10 +93,10 @@ import SkillElement from "../../components/SkillElement.vue";
     </template>
     <template #next-project>
       <NextProject
-        title="Did you know the analytics on the site you’re visiting are completely custom?"
-        see="see how I did it"
-        symbol="📊"
-        to="/work/analytics"
+        title="Did you know I studied the best way to implement an icon component into a design system?"
+        see="see what I have to say about it"
+        symbol="📐"
+        to="/work/design-system-icon-component"
       />
     </template>
   </Project>

@@ -28,6 +28,7 @@ const age = beforeBirthdayInYear
 const storytellingShown = ref(false);
 const moreTechonologiesShown = ref(false);
 const moreOtherShown = ref(false);
+const moreProjectsShown = ref(false);
 
 const showStorytelling = () => {
   storytellingShown.value = true;
@@ -39,6 +40,10 @@ const showTechnologies = () => {
 
 const showOther = () => {
   moreOtherShown.value = true;
+};
+
+const showProjects = () => {
+  moreProjectsShown.value = true;
 };
 </script>
 
@@ -95,8 +100,8 @@ const showOther = () => {
               to do something else with it. That was great.
             </p>
             <p>
-              I also firmly remember being fascinated by the movie Dumbo − in
-              part probably because I was a tad too young to watch it at the
+              I also firmly remember being fascinated by the movie Dumbo&nbsp;−
+              in part probably because I was a tad too young to watch it at the
               time, I guess. I was especially struck by
               <a
                 class="link-block"
@@ -117,11 +122,11 @@ const showOther = () => {
             </p>
             <p>
               Nowadays, I write code for a living. Specifically web, front-end
-              code. I love when visual things of any kind completly capture
-              attention, just like the scene from Dumbo, and I believe that
-              there’s always something to learn… which probably comes from the
-              time I was trying to hack my toys&nbsp;🤓 The browser is the
-              perfect tool to do all that so I couldn’t be happier!
+              code. I feel very lucky because I got to work alongside extremely
+              talented people who inspired me and encouraged me to keep pushing
+              my limits. I love building and learning new stuff and the browser
+              is the perfect tool for those things so I couldn’t be
+              happier!&nbsp;🤓
             </p>
           </div>
         </transition>
@@ -131,8 +136,9 @@ const showOther = () => {
   <div class="skills">
     <Appear class="skills-content limited-width">
       <h2 class="skills-title">
-        What I can handle
-        <em>− but there’s always room for improvement</em>
+        What I can handle&nbsp;<em
+          >− but there’s always room for improvement</em
+        >
       </h2>
       <h3>Technologies</h3>
       <SkillsList>
@@ -244,12 +250,37 @@ const showOther = () => {
             to="/work/miam-teaching"
           />
           <ProjectLink
-            name="This site’s custom analytics"
-            type="personal project"
-            symbol="📊"
-            to="/work/analytics"
+            name="Proof of concept design system icon component"
+            type="work project"
+            symbol="📐"
+            to="/work/design-system-icon-component"
           />
+          <transition name="appear">
+            <ProjectLink
+              v-show="moreProjectsShown"
+              name="Adapt GEO’s interfaces for tactile usage"
+              type="work project"
+              symbol="📱"
+              to="/work/tactile-adaptations"
+            />
+          </transition>
+          <transition name="appear">
+            <ProjectLink
+              v-show="moreProjectsShown"
+              name="This site’s custom analytics"
+              type="personal project"
+              symbol="📊"
+              to="/work/analytics"
+            />
+          </transition>
         </ul>
+        <button
+          v-if="!moreProjectsShown"
+          class="more-button reset-button more-target"
+          @click="showProjects()"
+        >
+          <More bold vertical>more projects</More>
+        </button>
       </Appear>
       <Appear>
         <h3>Working</h3>
@@ -335,7 +366,7 @@ const showOther = () => {
             get to interview cool artists.
           </li>
           <li>
-            I can be a big football nerd, and I’m a lifelong supporter of
+            I can be a bit of a football nerd, and I’m a lifelong supporter of
             Olympique Lyonnais.
           </li>
           <li>

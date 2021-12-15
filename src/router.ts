@@ -6,21 +6,33 @@ import {
 } from "vue-router";
 import Analytics from "./pages/work/Analytics.vue";
 import Contact from "./pages/Contact.vue";
+import DesignSystemIconComponent from "./pages/work/DesignSystemIconComponent.vue";
 import Home from "./pages/home/Home.vue";
 import Legal from "./pages/Legal.vue";
 import LinksList from "./pages/links/LinksList.vue";
 import Miam from "./pages/work/Miam.vue";
 import MiamTeaching from "./pages/work/MiamTeaching.vue";
 import PodcastList from "./pages/podcast/PodcastList.vue";
+import TactileAdaptations from "./pages/work/TactileAdaptations.vue";
 
 const routes = [
-  { path: "/", component: Home, meta: { color: "orange" } },
+  { path: "/", component: Home, meta: { color: "orange" }, name: "home" },
   { path: "/contact", component: Contact, meta: { color: "orange" } },
   { path: "/legal", component: Legal, meta: { color: "orange" } },
   { path: "/work/miam", component: Miam, meta: { color: "blue" } },
   {
     path: "/work/miam-teaching",
     component: MiamTeaching,
+    meta: { color: "blue" },
+  },
+  {
+    path: "/work/design-system-icon-component",
+    component: DesignSystemIconComponent,
+    meta: { color: "blue" },
+  },
+  {
+    path: "/work/tactile-adaptations",
+    component: TactileAdaptations,
     meta: { color: "blue" },
   },
   { path: "/work/analytics", component: Analytics, meta: { color: "blue" } },

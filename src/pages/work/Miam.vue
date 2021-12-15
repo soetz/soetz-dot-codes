@@ -11,6 +11,7 @@ import SkillElement from "../../components/SkillElement.vue";
       <SkillElement>Angular</SkillElement>
       <SkillElement>Laravel</SkillElement>
       <SkillElement>Git</SkillElement>
+      <SkillElement>Developing responsive interfaces</SkillElement>
       <SkillElement>Working as a team</SkillElement>
       <SkillElement>Leading a team</SkillElement>
       <SkillElement>Making code architecture choices</SkillElement>
