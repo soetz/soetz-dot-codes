@@ -564,9 +564,17 @@ h1,
   font-weight: 400;
 }
 
+.projects-container li:last-child {
+  margin-bottom: 30px;
+}
+
 .two-columns {
   display: grid;
   column-gap: 20px;
+}
+
+.two-columns h3:first-child {
+  margin-top: 0;
 }
 
 .skills-content,
@@ -606,9 +614,6 @@ h1,
   display: flex;
 }
 
-.reference .picture {
-}
-
 .reference .author {
   display: flex;
   flex-direction: column;
@@ -631,7 +636,7 @@ h1,
   position: relative;
 
   font-size: 18px;
-  text-indent: 38px;
+  text-indent: 40px;
 }
 
 .reference blockquote p:first-child:before,
