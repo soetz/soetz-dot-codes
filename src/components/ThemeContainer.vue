@@ -84,6 +84,10 @@ onUnmounted(() => {
   transition: color 0.5s ease-in-out;
 }
 
+.reset-link {
+  color: inherit;
+}
+
 .reset-button {
   margin-left: 0;
   margin-top: 0;

@@ -60,7 +60,7 @@ const showProjects = () => {
       </p>
       <p>
         Also, my pronouns are he/him. You can
-        <a class="link-block" target="_blank">download my resume</a> and/or
+        <a target="_blank" class="link-block">download my resume</a> and/or
         continue scrolling&nbsp;:)
       </p>
     </Appear>
@@ -105,8 +105,8 @@ const showProjects = () => {
               time, I guess. I was especially struck by
               <a
                 class="link-block"
-                target="_blank"
                 href="https://youtu.be/jcZUPDMXzJ8"
+                target="_blank"
                 >this scene</a
               >
               in which Dumbo drinks alcohol, and the filmmakers took it as an
@@ -197,7 +197,9 @@ const showProjects = () => {
         <More bold vertical>and more</More>
       </button>
       <h3>Other</h3>
-      <SkillsList :keep-small="!moreOtherShown">
+      <SkillsList>
+        <SkillElement>Agile</SkillElement>
+        <SkillElement>V-model</SkillElement>
         <SkillElement>SEO</SkillElement>
         <SkillElement>Jira</SkillElement>
         <transition name="appear">
@@ -211,15 +213,10 @@ const showProjects = () => {
           >
         </transition>
         <transition name="appear">
-          <SkillElement v-show="moreOtherShown">InDesign</SkillElement>
-        </transition>
-        <transition name="appear">
           <SkillElement v-show="moreOtherShown">XD</SkillElement>
         </transition>
         <transition name="appear">
-          <SkillElement v-show="moreOtherShown"
-            >Audition&nbsp;+ Audacity</SkillElement
-          >
+          <SkillElement v-show="moreOtherShown">InDesign</SkillElement>
         </transition>
       </SkillsList>
       <button
@@ -349,9 +346,53 @@ const showProjects = () => {
             what="Solidarity grocery shop co-manager"
           />
         </ul>
-        <h3>Colleagues saying stuff</h3>
       </Appear>
     </div>
+    <Appear class="reference limited-width-medium">
+      <h2>Colleagues saying stuff</h2>
+      <figure>
+        <figcaption>
+          <a
+            href="https://www.linkedin.com/in/cyril-richard-73a6b3122/"
+            class="name reset-link"
+            target="_blank"
+          >
+            <picture>
+              <img />
+            </picture>
+            <div class="author">
+              <span class="name">Cyril Richard</span>
+              <span>Lead developer @ Ciril Group</span>
+            </div>
+          </a>
+        </figcaption>
+        <blockquote>
+          <p>
+            Simon is a talented front-end developer that I had the pleasure of
+            supervising for 2 years.
+          </p>
+          <p>
+            He is a perfectionist and his technical proficiency, his UX
+            sensibility and his constant attention to “small details” make him a
+            great asset for a team.
+          </p>
+          <p>
+            He will thrive particularly in contexts where he can grasp a project
+            in its globality in order to carry his functional and technical
+            vision.
+          </p>
+          <p>
+            On the personal level, he is an excellent teammate, is likeable,
+            mature and curious… but not very punctual ^^
+          </p>
+          <p>
+            He certainly still has a lot to learn, but his capacity to reassess
+            himself and to regularly get out of his comfort zone bodes well for
+            his professional future.
+          </p>
+        </blockquote>
+      </figure>
+    </Appear>
   </div>
   <div class="aside-from-work">
     <Appear class="limited-width">
@@ -396,6 +437,10 @@ const showProjects = () => {
 
 .limited-width-small {
   max-width: 480px;
+}
+
+.limited-width-medium {
+  max-width: 560px;
 }
 
 .intro {
@@ -512,9 +557,13 @@ h1,
   text-transform: uppercase;
 }
 
-.skills,
-.aside-from-work {
+.skills {
   margin-top: 60px;
+}
+
+.reference,
+.aside-from-work {
+  margin-top: 20px;
 }
 
 .skills-title em {
@@ -528,7 +577,8 @@ h1,
 
 .skills-content,
 .projects-container,
-.past {
+.past,
+.reference {
   overflow-x: visible;
   overflow-y: visible;
 }
@@ -544,6 +594,102 @@ h1,
   padding-bottom: 0;
 
   list-style-type: none;
+}
+
+.reference figure,
+.reference blockquote {
+  margin-left: 0;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+}
+
+.reference .name {
+  display: flex;
+}
+
+.reference picture {
+  width: 64px;
+  height: 64px;
+
+  margin-right: 12px;
+
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+
+  background-color: var(--theme-900);
+
+  box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.02),
+    7px 14px 15px rgba(0, 0, 0, 0.032), 15px 30px 33px rgba(0, 0, 0, 0.044),
+    50px 100px 120px rgba(0, 0, 0, 0.07);
+}
+
+.reference .author {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  font-style: italic;
+}
+
+.reference .author .name {
+  margin-bottom: 4px;
+
+  font-size: 20px;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.reference blockquote {
+  margin-top: 28px;
+
+  position: relative;
+
+  font-size: 18px;
+  text-indent: 38px;
+}
+
+.reference blockquote p:first-child:before,
+.reference blockquote p:last-child:after {
+  z-index: -10;
+
+  color: rgba(var(--theme-60-rgb), 0.8);
+
+  font-family: new-spirit, serif;
+  font-size: 64px;
+  line-height: 0;
+}
+
+.theme-dark .reference blockquote p:first-child:before,
+.theme-dark .reference blockquote p:last-child:after {
+  color: rgba(var(--theme-90-rgb), 0.8);
+}
+
+.theme-transition .reference blockquote p:first-child:before,
+.theme-transition .reference blockquote p:last-child:after {
+  transition: color 0.5s ease-in-out;
+}
+
+.reference blockquote p:first-child:before {
+  content: "‘ ";
+
+  display: block;
+
+  position: absolute;
+
+  left: -22px;
+  top: 26px;
+}
+
+.reference blockquote p:last-child:after {
+  content: "’";
+
+  position: relative;
+
+  right: -4px;
+  bottom: -38px;
 }
 
 .aside-from-work h2 {

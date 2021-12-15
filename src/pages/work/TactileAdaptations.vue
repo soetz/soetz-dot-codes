@@ -49,9 +49,9 @@ import SkillElement from "../../components/SkillElement.vue";
         The changes consisted in a million little tweaks so it was a pain to
         communicate with amazing product owner
         <a
-          class="link-block"
           href="https://www.linkedin.com/in/loic-picavet/"
           target="_blank"
+          class="link-block"
           >Loïc</a
         >
         to know what his opinion about every one of them was. That’s why we
