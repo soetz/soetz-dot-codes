@@ -1,13 +1,9 @@
 <script setup lang="ts">
-import { RouterLink } from "vue-router";
-import SmileIcon from "./icons/SmileIcon.vue";
 import ThemeIcon from "./icons/ThemeIcon.vue";
-import gsap from "gsap";
 import { ref } from "vue";
 import { themeService } from "../services";
 
 const themeHovered = ref(false);
-const contactHovered = ref(false);
 
 const themeHoverChange = (hovered: boolean) => {
   themeHovered.value = hovered;
@@ -15,42 +11,17 @@ const themeHoverChange = (hovered: boolean) => {
 const themeToggle = () => {
   themeService.explicitlySetThemeIsDark(!themeService.isDisplayedThemeDark());
 };
-const contactHoverChange = (hovered: boolean) => {
-  contactHovered.value = hovered;
-  if (hovered) {
-    gsap.to(".contact-icon", {
-      duration: 1.5,
-      ease: "elastic",
-      transformOrigin: "center",
-      rotation: 30,
-    });
-  } else {
-    gsap.to(".contact-icon", {
-      duration: 1.5,
-      ease: "elastic",
-      transformOrigin: "center",
-      rotation: 0,
-    });
-  }
-};
 </script>
 
 <template>
   <div class="controls-container">
     <ThemeIcon
-      class="control"
+      class="control theme-icon"
       :is-hovered="themeHovered"
       @mouseenter="themeHoverChange(true)"
       @mouseleave="themeHoverChange(false)"
       @click="themeToggle"
     />
-    <RouterLink
-      to="/contact"
-      @mouseenter="contactHoverChange(true)"
-      @mouseleave="contactHoverChange(false)"
-    >
-      <SmileIcon class="control contact-icon" />
-    </RouterLink>
   </div>
 </template>
 
@@ -68,6 +39,14 @@ const contactHoverChange = (hovered: boolean) => {
   padding-bottom: 15px;
 
   cursor: pointer;
+}
+
+.theme-icon {
+  display: none;
+}
+
+.theme-transition .theme-icon {
+  display: block;
 }
 
 @media screen and (min-width: 600px) {
