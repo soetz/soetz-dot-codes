@@ -1,5 +1,6 @@
 import { Binary } from "mongodb";
 import { createApp } from "./main";
+import { pageTitle } from "./utilities/pageTitle";
 import { renderToString } from "vue/server-renderer";
 import { v4 as uuidv4 } from "uuid";
 
@@ -61,7 +62,17 @@ export async function render(url, manifest, mongoClient) {
   const preloadLinks = renderPreloadLinks(ctx.modules, manifest);
 
   const sessionTokenInjection = renderSessionToken(ctx.sessionToken);
-  return [html, preloadLinks, sessionTokenInjection];
+
+  const currentPageTitle = renderPageTitle(
+    router.currentRoute.value.meta?.title
+  );
+
+  return [html, preloadLinks, sessionTokenInjection, currentPageTitle];
+}
+
+function renderPageTitle(title) {
+  title = pageTitle(title);
+  return `<title>${title}</title>`;
 }
 
 function renderSessionToken(token) {

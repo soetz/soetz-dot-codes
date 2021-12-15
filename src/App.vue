@@ -8,6 +8,7 @@ import CookiesPopup from "./components/CookiesPopup.vue";
 import Footer from "./components/Footer.vue";
 import Header from "./components/Header.vue";
 import ThemeContainer from "./components/ThemeContainer.vue";
+import { pageTitle } from "./utilities/pageTitle";
 
 declare global {
   const SESSION_TOKEN: string;
@@ -38,6 +39,12 @@ watch(
   () => route.meta.color,
   (newColor: string) => {
     themeService.setThemeColor(newColor);
+  }
+);
+watch(
+  () => route.meta.title,
+  (newTitle?: string) => {
+    document.title = pageTitle(newTitle);
   }
 );
 </script>
