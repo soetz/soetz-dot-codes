@@ -4,5 +4,6 @@ declare module "vue-router" {
   interface RouteMeta {
     color: string;
     title?: string;
+    description?: string;
   }
 }

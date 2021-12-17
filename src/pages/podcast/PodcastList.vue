@@ -1,3 +1,3 @@
 <template>
-  <h1>Podcasts</h1>
+  <h1>Regard 9</h1>
 </template>

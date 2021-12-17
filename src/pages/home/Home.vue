@@ -400,7 +400,9 @@ const showProjects = () => {
         <ul>
           <li>
             Maybe you noticed the
-            <RouterLink class="link-block" to="/podcast">Podcast</RouterLink>
+            <RouterLink class="link-block" to="/podcast/regard-9"
+              >Podcast</RouterLink
+            >
             section to this website. This is because I host a podcast called
             Regard 9&nbsp;− it’s in french only, sorry. It’s mostly an excuse to
             get to interview cool artists.

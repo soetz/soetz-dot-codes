@@ -16,7 +16,7 @@ import { RouterLink } from "vue-router";
         </RouterLink>
       </li>
       <li>
-        <RouterLink class="nav-link" to="/podcast">
+        <RouterLink class="nav-link" to="/podcast/regard-9">
           <div class="nav-text">Podcast</div>
           <PodcastIcon class="nav-icon" />
         </RouterLink>

@@ -69,14 +69,14 @@ async function createServer(
         render = require("./dist/server/entry-server.js").render;
       }
 
-      const [appHtml, preloadLinks, sessionToken, pageTitle] = await render(
+      const [appHtml, preloadLinks, sessionToken, pageSeo] = await render(
         url,
         manifest,
         mongoClient
       );
 
       const html = template
-        .replace(`<!--page-title-->`, pageTitle)
+        .replace(`<!--page-seo-->`, pageSeo)
         .replace(`<!--session-token-->`, sessionToken)
         .replace(`<!--preload-links-->`, preloadLinks)
         .replace(`<!--app-html-->`, appHtml);

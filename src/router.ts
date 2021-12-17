@@ -19,13 +19,18 @@ const routes = [
   {
     path: "/",
     component: Home,
-    meta: { color: "orange" },
+    meta: { color: "orange" }, // see utilities/pageSeo for title and meta
     name: "home",
   },
   {
     path: "/contact",
     component: Contact,
-    meta: { color: "orange", title: "Contact" },
+    meta: {
+      color: "orange",
+      title: "Contact",
+      description:
+        "Want to get in touch with Simon Lecutiez? This is the place.",
+    },
   },
   {
     path: "/legal",
@@ -35,12 +40,22 @@ const routes = [
   {
     path: "/work/miam",
     component: Miam,
-    meta: { color: "blue", title: "MIÀM - Overall project" },
+    meta: {
+      color: "blue",
+      title: "MIÀM - Overall project",
+      description:
+        "I participated (along with 45 other students) in building and managing the final annual project at Institut G4.",
+    },
   },
   {
     path: "/work/miam-teaching",
     component: MiamTeaching,
-    meta: { color: "blue", title: "MIÀM - Teaching" },
+    meta: {
+      color: "blue",
+      title: "MIÀM - Teaching",
+      description:
+        "Jonathan Germain and I taught the basics of Angular to a class of ~20 students.",
+    },
   },
   {
     path: "/work/design-system-icon-component",
@@ -48,27 +63,49 @@ const routes = [
     meta: {
       color: "blue",
       title: "Proof of concept design system icon component",
+      description:
+        "I spent around a week studying the best way to implement icons as part of the new global design system at Ciril Group.",
     },
   },
   {
     path: "/work/tactile-adaptations",
     component: TactileAdaptations,
-    meta: { color: "blue", title: "Adapt GEO’s interfaces for tactile usage" },
+    meta: {
+      color: "blue",
+      title: "Adapt GEO’s interfaces for tactile usage",
+      description:
+        "I spent around two weeks making sure GEO’s different interfaces had maximum usability on tactile and smaller devices.",
+    },
   },
   {
     path: "/work/analytics",
     component: Analytics,
-    meta: { color: "blue", title: "This site’s custom analytics" },
+    meta: {
+      color: "blue",
+      title: "This site’s custom analytics",
+      description:
+        "I spent a couple days building a super simple analytics system specifically for this site, using primarily Express and MongoDB.",
+    },
   },
   {
-    path: "/podcast",
+    path: "/podcast/regard-9",
     component: PodcastList,
-    meta: { color: "purple", title: "Podcast" },
+    meta: {
+      color: "purple",
+      title: "Regard 9",
+      description:
+        "Regard 9, le podcast qui t’en met plein la vue. Discussions avec des artistes qui évoluent dans le domaine du visuel.",
+    },
   },
   {
     path: "/links",
     component: LinksList,
-    meta: { color: "gold", title: "Links" },
+    meta: {
+      color: "gold",
+      title: "Links",
+      description:
+        "A collection of links that lead to cool stuff on the internet. Curated by Simon Lecutiez.",
+    },
   },
 ];
 

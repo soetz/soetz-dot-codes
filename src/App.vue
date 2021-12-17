@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { RouterLink, RouterView, useRoute } from "vue-router";
 import { analyticsService, themeService } from "./services";
+import { pageDescription, pageTitle } from "./utilities/pageSeo";
 import { useSSRContext, watch } from "@vue/runtime-core";
 import Background from "./components/Background.vue";
 import ContactCallToAction from "./components/ContactCallToAction.vue";
@@ -8,7 +9,6 @@ import CookiesPopup from "./components/CookiesPopup.vue";
 import Footer from "./components/Footer.vue";
 import Header from "./components/Header.vue";
 import ThemeContainer from "./components/ThemeContainer.vue";
-import { pageTitle } from "./utilities/pageTitle";
 
 declare global {
   const SESSION_TOKEN: string;
@@ -45,6 +45,15 @@ watch(
   () => route.meta.title,
   (newTitle?: string) => {
     document.title = pageTitle(newTitle);
+  }
+);
+watch(
+  () => route.meta.description,
+  (newDescription?: string) => {
+    const metaDescription = document.querySelector("meta[name=description]");
+    if (metaDescription) {
+      metaDescription.setAttribute("content", pageDescription(newDescription));
+    }
   }
 );
 </script>

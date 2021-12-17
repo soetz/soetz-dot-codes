@@ -1,6 +1,6 @@
+import { pageDescription, pageTitle } from "./utilities/pageSeo";
 import { Binary } from "mongodb";
 import { createApp } from "./main";
-import { pageTitle } from "./utilities/pageTitle";
 import { renderToString } from "vue/server-renderer";
 import { v4 as uuidv4 } from "uuid";
 
@@ -63,16 +63,18 @@ export async function render(url, manifest, mongoClient) {
 
   const sessionTokenInjection = renderSessionToken(ctx.sessionToken);
 
-  const currentPageTitle = renderPageTitle(
-    router.currentRoute.value.meta?.title
+  const currentPageSeo = renderPageSeo(
+    router.currentRoute.value.meta?.title,
+    router.currentRoute.value.meta?.description
   );
 
-  return [html, preloadLinks, sessionTokenInjection, currentPageTitle];
+  return [html, preloadLinks, sessionTokenInjection, currentPageSeo];
 }
 
-function renderPageTitle(title) {
+function renderPageSeo(title, description) {
   title = pageTitle(title);
-  return `<title>${title}</title>`;
+  description = pageDescription(description);
+  return `<title>${title}</title><meta name="description" content="${description}" />`;
 }
 
 function renderSessionToken(token) {
