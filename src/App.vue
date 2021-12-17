@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { RouterLink, RouterView, useRoute } from "vue-router";
 import { analyticsService, themeService } from "./services";
-import { pageDescription, pageKeywords, pageTitle } from "./utilities/pageSeo";
 import { useSSRContext, watch } from "@vue/runtime-core";
 import Background from "./components/Background.vue";
 import ContactCallToAction from "./components/ContactCallToAction.vue";
@@ -39,30 +38,6 @@ watch(
   () => route.meta.color,
   (newColor: string) => {
     themeService.setThemeColor(newColor);
-  }
-);
-watch(
-  () => route.meta.title,
-  (newTitle?: string) => {
-    document.title = pageTitle(newTitle);
-  }
-);
-watch(
-  () => route.meta.description,
-  (newDescription?: string) => {
-    const metaDescription = document.querySelector("meta[name=description]");
-    if (metaDescription) {
-      metaDescription.setAttribute("content", pageDescription(newDescription));
-    }
-  }
-);
-watch(
-  () => route.meta.keywords,
-  (newKeywords?: string) => {
-    const metaKeywords = document.querySelector("meta[name=keywords]");
-    if (metaKeywords) {
-      metaKeywords.setAttribute("content", pageKeywords(newKeywords));
-    }
   }
 );
 </script>

@@ -21,6 +21,7 @@ const routes = [
     component: Home,
     meta: {
       color: "orange", // see utilities/pageSeo for title and meta
+      socialImage: "home.0",
     },
     name: "home",
   },
@@ -29,9 +30,10 @@ const routes = [
     component: Contact,
     meta: {
       color: "orange",
-      title: "Contact",
+      title: "Contact me",
       description:
         "Want to get in touch with Simon Lecutiez? This is the place.",
+      socialImage: "contact.0",
     },
   },
   {
@@ -47,6 +49,7 @@ const routes = [
       title: "MIÀM - Overall project",
       description:
         "I participated (along with 45 other students) in building and managing the final annual project at Institut G4.",
+      socialImage: "work.miam.0",
     },
   },
   {
@@ -57,6 +60,7 @@ const routes = [
       title: "MIÀM - Teaching",
       description:
         "Jonathan Germain and I taught the basics of Angular to a class of ~20 students.",
+      socialImage: "work.miam-teaching.0",
     },
   },
   {
@@ -67,6 +71,7 @@ const routes = [
       title: "Proof of concept design system icon component",
       description:
         "I spent around a week studying the best way to implement icons as part of the new global design system at Ciril Group.",
+      socialImage: "work.design-system-icon-component.0",
     },
   },
   {
@@ -77,6 +82,7 @@ const routes = [
       title: "Adapt GEO’s interfaces for tactile usage",
       description:
         "I spent around two weeks making sure GEO’s different interfaces had maximum usability on tactile and smaller devices.",
+      socialImage: "work.tactile-adaptations.0",
     },
   },
   {
@@ -87,6 +93,7 @@ const routes = [
       title: "This site’s custom analytics",
       description:
         "I spent a couple days building a super simple analytics system specifically for this site, using primarily Express and MongoDB.",
+      socialImage: "work.analytics.0",
     },
   },
   {
@@ -99,6 +106,7 @@ const routes = [
         "Regard 9, le podcast qui t’en met plein la vue. Discussions avec des artistes qui évoluent dans le domaine du visuel.",
       keywords:
         "podcast, artiste, regard 9, Simon Lecutiez, visuel, art visuel, discussion, illustration, France, Lyon",
+      socialImage: "podcast.regard-9.0",
     },
   },
   {
@@ -109,6 +117,7 @@ const routes = [
       title: "Links",
       description:
         "A collection of links that lead to cool stuff on the internet. Curated by Simon Lecutiez.",
+      socialImage: "links.0",
     },
   },
 ];

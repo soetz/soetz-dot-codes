@@ -1,4 +1,10 @@
-import { pageDescription, pageKeywords, pageTitle } from "./utilities/pageSeo";
+import {
+  pageDescription,
+  pageKeywords,
+  pageSocialImage,
+  pageTitle,
+  pageUrl,
+} from "./utilities/pageSeo";
 import { Binary } from "mongodb";
 import { createApp } from "./main";
 import { renderToString } from "vue/server-renderer";
@@ -66,20 +72,42 @@ export async function render(url, manifest, mongoClient) {
   const currentPageSeo = renderPageSeo(
     router.currentRoute.value.meta?.title,
     router.currentRoute.value.meta?.description,
-    router.currentRoute.value.meta?.keywords
+    router.currentRoute.value.meta?.keywords,
+    router.currentRoute.value.meta?.socialImage,
+    router.currentRoute.value.path
   );
 
   return [html, preloadLinks, sessionTokenInjection, currentPageSeo];
 }
 
-function renderPageSeo(title, description, keywords) {
-  title = pageTitle(title);
-  description = pageDescription(description);
-  keywords = pageKeywords(keywords);
+function renderPageSeo(
+  routeMetaTitle,
+  routeMetaDescription,
+  routeMetaKeywords,
+  routeMetaSocialImage,
+  routePath
+) {
+  const title = pageTitle(routeMetaTitle);
+  const ogTitle = routeMetaTitle ? routeMetaTitle : pageTitle();
+  const description = pageDescription(routeMetaDescription);
+  const keywords = pageKeywords(routeMetaKeywords);
+  const socialImageUrl = pageSocialImage(routeMetaSocialImage);
+  const url = pageUrl(routePath);
   return `
     <title>${title}</title>
     <meta name="description" content="${description}" />
     <meta name="keywords" content="${keywords}" />
+    <meta property="og:title" content="${ogTitle}" />
+    <meta property="og:description" content="${description}" />
+    <meta property="og:url" content="${url}" />
+    ${
+      socialImageUrl
+        ? `
+            <meta property="og:image" content="${socialImageUrl}" />
+            <meta name="twitter:card" content="summary_large-image" />
+          `
+        : `<meta name="twitter:card" content="summary" />`
+    }
   `;
 }
 

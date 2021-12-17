@@ -6,5 +6,6 @@ declare module "vue-router" {
     title?: string;
     description?: string;
     keywords?: string;
+    socialImage?: string;
   }
 }

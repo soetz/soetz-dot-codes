@@ -4,6 +4,7 @@ import { Router } from "vue-router";
 import { App as VueApp } from "@vue/runtime-core";
 import { analyticsService } from "./services";
 import { createMyRouter } from "./router";
+import { updatePageSeo } from "./utilities/pageSeo";
 import { updateViewportWidth } from "./utilities/ViewPortWidth";
 
 // SSR requires a fresh app instance per request, therefore we export a function
@@ -16,6 +17,7 @@ export function createApp(): { app: VueApp; router: Router } {
   router.afterEach((to, from) => {
     if (to.fullPath !== from.fullPath) {
       analyticsService.registerNavigation(to.fullPath);
+      updatePageSeo(to);
     }
 
     // updateViewportWidth() uses window and we can’t access it in an SSR context
