@@ -5,5 +5,6 @@ declare module "vue-router" {
     color: string;
     title?: string;
     description?: string;
+    keywords?: string;
   }
 }

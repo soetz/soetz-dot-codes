@@ -19,7 +19,9 @@ const routes = [
   {
     path: "/",
     component: Home,
-    meta: { color: "orange" }, // see utilities/pageSeo for title and meta
+    meta: {
+      color: "orange", // see utilities/pageSeo for title and meta
+    },
     name: "home",
   },
   {
@@ -95,6 +97,8 @@ const routes = [
       title: "Regard 9",
       description:
         "Regard 9, le podcast qui t’en met plein la vue. Discussions avec des artistes qui évoluent dans le domaine du visuel.",
+      keywords:
+        "podcast, artiste, regard 9, Simon Lecutiez, visuel, art visuel, discussion, illustration, France, Lyon",
     },
   },
   {

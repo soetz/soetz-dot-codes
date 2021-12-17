@@ -1,4 +1,4 @@
-import { pageDescription, pageTitle } from "./utilities/pageSeo";
+import { pageDescription, pageKeywords, pageTitle } from "./utilities/pageSeo";
 import { Binary } from "mongodb";
 import { createApp } from "./main";
 import { renderToString } from "vue/server-renderer";
@@ -65,16 +65,22 @@ export async function render(url, manifest, mongoClient) {
 
   const currentPageSeo = renderPageSeo(
     router.currentRoute.value.meta?.title,
-    router.currentRoute.value.meta?.description
+    router.currentRoute.value.meta?.description,
+    router.currentRoute.value.meta?.keywords
   );
 
   return [html, preloadLinks, sessionTokenInjection, currentPageSeo];
 }
 
-function renderPageSeo(title, description) {
+function renderPageSeo(title, description, keywords) {
   title = pageTitle(title);
   description = pageDescription(description);
-  return `<title>${title}</title><meta name="description" content="${description}" />`;
+  keywords = pageKeywords(keywords);
+  return `
+    <title>${title}</title>
+    <meta name="description" content="${description}" />
+    <meta name="keywords" content="${keywords}" />
+  `;
 }
 
 function renderSessionToken(token) {

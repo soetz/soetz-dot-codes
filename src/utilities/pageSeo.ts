@@ -19,4 +19,12 @@ const pageDescription = (routeMetaDescription?: string): string => {
   }
 };
 
-export { pageTitle, pageDescription };
+const pageKeywords = (routeMetaKeywords?: string): string => {
+  if (routeMetaKeywords) {
+    return routeMetaKeywords;
+  } else {
+    return "front-end web developer, web, developer, front-end, junior, HTML, CSS, javascript, typescript, SVG, vue, angular, SEO, France, Lyon, Germany, Cologne, Köln";
+  }
+};
+
+export { pageTitle, pageDescription, pageKeywords };
