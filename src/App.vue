@@ -44,9 +44,10 @@ watch(
 
 <template>
   <ThemeContainer class="general-container">
+    <a class="skip-to-content" href="#main">Skip to main content</a>
     <Header />
     <div class="footer-spacer">
-      <main>
+      <main id="main">
         <RouterView />
         <div v-if="route.name !== 'home'" class="reached-bottom">
           Looks like you reached the bottom of this page. Want to
@@ -98,6 +99,33 @@ body {
   height: 100%;
 
   padding-top: 102px;
+}
+
+.skip-to-content {
+  position: fixed;
+
+  left: 0;
+  top: -100px;
+
+  width: 100%;
+
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  background-color: var(--theme-400);
+  color: var(--theme-10);
+
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration-line: underline;
+
+  z-index: 20;
+}
+
+.skip-to-content:focus {
+  top: 0;
 }
 
 main {
