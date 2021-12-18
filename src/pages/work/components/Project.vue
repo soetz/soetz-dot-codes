@@ -20,47 +20,59 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="limited-width overflow-visible">
+  <article class="limited-width overflow-visible">
     <Appear>
       <h1>{{ props.title }}</h1>
     </Appear>
     <Appear class="overflow-visible">
-      <h2>Skills used</h2>
-      <SkillsList>
-        <slot name="skills"></slot>
-      </SkillsList>
+      <section>
+        <h2>Skills used</h2>
+        <SkillsList>
+          <slot name="skills"></slot>
+        </SkillsList>
+      </section>
     </Appear>
     <div class="two-columns">
       <div class="limited-width-small text">
         <Appear>
-          <h2>Summary</h2>
+          <section>
+            <h2>Summary</h2>
 
-          <slot name="summary"></slot>
+            <slot name="summary"></slot>
+          </section>
         </Appear>
 
         <Appear>
-          <h2>Context & project aim</h2>
+          <section>
+            <h2>Context & project aim</h2>
 
-          <slot name="context"></slot>
+            <slot name="context"></slot>
+          </section>
         </Appear>
 
         <Appear>
-          <h2>{{ props.nonTechnical ? "Choices" : "Technical choices" }}</h2>
+          <section>
+            <h2>{{ props.nonTechnical ? "Choices" : "Technical choices" }}</h2>
 
-          <slot name="choices"></slot>
+            <slot name="choices"></slot>
+          </section>
         </Appear>
 
         <Appear>
-          <h2>Problem solving strategy</h2>
+          <section>
+            <h2>Problem solving strategy</h2>
 
-          <slot name="problem-solving"></slot>
+            <slot name="problem-solving"></slot>
+          </section>
         </Appear>
 
         <Appear>
-          <h2>Lessons learned</h2>
-          <ul>
-            <slot name="lessons"></slot>
-          </ul>
+          <section>
+            <h2>Lessons learned</h2>
+            <ul>
+              <slot name="lessons"></slot>
+            </ul>
+          </section>
         </Appear>
       </div>
       <div class="visual">
@@ -72,7 +84,7 @@ const props = defineProps({
     <Appear class="overflow-visible">
       <slot name="next-project"></slot>
     </Appear>
-  </div>
+  </article>
 </template>
 
 <style scoped>

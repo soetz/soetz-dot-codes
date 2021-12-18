@@ -49,7 +49,7 @@ const showProjects = () => {
 </script>
 
 <template>
-  <div class="limited-width intro">
+  <section class="limited-width intro">
     <Appear>
       <h1>
         Oh, hey! <span class="waving-hand">👋</span><br />
@@ -71,8 +71,8 @@ const showProjects = () => {
         <Photo class="photo" />
       </Parallax>
     </div>
-  </div>
-  <div class="about-me">
+  </section>
+  <section class="about-me">
     <Appear class="limited-width">
       <div class="limited-width-small">
         <h2>Just a bit more about me</h2>
@@ -108,6 +108,7 @@ const showProjects = () => {
                 class="link-block"
                 href="https://youtu.be/jcZUPDMXzJ8"
                 target="_blank"
+                rel="nofollow noopener noreferrer"
                 >this scene</a
               >
               in which Dumbo drinks alcohol, and the filmmakers took it as an
@@ -133,8 +134,8 @@ const showProjects = () => {
         </transition>
       </div>
     </Appear>
-  </div>
-  <div class="skills">
+  </section>
+  <section class="skills">
     <Appear class="skills-content limited-width">
       <h2 class="skills-title">
         What I can handle&nbsp;<em
@@ -146,7 +147,9 @@ const showProjects = () => {
         <SkillElement>Typescript</SkillElement>
         <SkillElement>Vue</SkillElement>
         <SkillElement>Angular</SkillElement>
-        <SkillElement>SVG</SkillElement>
+        <SkillElement
+          ><abbr title="Scalable Vector Graphics">SVG</abbr></SkillElement
+        >
         <transition name="appear">
           <SkillElement v-show="moreTechonologiesShown">d3</SkillElement>
         </transition>
@@ -201,23 +204,33 @@ const showProjects = () => {
       <SkillsList>
         <SkillElement>Agile</SkillElement>
         <SkillElement>V-model</SkillElement>
-        <SkillElement>SEO</SkillElement>
-        <SkillElement>Jira</SkillElement>
+        <SkillElement
+          ><abbr title="Search Engine Optimisation">SEO</abbr></SkillElement
+        >
+        <SkillElement><span title="Atlassian Jira">Jira</span></SkillElement>
         <transition name="appear">
           <SkillElement v-show="moreOtherShown"
-            >Illustrator&nbsp;+ Inkscape</SkillElement
+            ><span title="Adobe Illustrator">Illustrator</span>&nbsp;+
+            Inkscape</SkillElement
           >
         </transition>
         <transition name="appear">
           <SkillElement v-show="moreOtherShown"
-            >Photoshop&nbsp;+ GIMP</SkillElement
+            ><span title="Adobe Photoshop">Photoshop</span>&nbsp;+
+            <abbr title="GNU Image Manipulation Program"
+              >GIMP</abbr
+            ></SkillElement
           >
         </transition>
         <transition name="appear">
-          <SkillElement v-show="moreOtherShown">XD</SkillElement>
+          <SkillElement v-show="moreOtherShown"
+            ><span title="Adobe XD">XD</span></SkillElement
+          >
         </transition>
         <transition name="appear">
-          <SkillElement v-show="moreOtherShown">InDesign</SkillElement>
+          <SkillElement v-show="moreOtherShown"
+            ><span title="Adobe InDesign">InDesign</span></SkillElement
+          >
         </transition>
       </SkillsList>
       <button
@@ -228,135 +241,146 @@ const showProjects = () => {
         <More bold vertical size="m">and more</More>
       </button>
     </Appear>
-  </div>
-  <div class="past limited-width">
+  </section>
+  <section class="past limited-width">
     <h2>What I did in the past</h2>
     <div class="two-columns">
       <Appear class="projects-container">
-        <h3>Cool projects</h3>
-        <ul>
-          <ProjectLink
-            name="MIÀM - Overall project"
-            type="school project"
-            symbol="🏗"
-            to="/work/miam"
-          />
-          <ProjectLink
-            name="MIÀM - Teaching"
-            type="school project"
-            symbol="👨‍🏫"
-            to="/work/miam-teaching"
-          />
-          <ProjectLink
-            name="Proof of concept design system icon component"
-            type="work project"
-            symbol="📐"
-            to="/work/design-system-icon-component"
-          />
-          <transition name="appear">
+        <section>
+          <h3>Cool projects</h3>
+          <ul>
             <ProjectLink
-              v-show="moreProjectsShown"
-              name="Adapt GEO’s interfaces for tactile usage"
+              name="MIÀM - Overall project"
+              type="school project"
+              symbol="🏗"
+              to="/work/miam"
+            />
+            <ProjectLink
+              name="MIÀM - Teaching"
+              type="school project"
+              symbol="👨‍🏫"
+              to="/work/miam-teaching"
+            />
+            <ProjectLink
+              name="Proof of concept design system icon component"
               type="work project"
-              symbol="📱"
-              to="/work/tactile-adaptations"
+              symbol="📐"
+              to="/work/design-system-icon-component"
             />
-          </transition>
-          <transition name="appear">
-            <ProjectLink
-              v-show="moreProjectsShown"
-              name="This site’s custom analytics"
-              type="personal project"
-              symbol="📊"
-              to="/work/analytics"
-            />
-          </transition>
-        </ul>
-        <button
-          v-if="!moreProjectsShown"
-          class="more-button reset-button more-target"
-          @click="showProjects()"
-        >
-          <More bold vertical>more projects</More>
-        </button>
+            <transition name="appear">
+              <ProjectLink
+                v-show="moreProjectsShown"
+                name="Adapt GEO’s interfaces for tactile usage"
+                type="work project"
+                symbol="📱"
+                to="/work/tactile-adaptations"
+              />
+            </transition>
+            <transition name="appear">
+              <ProjectLink
+                v-show="moreProjectsShown"
+                name="This site’s custom analytics"
+                type="personal project"
+                symbol="📊"
+                to="/work/analytics"
+              />
+            </transition>
+          </ul>
+          <button
+            v-if="!moreProjectsShown"
+            class="more-button reset-button more-target"
+            @click="showProjects()"
+          >
+            <More bold vertical>more projects</More>
+          </button>
+        </section>
       </Appear>
       <Appear>
-        <h3>Working</h3>
-        <ul>
-          <Experience
-            when-start="2019"
-            when-end="2021"
-            where="Ciril Group"
-            what="Web developer (R&D)"
-            notes="apprenticeship"
-          />
-          <Experience
-            when-start="2019"
-            when-months="four months"
-            when-months-short="4 mos."
-            where="Kryzalid"
-            what="Web developer"
-            notes="internship in montreal, qc"
-          />
-          <Experience
-            when-start="2018"
-            when-months="three months"
-            when-months-short="3 mos."
-            where="Tilkee"
-            what="Web developer"
-            notes="internship"
-          />
-          <Experience
-            when-start="2017"
-            when-end="2018"
-            where="Lyon 1 University"
-            what="Student tutor"
-            notes="around two hours a week"
-          />
-        </ul>
-        <h3>Studying</h3>
-        <ul>
-          <Experience
-            when-start="2019"
-            when-end="2021"
-            where="Institut G4"
-            what="IT Project Manager title (equivalent to Master’s)"
-            notes="project management"
-          />
-          <Experience
-            when-start="2018"
-            when-end="2019"
-            where="ICOM Lyon 2"
-            what="LP Métiers du Numérique (equivalent to Bachelor’s)"
-            notes="communication + media"
-          />
-          <Experience
-            when-start="2016"
-            when-end="2018"
-            where="IUT Lyon 1"
-            what="DUT Informatique (two-year degree)"
-            notes="computer science"
-          />
-        </ul>
-        <h3>Volunteering</h3>
-        <ul>
-          <Experience
-            when-start="2019"
-            when-end="2020"
-            where="Gaelis"
-            what="Solidarity grocery shop co-manager"
-          />
-        </ul>
+        <section>
+          <h3>Working</h3>
+          <ul>
+            <Experience
+              when-start="2019"
+              when-end="2021"
+              where="Ciril Group"
+              what="Web developer (<abbr title='Research and Development'>R&D</abbr>)"
+              notes="apprenticeship"
+            />
+            <Experience
+              when-start="2019"
+              when-months="four months"
+              when-months-short="4"
+              where="Kryzalid"
+              what="Web developer"
+              notes="internship in montreal, qc"
+            />
+            <Experience
+              when-start="2018"
+              when-months="three months"
+              when-months-short="3"
+              where="Tilkee"
+              what="Web developer"
+              notes="internship"
+            />
+            <Experience
+              when-start="2017"
+              when-end="2018"
+              where="Lyon 1 University"
+              what="Student tutor"
+              notes="around two hours a week"
+            />
+          </ul>
+        </section>
+        <section>
+          <h3>Studying</h3>
+          <ul>
+            <Experience
+              when-start="2019"
+              when-end="2021"
+              where="Institut G4"
+              what="<abbr title='Information Technology'>IT</abbr> Project Manager title (equivalent to Master’s)"
+              notes="project management"
+            />
+            <Experience
+              when-start="2018"
+              when-end="2019"
+              where="<abbr title='Institut de la COMmunication'>ICOM</abbr> Lyon 2"
+              what="<abbr title='Licence Professionnelle'>LP</abbr> Métiers du Numérique (equivalent to Bachelor’s)"
+              notes="communication + media"
+            />
+            <Experience
+              when-start="2016"
+              when-end="2018"
+              where="<abbr title='Institut Universitaire de Technologie'>IUT</abbr> Lyon 1"
+              what="<abbr title='Diplôme Universitaire de Technologie'>DUT</abbr> Informatique (two-year degree)"
+              notes="computer science"
+            />
+          </ul>
+        </section>
+        <section>
+          <h3>Volunteering</h3>
+          <ul>
+            <Experience
+              when-start="2019"
+              when-end="2020"
+              where="Gaelis"
+              what="Solidarity grocery shop co-manager"
+            />
+          </ul>
+        </section>
       </Appear>
     </div>
+  </section>
+  <section>
     <Appear class="reference limited-width-medium">
       <h2>Colleagues saying stuff</h2>
       <figure>
         <figcaption>
           <a
-            href="https://www.linkedin.com/in/cyril-richard-73a6b3122/"
             class="name reset-link"
+            href="https://www.linkedin.com/in/cyril-richard-73a6b3122/"
             target="_blank"
+            rel="nofollow noopener"
           >
             <CyrilPhoto class="picture" />
             <div class="author">
@@ -371,7 +395,8 @@ const showProjects = () => {
             supervising for 2 years.
           </p>
           <p>
-            He is a perfectionist and his technical proficiency, his UX
+            He is a perfectionist and his technical proficiency, his
+            <abbr title="User eXperience">UX</abbr>
             sensibility and his constant attention to “small details” make him a
             great asset for a team.
           </p>
@@ -392,8 +417,8 @@ const showProjects = () => {
         </blockquote>
       </figure>
     </Appear>
-  </div>
-  <div class="aside-from-work">
+  </section>
+  <section class="aside-from-work">
     <Appear class="limited-width">
       <div class="limited-width-small">
         <h2>Aside from work</h2>
@@ -418,7 +443,7 @@ const showProjects = () => {
         </ul>
       </div>
     </Appear>
-  </div>
+  </section>
 </template>
 
 <style scoped>

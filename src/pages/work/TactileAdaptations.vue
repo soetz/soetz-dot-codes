@@ -12,9 +12,10 @@ import SkillElement from "../../components/SkillElement.vue";
     </template>
     <template #summary>
       <p>
-        GEO is a flexible GIS engine/app from Ciril Group. I spent around two
-        weeks making sure its different interfaces had maximum usability on
-        tactile and smaller devices.
+        GEO is a flexible
+        <abbr title="Geographic Information System">GIS</abbr> engine/app from
+        Ciril Group. I spent around two weeks making sure its different
+        interfaces had maximum usability on tactile and smaller devices.
       </p>
     </template>
     <template #context>
@@ -52,6 +53,7 @@ import SkillElement from "../../components/SkillElement.vue";
           href="https://www.linkedin.com/in/loic-picavet/"
           target="_blank"
           class="link-block"
+          rel="nofollow noopener"
           >Loïc</a
         >
         to know what his opinion about every one of them was. That’s why we

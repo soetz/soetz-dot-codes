@@ -16,9 +16,10 @@ import SkillElement from "../../components/SkillElement.vue";
     <template #summary>
       <p>
         <a
+          class="link-block"
           href="https://www.linkedin.com/in/jonathan-germain/"
           target="_blank"
-          class="link-block"
+          rel="nofollow noopener"
           >Jonathan</a
         >
         and I taught the basics of Angular to a class of ~20 students (one day

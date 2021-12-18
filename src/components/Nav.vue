@@ -27,7 +27,7 @@ import { RouterLink } from "vue-router";
           <LinksIcon class="nav-icon" />
         </RouterLink>
       </li>
-      <li class="extra-line"></li>
+      <li class="extra-line" aria-hidden="true"></li>
     </ul>
   </nav>
 </template>

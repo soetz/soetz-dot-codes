@@ -31,16 +31,18 @@ import SkillElement from "../../components/SkillElement.vue";
         That year, the project (named <em>MIÀM</em> for ‘Mon Intranet À Moi’)
         consisted in building an app that would help NGO
         <a
+          class="link-block"
           href="https://www.entrepreneursdumonde.org/en/"
           target="_blank"
-          class="link-block"
+          rel="nofollow noopener"
           >Entrepreneurs du Monde</a
         >
         in managing their
         <a
+          class="link-block"
           href="https://www.entrepreneursdumonde.org/en/interactive-map/#6744"
           target="_blank"
-          class="link-block"
+          rel="nofollow noopener"
           >ICI programme</a
         >. The app needed to support management of training, hindrances,
         contacts, documents and more by the entrepreneurs participating in the
@@ -77,9 +79,10 @@ import SkillElement from "../../components/SkillElement.vue";
 
       <p>
         We leveraged Nextcloud and its API as the document-management system of
-        the app. We also made an extensive use of GitLab’s CI/CD pipelines
-        throughout the project, and that made us save a lot of testing/merging
-        time and complexity.
+        the app. We also made an extensive use of GitLab’s
+        <abbr title="Continuous Integration/Continuous Development">CI/CD</abbr>
+        pipelines throughout the project, and that made us save a lot of
+        testing/merging time and complexity.
       </p>
     </template>
     <template #problem-solving>
@@ -90,10 +93,11 @@ import SkillElement from "../../components/SkillElement.vue";
       </p>
 
       <p>
-        Our response was to integrate SonarQube to the CI/CD pipeline so that it
-        would generate a report each time a developer pushes on his branch. This
-        saved us a lot of time because most of the issues were detected by the
-        system and didn’t require any human input.
+        Our response was to integrate SonarQube to the
+        <abbr title="Continuous Integration/Continuous Development">CI/CD</abbr>
+        pipeline so that it would generate a report each time a developer pushes
+        on his branch. This saved us a lot of time because most of the issues
+        were detected by the system and didn’t require any human input.
       </p>
 
       <p>

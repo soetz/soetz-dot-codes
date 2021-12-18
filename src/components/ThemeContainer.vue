@@ -214,4 +214,8 @@ code {
   font-family: source-code-pro, monospace;
   font-size: 0.96em;
 }
+
+abbr {
+  text-decoration-line: none;
+}
 </style>

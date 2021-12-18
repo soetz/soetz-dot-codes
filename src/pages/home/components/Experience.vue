@@ -1,4 +1,5 @@
 <script setup lang="ts">
+/* eslint-disable vue/no-v-html */
 const props = defineProps({
   whenStart: {
     default: "",
@@ -35,18 +36,23 @@ const props = defineProps({
   <li class="experience">
     <div class="when">
       <div class="years">
-        <div>{{ props.whenStart }}</div>
+        <time :datetime="props.whenStart">{{ props.whenStart }}</time>
         <div v-if="props.whenEnd" class="union">-</div>
-        <div v-if="props.whenEnd">{{ props.whenEnd }}</div>
+        <time v-if="props.whenEnd" :datetime="props.whenEnd">{{
+          props.whenEnd
+        }}</time>
       </div>
       <div v-if="props.whenMonths" class="months">{{ props.whenMonths }}</div>
-      <div v-if="props.whenMonthsShort" class="months months-short">{{
-        props.whenMonthsShort
-      }}</div>
+      <abbr
+        v-if="props.whenMonthsShort"
+        :title="props.whenMonthsShort + ' months'"
+        class="months months-short"
+        >{{ props.whenMonthsShort }} mos.</abbr
+      >
     </div>
     <div class="position">
-      <div class="where">{{ props.where }}</div>
-      <div class="what">{{ " " + props.what }}</div>
+      <div class="where" v-html="props.where"></div>
+      <div class="what" v-html="'&nbsp;' + props.what"></div>
     </div>
     <div v-if="props.notes" class="notes">{{ props.notes }}</div>
     <div class="experience-background"></div>

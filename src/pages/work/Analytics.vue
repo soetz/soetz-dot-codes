@@ -12,7 +12,9 @@ import SkillElement from "../../components/SkillElement.vue";
       <SkillElement>MongoDB</SkillElement>
       <SkillElement>Vue</SkillElement>
       <SkillElement>Vite</SkillElement>
-      <SkillElement>SSR</SkillElement>
+      <SkillElement
+        ><abbr title="Server-Side Rendering">SSR</abbr></SkillElement
+      >
     </template>
     <template #summary>
       <p>
@@ -24,10 +26,11 @@ import SkillElement from "../../components/SkillElement.vue";
       <p>
         I wanted to be able to measure how this site is performing and what the
         typical user journey was, but I also really care about people’s right to
-        privacy (and didn’t want to show an ugly GDPR banner) so I couldn’t rely
-        on Google’s or any other third-party system (that I have knowledge of).
-        And I’ve also been wanting to conduct some experiments with server-side
-        rendering for some time.
+        privacy (and didn’t want to show an ugly
+        <abbr title="General Data Protection Regulation">GDPR</abbr> banner) so
+        I couldn’t rely on Google’s or any other third-party system (that I have
+        knowledge of). And I’ve also been wanting to conduct some experiments
+        with server-side rendering for some time.
       </p>
 
       <p>
@@ -46,24 +49,28 @@ import SkillElement from "../../components/SkillElement.vue";
       </p>
 
       <p>
-        The app may be server-side rendered, it’s still an SPA, so navigations
-        don’t require a new server render (at least when JavaScript is enabled
-        on the client side). Which means we need some kind of server to record
+        The app may be server-side rendered, it’s still an
+        <abbr title="Single-Page Application">SPA</abbr>, so navigations don’t
+        require a new server render (at least when JavaScript is enabled on the
+        client side). Which means we need some kind of server to record
         navigations. I could’ve used a websocket for this because the
         ‘connected’ philosophy made sense, but I was concerned with the
         server-side cost of maintaining a certain number of connections. That is
-        why I chose to make it a good old REST API. I used Express for it
-        because the needs were extra simple and that is what the client app is
-        using for SSR.
+        why I chose to make it a good old
+        <abbr title="REpresentational State Transfer">REST</abbr>
+        <abbr title="Application Programming Interface">API</abbr>. I used
+        Express for it because the needs were extra simple and that is what the
+        client app is using for <abbr title="Server-Side Rendering">SSR</abbr>.
       </p>
     </template>
     <template #problem-solving>
       <p>
         I’ve read a few
         <a
+          class="link-block"
           href="https://www.joshwcomeau.com/blog/how-i-built-my-blog/#api-routes"
           target="_blank"
-          class="link-block"
+          rel="nofollow noopener"
           >stories of people building that kind of system and getting trolled</a
         >
         so I wanted to make sure mine gave the trolls at least a little
@@ -88,8 +95,9 @@ import SkillElement from "../../components/SkillElement.vue";
     </template>
     <template #lessons>
       <li>
-        A GDPR banner is only necessary if you store some kind of personal
-        information, which is not my case
+        A <abbr title="General Data Protection Regulation">GDPR</abbr> banner is
+        only necessary if you store some kind of personal information, which is
+        not my case
       </li>
       <li>
         Using MongoDB with Node is super easy (which is not surprising since
