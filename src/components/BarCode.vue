@@ -4,7 +4,9 @@
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink"
     viewBox="0 0 234 57.2"
+    role="img"
   >
+    <title>A barcode</title>
     <g>
       <rect width="3" height="57.2" />
       <rect x="4.5" width="1.5" height="57.2" />

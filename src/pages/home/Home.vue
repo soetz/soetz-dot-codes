@@ -74,7 +74,7 @@ const showProjects = () => {
   </section>
   <section class="about-me">
     <Appear class="limited-width">
-      <div class="limited-width-small">
+      <div class="limited-width-small" role="presentation">
         <h2>Just a bit more about me</h2>
         <p>
           First of all, I’m extra excited that you came to visit my website!!
@@ -374,17 +374,18 @@ const showProjects = () => {
   <section class="limited-width overflow-visible">
     <Appear class="reference overflow-visible limited-width-medium">
       <h2>Colleagues saying stuff</h2>
-      <figure>
+      <figure aria-labelledby="cyril-name">
         <figcaption>
           <a
             class="name reset-link"
             href="https://www.linkedin.com/in/cyril-richard-73a6b3122/"
             target="_blank"
             rel="nofollow noopener"
+            aria-labelledby="cyril-name"
           >
             <CyrilPhoto class="picture" />
             <div class="author">
-              <span class="name">Cyril Richard</span>
+              <span id="cyril-name" class="name">Cyril Richard</span>
               <span>Lead developer&nbsp;@ Ciril Group</span>
             </div>
           </a>

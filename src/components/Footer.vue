@@ -11,17 +11,26 @@ import TwitterIcon from "./icons/social/TwitterIcon.vue";
       <div class="links-container">
         <ul class="social">
           <li>
-            <a href="https://www.twitter.com/soetzcodes/">
+            <a
+              href="https://www.twitter.com/soetzcodes/"
+              aria-labelledby="twitter-icon-title"
+            >
               <TwitterIcon class="social-icon" />
             </a>
           </li>
           <li>
-            <a href="https://www.github.com/soetz/">
+            <a
+              href="https://www.github.com/soetz/"
+              aria-labelledby="github-icon-title"
+            >
               <GithubIcon class="social-icon" />
             </a>
           </li>
           <li>
-            <a href="https://www.gitlab.com/soetz/">
+            <a
+              href="https://www.gitlab.com/soetz/"
+              aria-labelledby="gitlab-icon-title"
+            >
               <GitlabIcon class="social-icon" />
             </a>
           </li>

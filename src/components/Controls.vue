@@ -30,6 +30,7 @@ const themeToggle = () => {
   <div class="controls-container">
     <button
       class="control reset-button"
+      aria-labelledby="theme-title"
       @mouseenter="themeHoverChange(true)"
       @mouseleave="themeHoverChange(false)"
       @focus="themeFocusChange(true)"

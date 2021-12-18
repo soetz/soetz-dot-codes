@@ -68,7 +68,7 @@ const responsiveSizes = `
     />
     <img
       :src="png2xBig"
-      alt="A cut photo of Simon with his hands on his hips, like he’s ready for anything."
+      alt="A cut photo of Simon smiling with his hands on his hips, like he’s ready for anything."
     />
   </picture>
 </template>

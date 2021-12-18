@@ -40,7 +40,7 @@ onUnmounted(() => {
 
 <template>
   <div class="trigger">
-    <div class="parallax">
+    <div class="parallax" role="presentation">
       <slot></slot>
     </div>
   </div>

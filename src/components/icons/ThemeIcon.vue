@@ -142,7 +142,13 @@ onUnmounted(() => {
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink"
     viewBox="0 0 24 24"
+    role="img"
+    aria-describedby="theme-description"
   >
+    <title id="theme-title">Toggle between light and dark theme</title>
+    <desc id="theme-description">
+      A sun when the current theme is light and a moon when it is dark.
+    </desc>
     <defs>
       <mask id="sun-to-moon">
         <rect x="0" y="0" width="24" height="24" />

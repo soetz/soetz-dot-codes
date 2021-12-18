@@ -23,14 +23,20 @@ const props = defineProps({
 
 <template>
   <li>
-    <RouterLink class="project-link more-target" :to="props.to">
-      <div class="visual">
+    <RouterLink
+      class="project-link more-target"
+      :to="props.to"
+      :aria-label="props.name"
+    >
+      <div class="visual" role="presentation">
         <span class="symbol">{{ props.symbol }}</span>
       </div>
-      <div class="description">
+      <div class="description" role="presentation">
         <div class="project-type">{{ props.type }}</div>
         <div class="project-name">{{ props.name }}</div>
-        <More size="s" class="see-more">see the details</More>
+        <More size="s" class="see-more" aria-hidden="true"
+          >see the details</More
+        >
       </div>
     </RouterLink>
   </li>

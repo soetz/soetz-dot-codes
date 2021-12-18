@@ -4,8 +4,12 @@ import { RouterLink } from "vue-router";
 </script>
 
 <template>
-  <RouterLink to="/contact" class="contact-call-to-action">
-    <div class="call-to-action-background"></div>
+  <RouterLink
+    to="/contact"
+    class="contact-call-to-action"
+    aria-labelledby="contact-call-to-action-title"
+  >
+    <div class="call-to-action-background" role="presentation"></div>
     <MailIcon class="mail-icon" />
     <div class="call-to-action-text-transform-container">
       <svg
@@ -14,7 +18,9 @@ import { RouterLink } from "vue-router";
         xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink"
         viewBox="0 0 90 90"
+        role="img"
       >
+        <title id="contact-call-to-action-title">Contact me</title>
         <defs>
           <g id="contact-me-text">
             <path

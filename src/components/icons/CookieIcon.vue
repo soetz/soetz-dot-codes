@@ -4,7 +4,9 @@
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink"
     viewBox="0 0 24 12"
+    role="img"
   >
+    <title>Cookie icon</title>
     <g>
       <polygon
         points="4.795,11.949 4.974,11.103 5.546,10.127 5.946,8.788 6.352,7.952 7.318,7.173 7.898,6.055 9.71,5.082 

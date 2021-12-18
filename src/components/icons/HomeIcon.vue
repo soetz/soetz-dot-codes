@@ -4,7 +4,9 @@
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink"
     viewBox="0 0 24 24"
+    role="img"
   >
+    <title>Home icon</title>
     <g>
       <polyline points="2,12.56 12,4.78 22,12.56 	" />
       <polyline points="6.44,9.22 6.44,19.22 17.56,19.22 17.56,9.22 	" />

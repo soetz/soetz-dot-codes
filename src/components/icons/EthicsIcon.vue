@@ -4,7 +4,9 @@
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink"
     viewBox="0 0 24 24"
+    role="img"
   >
+    <title>Heart icon</title>
     <g>
       <path
         d="M12,19.52c1.98-1,6.33-3.64,8-8c0.53-1.39,0.88-3.34,0-5c-0.76-1.43-2.05-2.23-4-2

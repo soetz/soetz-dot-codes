@@ -4,7 +4,9 @@
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink"
     viewBox="0 0 24 24"
+    role="img"
   >
+    <title id="twitter-icon-title">Twitter</title>
     <g>
       <path
         d="M20.5,6.8c-0.6,0.3-1.3,0.5-2,0.5c0.7-0.4,1.3-1.1,1.5-1.9c-0.7,0.4-1.4,0.7-2.2,0.8c-0.6-0.7-1.5-1.1-2.5-1.1

@@ -4,7 +4,14 @@
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink"
     viewBox="0 0 220 24"
+    role="img"
+    aria-describedby="logo-description"
   >
+    <title id="logo-title">soetz.codes</title>
+    <desc id="logo-description">
+      soetz.codes written in bold font. When hovered, the letters spread out and
+      others appear so that it reads ‘simon lecutiez codes’.
+    </desc>
     <g>
       <!-- s -->
       <path

@@ -31,7 +31,11 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div ref="element" :class="{ appear: isMounted, appeared: isVisible }">
+  <div
+    ref="element"
+    :class="{ appear: isMounted, appeared: isVisible }"
+    role="presentation"
+  >
     <slot></slot>
   </div>
 </template>

@@ -4,7 +4,9 @@
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink"
     viewBox="0 0 24 24"
+    role="img"
   >
+    <title id="github-icon-title">Github</title>
     <g>
       <path
         d="M12,4c-4.4,0-8,3.6-8,8c0,3.5,2.3,6.5,5.5,7.6c0.4,0.1,0.5-0.2,0.5-0.4v-1.5c-2.2,0.5-2.7-0.9-2.7-0.9

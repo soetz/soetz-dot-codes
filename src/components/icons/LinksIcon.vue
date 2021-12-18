@@ -4,7 +4,9 @@
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink"
     viewBox="0 0 24 24"
+    role="img"
   >
+    <title>Chain icon</title>
     <g>
       <path
         d="M10.24,9.65c0.54,0,1.04,0.21,1.41,0.58c0.78,0.78,0.78,2.04,0,2.82L7.39,17.3c-0.37,0.37-0.87,0.58-1.41,0.58

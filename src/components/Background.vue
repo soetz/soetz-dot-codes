@@ -147,8 +147,12 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="background-container">
-    <canvas ref="canvas"></canvas>
+  <div class="background-container" role="presentation">
+    <canvas
+      ref="canvas"
+      role="img"
+      aria-label="An animated background that consists of random shapes slowly evolving. A bit like a lava lamp."
+    ></canvas>
   </div>
 </template>
 

@@ -4,7 +4,9 @@
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink"
     viewBox="0 0 24 24"
+    role="img"
   >
+    <title id="gitlab-icon-title">Gitlab</title>
     <g>
       <path
         d="M20.052,13.151l-0.863-2.657c0,0.001,0.001,0.002,0.001,0.004c0-0.001-0.001-0.003-0.001-0.004c0,0,0,0,0,0

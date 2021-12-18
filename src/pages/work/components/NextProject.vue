@@ -23,7 +23,11 @@ const props = defineProps({
 </script>
 
 <template>
-  <RouterLink class="next-project more-target" :to="props.to">
+  <RouterLink
+    class="next-project more-target"
+    :to="props.to"
+    :aria-label="props.title"
+  >
     <div class="visual">
       <span class="symbol">{{ props.symbol }}</span>
     </div>

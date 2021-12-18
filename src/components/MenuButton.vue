@@ -37,13 +37,20 @@ watch(
 </script>
 
 <template>
-  <button class="menu-button">
+  <button class="menu-button" aria-labelledby="menu-button-title">
     <svg
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       xmlns:xlink="http://www.w3.org/1999/xlink"
       viewBox="0 0 24 24"
+      role="img"
+      aria-describedby="menu-button-description"
     >
+      <title id="menu-button-title">Open or close the menu</title>
+      <desc id="menu-button-description">
+        An arrow that changes direction depending on whether clicking it will
+        open or close the menu.
+      </desc>
       <line x1="3" y1="12" x2="21" y2="12" />
       <polyline :points="arrowShape" />
     </svg>

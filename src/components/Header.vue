@@ -43,25 +43,32 @@ onBeforeUnmount(() => {
 
 <template>
   <header :class="{ 'menu-open': menuIsOpen, 'scrolled': isScrolled }">
-    <div class="barcode-container">
+    <div class="barcode-container" role="presentation">
       <BarCode class="barcode" />
     </div>
     <div class="header-responsive-container">
       <div class="menu-background-fullscreen"></div>
       <div class="menu-background-normal"></div>
-      <div class="menu-background-hitbox" @click="menuBackgroundClick"></div>
-      <RouterLink class="main-link logo-target" to="/">
+      <div
+        class="menu-background-hitbox"
+        aria-hidden="true"
+        @click="menuBackgroundClick"
+      ></div>
+      <RouterLink
+        class="main-link logo-target"
+        to="/"
+        aria-labelledby="logo-title"
+      >
         <Logo />
       </RouterLink>
       <div class="menu">
         <div class="menu-content">
           <Nav class="navigation" />
-          <Controls class="controls-container" />
+          <Controls class="controls-container" role="presentation" />
         </div>
         <MenuButton
           class="menu-button"
           :menu-is-open="menuIsOpen"
-          aria-hidden="true"
           @click="toggleMenu"
         />
       </div>
