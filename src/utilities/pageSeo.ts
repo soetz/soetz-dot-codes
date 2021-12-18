@@ -89,6 +89,22 @@ const updatePageSocialImage = (routeMetaSocialImage?: string): void => {
   }
 };
 
+const pageRobots = (routeMetaRobots?: string): string => {
+  if (routeMetaRobots) {
+    return routeMetaRobots;
+  } else {
+    return "";
+  }
+};
+
+const updateRobots = (routeMetaRobots?: string): void => {
+  const robots = pageRobots(routeMetaRobots);
+  const metaRobots = document.querySelector("meta[name=robots]");
+  if (metaRobots) {
+    metaRobots.setAttribute("content", robots);
+  }
+};
+
 const pageUrl = (routePath?: string): string | null => {
   if (routePath) {
     return "https://soetz.codes" + routePath;
@@ -111,6 +127,7 @@ const updatePageSeo = (route: RouteLocationNormalized): void => {
     updatePageDescription(route.meta.description);
     updatePageKeywords(route.meta.keywords);
     updatePageSocialImage(route.meta.socialImage);
+    updateRobots(route.meta.robots);
     updatePageUrl(route.path);
   }
 };
@@ -121,5 +138,6 @@ export {
   pageKeywords,
   pageSocialImage,
   pageUrl,
+  pageRobots,
   updatePageSeo,
 };

@@ -7,5 +7,6 @@ declare module "vue-router" {
     description?: string;
     keywords?: string;
     socialImage?: string;
+    robots?: string; // control search engine indexation of pages
   }
 }

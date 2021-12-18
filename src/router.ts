@@ -20,7 +20,8 @@ const routes = [
     path: "/",
     component: Home,
     meta: {
-      color: "orange", // see utilities/pageSeo for title and meta
+      // see utilities/pageSeo for title and meta
+      color: "orange",
       socialImage: "home.0",
     },
     name: "home",
@@ -39,7 +40,7 @@ const routes = [
   {
     path: "/legal",
     component: Legal,
-    meta: { color: "orange", title: "Mentions légales" },
+    meta: { color: "orange", title: "Mentions légales", robots: "none" },
   },
   {
     path: "/work/miam",

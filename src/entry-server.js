@@ -1,6 +1,7 @@
 import {
   pageDescription,
   pageKeywords,
+  pageRobots,
   pageSocialImage,
   pageTitle,
   pageUrl,
@@ -74,6 +75,7 @@ export async function render(url, manifest, mongoClient) {
     router.currentRoute.value.meta?.description,
     router.currentRoute.value.meta?.keywords,
     router.currentRoute.value.meta?.socialImage,
+    router.currentRoute.value.meta?.robots,
     router.currentRoute.value.path
   );
 
@@ -85,6 +87,7 @@ function renderPageSeo(
   routeMetaDescription,
   routeMetaKeywords,
   routeMetaSocialImage,
+  routeMetaRobots,
   routePath
 ) {
   const title = pageTitle(routeMetaTitle);
@@ -92,6 +95,7 @@ function renderPageSeo(
   const description = pageDescription(routeMetaDescription);
   const keywords = pageKeywords(routeMetaKeywords);
   const socialImageUrl = pageSocialImage(routeMetaSocialImage);
+  const robots = pageRobots(routeMetaRobots);
   const url = pageUrl(routePath);
   return `
     <title>${title}</title>
@@ -108,6 +112,7 @@ function renderPageSeo(
           `
         : `<meta name="twitter:card" content="summary" />`
     }
+    <meta name="robots" content="${robots}" />
   `;
 }
 
