@@ -50,7 +50,7 @@ onBeforeUnmount(() => {
       <div class="menu-background-fullscreen"></div>
       <div class="menu-background-normal"></div>
       <div class="menu-background-hitbox" @click="menuBackgroundClick"></div>
-      <RouterLink class="main-link" to="/">
+      <RouterLink class="main-link logo-target" to="/">
         <Logo />
       </RouterLink>
       <div class="menu">
@@ -61,6 +61,7 @@ onBeforeUnmount(() => {
         <MenuButton
           class="menu-button"
           :menu-is-open="menuIsOpen"
+          aria-hidden="true"
           @click="toggleMenu"
         />
       </div>

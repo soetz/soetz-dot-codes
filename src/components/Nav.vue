@@ -153,7 +153,8 @@ li:before {
   transition: transform 0.3s ease-in-out;
 }
 
-.nav-link:hover .nav-icon {
+.nav-link:hover .nav-icon,
+.nav-link:focus .nav-icon {
   transform: none;
 }
 
@@ -222,7 +223,8 @@ li:before {
     transition: transform 0.2s ease-in-out;
   }
 
-  .nav-link:hover .nav-text {
+  .nav-link:hover .nav-text,
+  .nav-link:focus .nav-text {
     transform: translateY(-6px);
   }
 
@@ -259,7 +261,8 @@ li:before {
       background-color 0.5s ease-in-out;
   }
 
-  .nav-link:hover .nav-text:after {
+  .nav-link:hover .nav-text:after,
+  .nav-link:focus .nav-text:after {
     transform: translate(-50%, 0px);
     opacity: 1;
   }

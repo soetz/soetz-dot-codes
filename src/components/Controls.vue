@@ -3,11 +3,24 @@ import ThemeIcon from "./icons/ThemeIcon.vue";
 import { ref } from "vue";
 import { themeService } from "../services";
 
-const themeHovered = ref(false);
+const themeHoveredOrFocused = ref(false);
+let themeHovered = false;
+let themeFocused = false;
+
+const themeHoverOrFocusChange = () => {
+  themeHoveredOrFocused.value = themeHovered || themeFocused;
+};
 
 const themeHoverChange = (hovered: boolean) => {
-  themeHovered.value = hovered;
+  themeHovered = hovered;
+  themeHoverOrFocusChange();
 };
+
+const themeFocusChange = (focused: boolean) => {
+  themeFocused = focused;
+  themeHoverOrFocusChange();
+};
+
 const themeToggle = () => {
   themeService.explicitlySetThemeIsDark(!themeService.isDisplayedThemeDark());
 };
@@ -15,13 +28,16 @@ const themeToggle = () => {
 
 <template>
   <div class="controls-container">
-    <ThemeIcon
-      class="control theme-icon"
-      :is-hovered="themeHovered"
+    <button
+      class="control reset-button"
       @mouseenter="themeHoverChange(true)"
       @mouseleave="themeHoverChange(false)"
+      @focus="themeFocusChange(true)"
+      @blur="themeFocusChange(false)"
       @click="themeToggle"
-    />
+    >
+      <ThemeIcon class="theme-icon" :is-hovered="themeHoveredOrFocused" />
+    </button>
   </div>
 </template>
 
@@ -43,6 +59,9 @@ const themeToggle = () => {
 
 .theme-icon {
   display: none;
+
+  width: 100%;
+  height: 100%;
 }
 
 .theme-transition .theme-icon {

@@ -208,35 +208,45 @@ path {
   transform: translate(-93.39px);
 }
 
-svg:hover .character-3,
-svg:hover .character-6,
-svg:hover .character-9,
-svg:hover .character-12,
-svg:hover .character-end {
+.logo-target:hover .character-3,
+.logo-target:hover .character-6,
+.logo-target:hover .character-9,
+.logo-target:hover .character-12,
+.logo-target:hover .character-end,
+.logo-target:focus .character-3,
+.logo-target:focus .character-6,
+.logo-target:focus .character-9,
+.logo-target:focus .character-12,
+.logo-target:focus .character-end {
   transform: translate(0);
 }
 
-svg:hover path {
+.logo-target:hover path,
+.logo-target:focus path {
   transition: opacity 0.5s 0.5s ease-in-out, transform 0.4s 0.1s ease-out;
 }
 
-.theme-transition svg:hover path {
+.theme-transition .logo-target:hover path,
+.theme-transition .logo-target:focus path {
   transition: opacity 0.5s 0.5s ease-in-out, transform 0.4s 0.1s ease-out,
     fill 0.5s ease-in-out;
 }
 
-svg:hover .should-appear {
+.logo-target:hover .should-appear,
+.logo-target:focus .should-appear {
   opacity: 1;
 }
 
-svg:hover .should-disappear {
+.logo-target:hover .should-disappear,
+.logo-target:focus .should-disappear {
   opacity: 0;
   transform: scale(0.6);
 
   transition: opacity 0.2s ease-in, transform 0.5s;
 }
 
-.theme-transition svg:hover .should-disappear {
+.theme-transition .logo-target:hover .should-disappear,
+.theme-transition .logo-target:focus .should-disappear {
   transition: opacity 0.2s ease-in, transform 0.5s, fill 0.5s ease-in-out;
 }
 </style>
