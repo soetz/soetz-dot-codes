@@ -600,7 +600,7 @@ h1,
   column-gap: 20px;
 }
 
-.two-columns h3:first-child {
+.two-columns section:first-child h3 {
   margin-top: 0;
 }
 

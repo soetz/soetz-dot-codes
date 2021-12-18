@@ -6,5 +6,6 @@ export default defineConfig({
   plugins: [vue()],
   build: {
     assetsInlineLimit: 0,
+    sourcemap: true,
   },
 });
