@@ -136,7 +136,7 @@ const showProjects = () => {
     </Appear>
   </section>
   <section class="skills">
-    <Appear class="skills-content limited-width">
+    <Appear class="overflow-visible limited-width">
       <h2 class="skills-title">
         What I can handle&nbsp;<em
           >− but there’s always room for improvement</em
@@ -242,10 +242,10 @@ const showProjects = () => {
       </button>
     </Appear>
   </section>
-  <section class="past limited-width">
+  <section class="past limited-width overflow-visible">
     <h2>What I did in the past</h2>
     <div class="two-columns">
-      <Appear class="projects-container">
+      <Appear class="projects-container overflow-visible">
         <section>
           <h3>Cool projects</h3>
           <ul>
@@ -371,8 +371,8 @@ const showProjects = () => {
       </Appear>
     </div>
   </section>
-  <section>
-    <Appear class="reference limited-width-medium">
+  <section class="limited-width overflow-visible">
+    <Appear class="reference overflow-visible limited-width-medium">
       <h2>Colleagues saying stuff</h2>
       <figure>
         <figcaption>
@@ -604,10 +604,7 @@ h1,
   margin-top: 0;
 }
 
-.skills-content,
-.projects-container,
-.past,
-.reference {
+.overflow-visible {
   overflow-x: visible;
   overflow-y: visible;
 }

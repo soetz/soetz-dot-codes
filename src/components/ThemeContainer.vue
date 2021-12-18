@@ -200,6 +200,10 @@ h6 {
   font-family: new-spirit, serif;
 }
 
+h1 {
+  font-size: 2em;
+}
+
 code {
   padding-left: 6px;
   padding-right: 6px;
