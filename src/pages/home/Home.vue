@@ -66,9 +66,9 @@ const showProjects = () => {
       </p>
     </Appear>
     <div class="photo-container">
-      <Parallax class="parallax-container" :speed="0.2">
-        <PhotoEffect class="photo-effect" />
-        <Photo class="photo" />
+      <Parallax class="parallax-container" :speed="0.4">
+        <PhotoEffect class="stack photo-effect" />
+        <Photo class="stack photo" />
       </Parallax>
     </div>
   </section>
@@ -526,9 +526,11 @@ h1,
 
 .parallax-container {
   height: 100%;
+
+  position: relative;
 }
 
-.parallax-container > * {
+.stack {
   height: 100%;
 
   position: absolute;

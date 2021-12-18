@@ -1,40 +1,53 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted } from "@vue/runtime-core";
-import { ref } from "@vue/reactivity";
-import { throttle } from "lodash";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { gsap } from "gsap";
 
-const parallaxStyle = ref({});
+gsap.registerPlugin(ScrollTrigger);
 
 const props = defineProps({
   speed: {
     type: Number,
     default: 0,
   },
+  start: {
+    type: String,
+    default: "",
+  },
 });
 
-const updateParallaxOffset = throttle(() => {
-  parallaxStyle.value = {
-    transform: `translateY(${window.scrollY * props.speed}px)`,
-  };
-}, 10);
+let animation: gsap.core.Timeline | undefined;
 
 onMounted(() => {
-  window.addEventListener("scroll", updateParallaxOffset);
+  animation = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".trigger",
+      start: 0,
+      end: 800,
+      scrub: 0.5,
+    },
+  });
+  animation.to(".parallax", {
+    y: 400 * props.speed,
+    duration: 1,
+  });
 });
 
 onUnmounted(() => {
-  window.removeEventListener("scroll", updateParallaxOffset);
+  animation = undefined;
 });
 </script>
 
 <template>
-  <div class="parallax" :style="parallaxStyle">
-    <slot></slot>
+  <div class="trigger">
+    <div class="parallax">
+      <slot></slot>
+    </div>
   </div>
 </template>
 
 <style scoped>
 .parallax {
-  position: relative;
+  height: 100%;
 }
 </style>

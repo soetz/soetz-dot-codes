@@ -243,7 +243,7 @@ const props = defineProps({
     justify-content: center;
     align-items: center;
 
-    width: 50px;
+    min-width: 40px;
   }
 
   .years {

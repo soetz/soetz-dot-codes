@@ -78,8 +78,6 @@ header {
 
   top: 0;
   bottom: calc(100vh - 102px);
-
-  transition: bottom 0.5s ease-out;
 }
 
 .header-responsive-container {
@@ -99,8 +97,6 @@ header {
 
 header.menu-open {
   bottom: 0;
-
-  transition: bottom 0.5s ease-in;
 }
 
 .menu-background-normal {
@@ -165,7 +161,7 @@ header.scrolled.menu-open .menu-background-normal {
   left: 0;
   top: 0;
   right: 0;
-  bottom: 100vh;
+  bottom: 0;
 
   background-color: var(--theme-10);
   -webkit-backdrop-filter: blur(5px);
@@ -174,7 +170,10 @@ header.scrolled.menu-open .menu-background-normal {
     7px 14px 15px rgba(0, 0, 0, 0.016), 15px 30px 33px rgba(0, 0, 0, 0.022),
     50px 100px 120px rgba(0, 0, 0, 0.035);
 
-  transition: bottom 0.5s ease-out;
+  transform: scaleY(0);
+  transform-origin: top center;
+
+  transition: transform 0.5s ease-out;
 }
 
 .theme-dark .menu-background-fullscreen {
@@ -182,17 +181,17 @@ header.scrolled.menu-open .menu-background-normal {
 }
 
 .theme-transition .menu-background-fullscreen {
-  transition: bottom 0.5s ease-out, background-color 0.5s ease-in-out;
+  transition: transform 0.5s ease-out, background-color 0.5s ease-in-out;
 }
 
 header.menu-open .menu-background-fullscreen {
-  bottom: 0;
+  transform: scaleY(1);
 
-  transition: bottom 0.5s ease-in;
+  transition: transform 0.5s ease-in;
 }
 
 .theme-transition header.menu-open .menu-background-fullscreen {
-  transition: bottom 0.5s ease-in, background-color 0.5s ease-in-out;
+  transition: transform 0.5s ease-in, background-color 0.5s ease-in-out;
 }
 
 @supports (
@@ -276,8 +275,6 @@ header.menu-open .menu-background-fullscreen {
   bottom: 0;
 
   opacity: 0;
-
-  transition: opacity 0.1s ease-in-out;
 }
 
 @media screen and (max-height: 499px) and (max-width: 599px) {
@@ -289,7 +286,7 @@ header.menu-open .menu-background-fullscreen {
 .menu-open .barcode-container {
   opacity: 1;
 
-  transition: opacity 0.5s 0.2s ease-in-out;
+  transition: opacity 0.5s 0.6s ease-in-out;
 }
 
 .barcode {

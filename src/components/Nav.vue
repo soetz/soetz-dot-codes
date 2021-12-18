@@ -84,13 +84,16 @@ li:before {
 
   display: block;
 
-  width: 0;
+  width: 100%;
 
   border-top-color: var(--theme-700);
   border-top-style: solid;
   border-top-width: 2px;
 
-  transition: width 0.2s ease-out;
+  transform: scaleX(0);
+  transform-origin: left center;
+
+  transition: transform 0.2s ease-out;
 }
 
 .theme-dark li:before {
@@ -98,17 +101,17 @@ li:before {
 }
 
 .theme-transition li:before {
-  transition: width 0.2s ease-out, border-top-color 0.5s ease-in-out;
+  transition: transform 0.2s ease-out, border-top-color 0.5s ease-in-out;
 }
 
 .menu-open li:before {
-  width: 100%;
+  transform: scaleX(1);
 
-  transition: width 0.5s ease-out;
+  transition: transform 0.5s ease-out;
 }
 
 .theme-transition .menu-open li:before {
-  transition: width 0.5s ease-out, border-top-color 0.5s ease-in-out;
+  transition: transform 0.5s ease-out, border-top-color 0.5s ease-in-out;
 }
 
 .nav-link {
@@ -155,31 +158,31 @@ li:before {
 }
 
 .menu-open li:nth-child(2):before {
-  transition: width 0.5s 0.1s ease-out, border-top-color 0.5s ease-in-out;
+  transition: transform 0.5s 0.1s ease-out, border-top-color 0.5s ease-in-out;
 }
 
 .menu-open li:nth-child(3):before {
-  transition: width 0.5s 0.2s ease-out, border-top-color 0.5s ease-in-out;
+  transition: transform 0.5s 0.2s ease-out, border-top-color 0.5s ease-in-out;
 }
 
 .menu-open li:nth-child(4):before {
-  transition: width 0.5s 0.3s ease-out, border-top-color 0.5s ease-in-out;
+  transition: transform 0.5s 0.3s ease-out, border-top-color 0.5s ease-in-out;
 }
 
 .menu-open li:nth-child(5):before {
-  transition: width 0.5s 0.4s ease-out, border-top-color 0.5s ease-in-out;
+  transition: transform 0.5s 0.4s ease-out, border-top-color 0.5s ease-in-out;
 }
 
 .menu-open li:nth-child(6):before {
-  transition: width 0.5s 0.5s ease-out, border-top-color 0.5s ease-in-out;
+  transition: transform 0.5s 0.5s ease-out, border-top-color 0.5s ease-in-out;
 }
 
 .menu-open li:nth-child(7):before {
-  transition: width 0.5s 0.6s ease-out, border-top-color 0.5s ease-in-out;
+  transition: transform 0.5s 0.6s ease-out, border-top-color 0.5s ease-in-out;
 }
 
 .menu-open li:nth-child(8):before {
-  transition: width 0.5s 0.7s ease-out, border-top-color 0.5s ease-in-out;
+  transition: transform 0.5s 0.7s ease-out, border-top-color 0.5s ease-in-out;
 }
 
 @media screen and (min-width: 600px) {
