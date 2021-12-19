@@ -19,18 +19,23 @@ const props = defineProps({
 let animation: gsap.core.Timeline | undefined;
 
 onMounted(() => {
-  animation = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".trigger",
-      start: 0,
-      end: 800,
-      scrub: 0.5,
-    },
-  });
-  animation.to(".parallax", {
-    y: 400 * props.speed,
-    duration: 1,
-  });
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion)"
+  ).matches;
+  if (!prefersReducedMotion) {
+    animation = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".trigger",
+        start: 0,
+        end: 800,
+        scrub: 0.5,
+      },
+    });
+    animation.to(".parallax", {
+      y: 400 * props.speed,
+      duration: 1,
+    });
+  }
 });
 
 onUnmounted(() => {

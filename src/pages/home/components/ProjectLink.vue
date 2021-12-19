@@ -147,4 +147,10 @@ li:last-child {
     font-size: 65px;
   }
 }
+
+@media (prefers-reduced-motion) {
+  .symbol {
+    transition: none;
+  }
+}
 </style>

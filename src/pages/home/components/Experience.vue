@@ -292,4 +292,28 @@ const props = defineProps({
     margin-left: 0;
   }
 }
+
+@media (prefers-reduced-motion) {
+  .experience {
+    transition: none;
+  }
+
+  .theme-transition .experience {
+    transition: border-left-color 0.5s ease-in-out,
+      border-top-color 0.5s ease-in-out, border-right-color 0.5s ease-in-out,
+      border-bottom-color 0.5s ease-in-out;
+  }
+
+  .experience-background {
+    transition: none;
+  }
+
+  .theme-transition .experience-background {
+    transition: background-color 0.5s ease-in-out;
+  }
+
+  .experience:hover .experience-background {
+    transition: none;
+  }
+}
 </style>

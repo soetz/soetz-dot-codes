@@ -50,6 +50,12 @@ onUnmounted(() => {
   animation: appear 1.5s forwards;
 }
 
+@media (prefers-reduced-motion) {
+  .appear.appeared {
+    animation: appear-reduced-motion 1s forwards;
+  }
+}
+
 @keyframes appear {
   0% {
     opacity: 0.3;
@@ -62,6 +68,16 @@ onUnmounted(() => {
 
   100% {
     transform: none;
+  }
+}
+
+@keyframes appear-reduced-motion {
+  from {
+    opacity: 0.3;
+  }
+
+  to {
+    opacity: 1;
   }
 }
 </style>

@@ -371,4 +371,26 @@ header.menu-open .menu-background-fullscreen {
     opacity: 1;
   }
 }
+
+@media (prefers-reduced-motion) {
+  .menu-background-fullscreen {
+    transition: none;
+  }
+
+  .theme-transition .menu-background-fullscreen {
+    transition: background-color 0.5s ease-in-out;
+  }
+
+  header.menu-open .menu-background-fullscreen {
+    transition: none;
+  }
+
+  .theme-transition header.menu-open .menu-background-fullscreen {
+    transition: background-color 0.5s ease-in-out;
+  }
+
+  .menu {
+    transition: none;
+  }
+}
 </style>

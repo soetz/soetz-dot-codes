@@ -109,9 +109,13 @@ onMounted(() => {
     }
   };
 
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion)"
+  ).matches;
+
   const tick = () => {
     if (sceneProps) {
-      const elapsedTime = clock.getElapsedTime();
+      const elapsedTime = prefersReducedMotion ? 0 : clock.getElapsedTime();
       sceneProps.uniforms.u_time.value = elapsedTime / 1.0;
       sceneProps.uniforms.u_resolution.value.x =
         document.documentElement.clientWidth;

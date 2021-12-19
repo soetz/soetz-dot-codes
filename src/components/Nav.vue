@@ -275,4 +275,39 @@ li:before {
     display: none;
   }
 }
+
+@media (prefers-reduced-motion) {
+  li:before {
+    transition: none;
+  }
+
+  .theme-transition li:before {
+    transition: border-top-color 0.5s ease-in-out;
+  }
+
+  .menu-open nav li:before {
+    transition: none;
+  }
+  .theme-transition .menu-open li:before {
+    transition: border-top-color 0.5s ease-in-out;
+  }
+
+  .nav-icon {
+    transition: none;
+  }
+}
+
+@media screen and (min-width: 600px) and (prefers-reduced-motion) {
+  .nav-text {
+    transition: none;
+  }
+
+  .nav-text:after {
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .theme-transition .nav-text:after {
+    transition: opacity 0.3s ease-in-out, background-color 0.5s ease-in-out;
+  }
+}
 </style>

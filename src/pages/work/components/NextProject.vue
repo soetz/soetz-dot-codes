@@ -94,4 +94,10 @@ const props = defineProps({
   font-size: 20px;
   font-weight: 500;
 }
+
+@media (prefers-reduced-motion) {
+  .symbol {
+    transition: none;
+  }
+}
 </style>

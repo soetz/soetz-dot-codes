@@ -45,18 +45,26 @@ const routineThemeLight = () => {
   currentAnimations.push(hoverRaysRotateAnimation, hoverSizeAnimation);
 
   hoverChangeAction = (hovered: boolean) => {
-    if (hovered) {
-      hoverRaysRotateAnimation.play();
-      hoverSizeAnimation.play();
-    } else {
-      if (hoverRaysRotateAnimation.progress() < 0.33) {
-        hoverRaysRotateAnimation.tweenTo(0, { duration: 0.33 });
-        hoverSizeAnimation.tweenTo(0, { duration: 0.33 });
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion)"
+    ).matches;
+    if (!prefersReducedMotion) {
+      if (hovered) {
+        hoverRaysRotateAnimation.play();
+        hoverSizeAnimation.play();
       } else {
-        hoverRaysRotateAnimation.tweenTo(hoverRaysRotateAnimation.duration(), {
-          duration: 0.66,
-        });
-        hoverSizeAnimation.tweenTo(0, { duration: 0.66 });
+        if (hoverRaysRotateAnimation.progress() < 0.33) {
+          hoverRaysRotateAnimation.tweenTo(0, { duration: 0.33 });
+          hoverSizeAnimation.tweenTo(0, { duration: 0.33 });
+        } else {
+          hoverRaysRotateAnimation.tweenTo(
+            hoverRaysRotateAnimation.duration(),
+            {
+              duration: 0.66,
+            }
+          );
+          hoverSizeAnimation.tweenTo(0, { duration: 0.66 });
+        }
       }
     }
   };
@@ -71,18 +79,23 @@ const routineThemeDark = () => {
   currentAnimations.push(starsAnimation);
 
   hoverChangeAction = (hovered: boolean) => {
-    if (hovered) {
-      starsAnimation.play();
-    } else {
-      starsAnimation.pause();
-      gsap
-        .to(".stars path", {
-          duration: 0.6,
-          alpha: 0,
-        })
-        .then(() => {
-          starsAnimation.seek(0);
-        });
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion)"
+    ).matches;
+    if (!prefersReducedMotion) {
+      if (hovered) {
+        starsAnimation.play();
+      } else {
+        starsAnimation.pause();
+        gsap
+          .to(".stars path", {
+            duration: 0.6,
+            alpha: 0,
+          })
+          .then(() => {
+            starsAnimation.seek(0);
+          });
+      }
     }
   };
   hoverChange(props.isHovered);
@@ -109,10 +122,21 @@ const transitionFromDarkToLight = () => {
 };
 
 const themeChange = (event: Event) => {
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion)"
+  ).matches;
   if ((event as ThemeChangeEvent).newStateIsDark) {
-    transitionFromLightToDark();
+    if (!prefersReducedMotion) {
+      transitionFromLightToDark();
+    } else {
+      darkInitiation();
+    }
   } else {
-    transitionFromDarkToLight();
+    if (!prefersReducedMotion) {
+      transitionFromDarkToLight();
+    } else {
+      lightInitiation();
+    }
   }
 };
 
@@ -293,5 +317,23 @@ onUnmounted(() => {
 
 .outer-rays {
   fill: white;
+}
+
+@media (prefers-reduced-motion) {
+  /* gsap messes with the DOM which bugs theme transitions
+  so we deactivate them alltogether */
+
+  .theme-transition .sun,
+  .theme-transition .moon {
+    transition: none;
+  }
+
+  .theme-transition .rays {
+    transition: none;
+  }
+
+  .theme-transition .stars {
+    transition: none;
+  }
 }
 </style>

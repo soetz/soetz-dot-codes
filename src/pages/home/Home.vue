@@ -743,6 +743,21 @@ h1,
   }
 }
 
+@media (prefers-reduced-motion) {
+  .waving-hand {
+    animation: none;
+  }
+
+  .photo {
+    animation: none;
+  }
+
+  .appear-enter-active,
+  .theme-transition li.appear-enter-active {
+    transition: opacity 1s;
+  }
+}
+
 @keyframes waving-hand {
   from {
     transform: rotate(-15deg);

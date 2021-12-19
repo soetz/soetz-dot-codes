@@ -115,4 +115,10 @@ onMounted(() => {
 .more-target:focus svg polyline:first-child {
   opacity: 1;
 }
+
+@media (prefers-reduced-motion) {
+  .more svg {
+    transition: none;
+  }
+}
 </style>

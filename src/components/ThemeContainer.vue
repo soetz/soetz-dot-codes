@@ -133,6 +133,8 @@ a.link-block {
 .theme-dark .link-block,
 .theme-dark a.link-block {
   color: var(--theme-10);
+
+  transition: box-shadow 0.2s ease-out;
 }
 
 .theme-transition .link-block,
@@ -149,6 +151,7 @@ a.link-block:focus {
   --link-block-opacity: 0.9;
 }
 
+/* TODO button-block shadow */
 .button-block,
 button.button-block {
   margin-top: 12px;
@@ -221,5 +224,28 @@ code {
 
 abbr {
   text-decoration-line: none;
+}
+
+@media (prefers-reduced-motion) {
+  .theme-dark .link-block,
+  .theme-dark a.link-block {
+    transition: none;
+  }
+
+  .theme-transition .link-block,
+  .theme-transition a.link-block {
+    transition: color 0.5s ease-in-out;
+  }
+
+  .button-block,
+  button.button-block {
+    transition: none;
+  }
+
+  .theme-transition .button-block,
+  .theme-transition button.button-block {
+    transition: background-color 0.5s ease-in-out,
+      border-bottom-color 0.5s ease-in-out;
+  }
 }
 </style>

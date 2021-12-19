@@ -256,4 +256,48 @@ path {
 .theme-transition .logo-target:focus .should-disappear {
   transition: opacity 0.2s ease-in, transform 0.5s, fill 0.5s ease-in-out;
 }
+
+@media (prefers-reduced-motion) {
+  path {
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .theme-transition path {
+    transition: opacity 0.3s ease-in-out, fill 0.5s ease-in-out;
+  }
+
+  .theme-transition .should-appear {
+    transition: none;
+  }
+
+  .should-disappear {
+    transition: opacity 0.1s 1s ease-out;
+  }
+
+  .theme-transition .should-disappear {
+    transition: opacity 0.4s 0.2s ease-out, fill 0.5s ease-in-out;
+  }
+
+  .logo-target:hover path,
+  .logo-target:focus path {
+    transition: opacity 0.5s 0.5s ease-in-out;
+  }
+
+  .theme-transition .logo-target:hover path,
+  .theme-transition .logo-target:focus path {
+    transition: opacity 0.5s 0.5s ease-in-out, fill 0.5s ease-in-out;
+  }
+
+  .logo-target:hover .should-disappear,
+  .logo-target:focus .should-disappear {
+    transform: scale(1);
+
+    transition: opacity 0.2s ease-in;
+  }
+
+  .theme-transition .logo-target:hover .should-disappear,
+  .theme-transition .logo-target:focus .should-disappear {
+    transition: opacity 0.2s ease-in, fill 0.5s ease-in-out;
+  }
+}
 </style>

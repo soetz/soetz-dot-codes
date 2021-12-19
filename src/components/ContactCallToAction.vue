@@ -199,4 +199,26 @@ path {
     height: 140px;
   }
 }
+
+@media (prefers-reduced-motion) {
+  .call-to-action-background {
+    transition: none;
+  }
+
+  .theme-transition .call-to-action-background {
+    transition: background-color 0.5s ease-in-out;
+  }
+
+  .mail-icon {
+    transition: none;
+  }
+
+  .call-to-action-text-transform-container {
+    transition: none;
+  }
+
+  .call-to-action-text {
+    animation: none;
+  }
+}
 </style>

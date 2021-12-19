@@ -16,21 +16,39 @@ arrowShape.value = props.menuIsOpen ? ARROW_OPEN : ARROW_CLOSED;
 watch(
   () => props.menuIsOpen,
   (open) => {
-    //TODO prefers reduced motion
-    if (open) {
-      gsap.to(arrowShape, {
-        duration: 0.3,
-        delay: 0.4,
-        ease: "power2",
-        value: ARROW_OPEN,
-      });
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion)"
+    ).matches;
+    if (!prefersReducedMotion) {
+      if (open) {
+        gsap.to(arrowShape, {
+          duration: 0.3,
+          delay: 0.4,
+          ease: "power2",
+          value: ARROW_OPEN,
+        });
+      } else {
+        gsap.to(arrowShape, {
+          duration: 0.3,
+          delay: 0.4,
+          ease: "power2",
+          value: ARROW_CLOSED,
+        });
+      }
     } else {
-      gsap.to(arrowShape, {
-        duration: 0.3,
-        delay: 0.4,
-        ease: "power2",
-        value: ARROW_CLOSED,
-      });
+      if (open) {
+        gsap.set(arrowShape, {
+          delay: 0.4,
+          ease: "power2",
+          value: ARROW_OPEN,
+        });
+      } else {
+        gsap.set(arrowShape, {
+          delay: 0.4,
+          ease: "power2",
+          value: ARROW_CLOSED,
+        });
+      }
     }
   }
 );

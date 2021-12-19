@@ -135,6 +135,16 @@ svg {
   animation-delay: -1.8s, -1.6s;
 }
 
+@media (prefers-reduced-motion) {
+  .silhouettes > * {
+    animation-name: none, color-wheel-light;
+  }
+
+  .theme-dark .silhouettes > * {
+    animation-name: none, color-wheel-dark;
+  }
+}
+
 @keyframes color-wheel-light {
   0% {
     fill: var(--theme-10);
