@@ -98,6 +98,11 @@ header {
   pointer-events: none;
 }
 
+.main-link {
+  display: block;
+  width: 400px;
+}
+
 .menu-background-hitbox,
 .main-link {
   pointer-events: all;

@@ -102,17 +102,17 @@ onMounted(() => {
 }
 
 .more-target:hover svg,
-.more-target:focus svg {
+.more-target:focus-visible svg {
   transform: translateX(0);
 }
 
 .more-target:hover .vertical svg,
-.more-target:focus .vertical svg {
+.more-target:focus-visible .vertical svg {
   transform: translateY(0);
 }
 
 .more-target:hover svg polyline:first-child,
-.more-target:focus svg polyline:first-child {
+.more-target:focus-visible svg polyline:first-child {
   opacity: 1;
 }
 

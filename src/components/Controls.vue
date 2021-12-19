@@ -48,6 +48,7 @@ const themeToggle = () => {
 }
 
 .control {
+  width: 65px;
   height: 65px;
 
   padding-left: 15px;

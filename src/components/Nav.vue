@@ -154,7 +154,7 @@ li:before {
 }
 
 .nav-link:hover .nav-icon,
-.nav-link:focus .nav-icon {
+.nav-link:focus-visible .nav-icon {
   transform: none;
 }
 
@@ -224,7 +224,7 @@ li:before {
   }
 
   .nav-link:hover .nav-text,
-  .nav-link:focus .nav-text {
+  .nav-link:focus-visible .nav-text {
     transform: translateY(-6px);
   }
 
@@ -262,7 +262,7 @@ li:before {
   }
 
   .nav-link:hover .nav-text:after,
-  .nav-link:focus .nav-text:after {
+  .nav-link:focus-visible .nav-text:after {
     transform: translate(-50%, 0px);
     opacity: 1;
   }

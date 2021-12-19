@@ -92,7 +92,7 @@ li:last-child {
 }
 
 .project-link:hover .symbol,
-.project-link:focus .symbol {
+.project-link:focus-visible .symbol {
   transform: scale(1.2);
 }
 

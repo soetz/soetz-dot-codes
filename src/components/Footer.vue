@@ -130,15 +130,12 @@ li {
 }
 
 a {
-  color: var(--theme-700);
-}
-
-.theme-transition a {
-  transition: color 0.5s ease-in-out;
+  display: block;
 }
 
 .social-icon {
   width: 58px;
+  height: 58px;
   padding-left: 8px;
   padding-top: 8px;
   padding-right: 8px;
@@ -173,6 +170,7 @@ a {
 
   .social-icon {
     width: 40px;
+    height: 40px;
   }
 }
 
@@ -191,6 +189,7 @@ a {
 
   .social-icon {
     width: 48px;
+    height: 48px;
   }
 }
 </style>

@@ -129,7 +129,7 @@ import { RouterLink } from "vue-router";
 }
 
 .contact-call-to-action:hover .call-to-action-background,
-.contact-call-to-action:focus .call-to-action-background {
+.contact-call-to-action:focus-visible .call-to-action-background {
   transform: translate(-50%, -50%);
 }
 
@@ -142,7 +142,7 @@ import { RouterLink } from "vue-router";
 }
 
 .contact-call-to-action:hover .mail-icon,
-.contact-call-to-action:focus .mail-icon {
+.contact-call-to-action:focus-visible .mail-icon {
   transform: translate(-50%, -50%);
 }
 
@@ -158,7 +158,7 @@ import { RouterLink } from "vue-router";
 }
 
 .contact-call-to-action:hover .call-to-action-text-transform-container,
-.contact-call-to-action:focus .call-to-action-text-transform-container {
+.contact-call-to-action:focus-visible .call-to-action-text-transform-container {
   transform: translate(-50%, -50%);
 }
 

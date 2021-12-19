@@ -66,6 +66,25 @@ onUnmounted(() => {
   --button-block-side-color: var(--theme-100);
 }
 
+.theme-container * {
+  outline-color: var(--theme-900);
+  outline-style: none;
+  outline-width: 3px;
+  outline-offset: 3px;
+}
+
+.theme-container *:focus {
+  outline-style: solid;
+}
+
+.theme-container *:focus:not(:focus-visible) {
+  outline-style: none;
+}
+
+.theme-container *:focus-visible {
+  outline-style: solid;
+}
+
 ::selection {
   background-color: var(--theme-60);
 }
@@ -76,12 +95,25 @@ onUnmounted(() => {
   --link-block-color: var(--theme-90-rgb);
 }
 
+.theme-container.theme-dark * {
+  outline-color: var(--theme-10);
+}
+
 .theme-dark ::selection {
   background-color: var(--theme-100);
 }
 
 .theme-container.theme-transition {
   transition: color 0.5s ease-in-out;
+}
+
+.theme-transition ::selection {
+  transition: background-color 0.5s ease-in-out;
+}
+
+.theme-transition *:focus,
+.theme-transition *:focus-visible {
+  transition: outline-color 0.5s ease-in-out;
 }
 
 .reset-link {
@@ -144,8 +176,8 @@ a.link-block {
 
 .link-block:hover,
 a.link-block:hover,
-.link-block:focus,
-a.link-block:focus {
+.link-block:focus-visible,
+a.link-block:focus-visible {
   box-shadow: inset 0 -6px 0 rgba(var(--link-block-color), var(--link-block-opacity));
 
   --link-block-opacity: 0.9;
