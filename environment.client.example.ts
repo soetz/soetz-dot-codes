@@ -1,6 +1,6 @@
 export const environment = {
-  analytics: {
-    server: "localhost",
+  server: {
+    domain: "localhost",
     port: "50000",
   },
 };

@@ -3,6 +3,7 @@ import { environment } from "../../environment.client";
 
 interface AnalyticsService {
   setCurrentSessionToken(token: string): void;
+  getCurrentSessionToken(): string;
   registerConfirmation(): void;
   registerNavigation(path: string): void;
 }
@@ -14,11 +15,14 @@ const analyticsServiceFactory = (): AnalyticsService => {
     setCurrentSessionToken: (token: string) => {
       sessionToken = token;
     },
+    getCurrentSessionToken: (): string => {
+      return sessionToken;
+    },
     registerConfirmation: () => {
       if (sessionToken && sessionToken !== "error") {
         axios
           .post(
-            `http://${environment.analytics.server}:${environment.analytics.port}/confirm`,
+            `http://${environment.server.domain}:${environment.server.port}/confirm`,
             { sessionToken }
           )
           .catch(() => {
@@ -30,7 +34,7 @@ const analyticsServiceFactory = (): AnalyticsService => {
       if (sessionToken && sessionToken !== "error") {
         axios
           .post(
-            `http://${environment.analytics.server}:${environment.analytics.port}/navigation`,
+            `http://${environment.server.domain}:${environment.server.port}/navigation`,
             { sessionToken, path }
           )
           .catch(() => {
