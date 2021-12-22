@@ -34,7 +34,7 @@ import SkillElement from "../../components/SkillElement.vue";
           class="link-block"
           href="https://www.entrepreneursdumonde.org/en/"
           target="_blank"
-          rel="nofollow noopener"
+          rel="noopener"
           >Entrepreneurs du Monde</a
         >
         in managing their
@@ -42,7 +42,7 @@ import SkillElement from "../../components/SkillElement.vue";
           class="link-block"
           href="https://www.entrepreneursdumonde.org/en/interactive-map/#6744"
           target="_blank"
-          rel="nofollow noopener"
+          rel="noopener"
           >ICI programme</a
         >. The app needed to support management of training, hindrances,
         contacts, documents and more by the entrepreneurs participating in the

@@ -86,7 +86,7 @@ onUnmounted(() => {
 }
 
 ::selection {
-  background-color: var(--theme-60);
+  background-color: rgba(var(--theme-90-rgb), 0.6);
 }
 
 .theme-container.theme-dark {
@@ -100,7 +100,7 @@ onUnmounted(() => {
 }
 
 .theme-dark ::selection {
-  background-color: var(--theme-100);
+  background-color: rgba(var(--theme-90-rgb), 0.6);
 }
 
 .theme-container.theme-transition {

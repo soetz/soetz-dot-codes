@@ -90,7 +90,7 @@ const showProjects = () => {
           class="more-button reset-button more-target"
           @click="showStorytelling()"
         >
-          <More bold vertical>read them</More>
+          <More bold direction="down">read them</More>
         </button>
         <transition name="appear">
           <div v-show="storytellingShown">
@@ -198,16 +198,16 @@ const showProjects = () => {
         class="more-button reset-button more-target"
         @click="showTechnologies()"
       >
-        <More bold vertical>and more</More>
+        <More bold direction="down">and more</More>
       </button>
       <h3>Other</h3>
       <SkillsList>
-        <SkillElement>Agile</SkillElement>
-        <SkillElement>V-model</SkillElement>
+        <SkillElement>Accessibility</SkillElement>
         <SkillElement
           ><abbr title="Search Engine Optimisation">SEO</abbr></SkillElement
         >
-        <SkillElement><span title="Atlassian Jira">Jira</span></SkillElement>
+        <SkillElement>Agile</SkillElement>
+        <SkillElement>V-model</SkillElement>
         <transition name="appear">
           <SkillElement v-show="moreOtherShown"
             ><span title="Adobe Illustrator">Illustrator</span>&nbsp;+
@@ -238,7 +238,7 @@ const showProjects = () => {
         class="more-button reset-button more-target"
         @click="showOther()"
       >
-        <More bold vertical size="m">and more</More>
+        <More bold direction="down" size="m">and more</More>
       </button>
     </Appear>
   </section>
@@ -291,7 +291,7 @@ const showProjects = () => {
             class="more-button reset-button more-target"
             @click="showProjects()"
           >
-            <More bold vertical>more projects</More>
+            <More bold direction="down">more projects</More>
           </button>
         </section>
       </Appear>

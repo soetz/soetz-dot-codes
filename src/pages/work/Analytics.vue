@@ -70,7 +70,7 @@ import SkillElement from "../../components/SkillElement.vue";
           class="link-block"
           href="https://www.joshwcomeau.com/blog/how-i-built-my-blog/#api-routes"
           target="_blank"
-          rel="nofollow noopener"
+          rel="noopener"
           >stories of people building that kind of system and getting trolled</a
         >
         so I wanted to make sure mine gave the trolls at least a little

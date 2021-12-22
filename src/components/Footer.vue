@@ -13,6 +13,8 @@ import TwitterIcon from "./icons/social/TwitterIcon.vue";
           <li>
             <a
               href="https://www.twitter.com/soetzcodes/"
+              target="_blank"
+              rel="nofollow noopener noreferrer"
               aria-labelledby="twitter-icon-title"
             >
               <TwitterIcon class="social-icon" />
@@ -21,6 +23,8 @@ import TwitterIcon from "./icons/social/TwitterIcon.vue";
           <li>
             <a
               href="https://www.github.com/soetz/"
+              target="_blank"
+              rel="nofollow noopener noreferrer"
               aria-labelledby="github-icon-title"
             >
               <GithubIcon class="social-icon" />
@@ -29,6 +33,8 @@ import TwitterIcon from "./icons/social/TwitterIcon.vue";
           <li>
             <a
               href="https://www.gitlab.com/soetz/"
+              target="_blank"
+              rel="nofollow noopener noreferrer"
               aria-labelledby="gitlab-icon-title"
             >
               <GitlabIcon class="social-icon" />
