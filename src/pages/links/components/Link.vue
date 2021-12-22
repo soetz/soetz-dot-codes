@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Appear from "../../../components/Appear.vue";
+
 const props = defineProps({
   title: {
     type: String,
@@ -73,8 +74,16 @@ li {
 
 .description {
   margin-top: 6px;
-  padding-left: 24px;
+  padding-left: 16px;
+  padding-right: 16px;
 
   font-style: italic;
+
+  transition: transform 0.3s ease-in-out;
+}
+
+a:hover .description,
+a:focus-visible .description {
+  transform: translateX(8px);
 }
 </style>
