@@ -1,5 +1,8 @@
 <script setup lang="ts">
+/* eslint-disable vue/no-v-html */
 import Appear from "../../../components/Appear.vue";
+import { computed } from "vue";
+import { marked } from "marked";
 
 const props = defineProps({
   title: {
@@ -19,6 +22,19 @@ const props = defineProps({
     default: 0,
   },
 });
+
+const options = {
+  headerIds: false,
+  xhtml: true,
+};
+
+const htmlTitle = computed(() => {
+  return marked.parseInline(props.title, options);
+});
+
+const htmlDescription = computed(() => {
+  return marked.parseInline(props.description, options);
+});
 </script>
 
 <template>
@@ -32,12 +48,16 @@ const props = defineProps({
       :aria-describedby="`description-${props.index}`"
     >
       <Appear>
-        <span :id="`title-${props.index}`" class="title">{{
-          props.title
-        }}</span>
-        <p :id="`description-${props.index}`" class="description">{{
-          props.description
-        }}</p>
+        <span
+          :id="`title-${props.index}`"
+          class="title"
+          v-html="htmlTitle"
+        ></span>
+        <p
+          :id="`description-${props.index}`"
+          class="description"
+          v-html="htmlDescription"
+        ></p>
       </Appear>
     </a>
   </li>
@@ -73,7 +93,7 @@ li {
 }
 
 .description {
-  margin-top: 6px;
+  margin-top: 12px;
   padding-left: 16px;
   padding-right: 16px;
 

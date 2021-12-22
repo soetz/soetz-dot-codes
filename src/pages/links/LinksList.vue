@@ -53,10 +53,10 @@ watch(
     <Appear class="overflow-visible">
       <h1>Cool links</h1>
       <p class="limited-width-small">
-        A curated list of links to cool stuff on the internet on various
-        subjects. Chances are there’ll be a lot of web/art/design or whatever
-        stuff done with computers as that’s what interests me the most! Maybe
-        politics too, you’ve been warned.
+        A curated collection of links to cool stuff on the internet spanning
+        various subjects. Chances are you’ll find a lot of web/art/design or
+        whatever stuff done with computers as that’s what interests me the most!
+        Maybe politics too, you’ve been warned.
       </p>
     </Appear>
     <ul>
@@ -71,6 +71,8 @@ watch(
       <RouterLink
         class="more-target page-previous"
         :class="{ disabled: page < 1 }"
+        :aria-disabled="page < 1 ? true : false"
+        :tabindex="page < 1 ? -1 : undefined"
         :to="`/links${page < 2 ? '' : `?page=${page - 1}`}`"
         ><More :bold="page >= 1" size="m" direction="left"
           >previous page</More
@@ -79,6 +81,8 @@ watch(
       <RouterLink
         class="more-target page-next"
         :class="{ disabled: page >= numberOfPages - 1 }"
+        :aria-disabled="page >= numberOfPages - 1 ? true : false"
+        :tabindex="page >= numberOfPages - 1 ? -1 : undefined"
         :to="`/links?page=${
           page >= numberOfPages - 1 ? numberOfPages - 1 : page + 1
         }`"

@@ -115,7 +115,7 @@ const routes = [
     component: LinksList,
     meta: {
       color: "gold",
-      title: "Links",
+      title: "Cool links",
       description:
         "A collection of links that lead to cool stuff on the internet. Curated by Simon Lecutiez.",
       socialImage: "links.0",

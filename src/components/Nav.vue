@@ -23,7 +23,7 @@ import { RouterLink } from "vue-router";
       </li>
       <li>
         <RouterLink class="nav-link" to="/links">
-          <div class="nav-text">Links</div>
+          <div class="nav-text">Cool links</div>
           <LinksIcon class="nav-icon" />
         </RouterLink>
       </li>
