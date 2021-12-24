@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { RouterLink, useRoute } from "vue-router";
 import { ref, watch } from "vue";
 import Appear from "../../components/Appear.vue";
 import Link from "./components/Link.vue";
-import More from "../../components/More.vue";
+import Pagination from "../../components/Pagination.vue";
 import axios from "axios";
 import { environment } from "../../../environment.client";
+import { useRoute } from "vue-router";
 
 interface LinkData {
   title: string;
@@ -22,19 +22,17 @@ const numberOfPages = ref(0);
 const links = ref<LinkData[]>([]);
 
 const updateLinks = async () => {
-  await axios
-    .get(
-      `http://${environment.server.domain}:${environment.server.port}/links`,
-      {
-        params: {
-          page: page.value,
-        },
-      }
-    )
-    .then((response) => {
-      numberOfPages.value = response.data.numberOfPages;
-      links.value = response.data.links;
-    });
+  const response = await axios.get(
+    `http://${environment.server.domain}:${environment.server.port}/links`,
+    {
+      params: {
+        page: page.value,
+      },
+    }
+  );
+
+  numberOfPages.value = response.data.numberOfPages;
+  links.value = response.data.links;
 };
 
 await updateLinks();
@@ -67,30 +65,7 @@ watch(
         :index="index"
       />
     </ul>
-    <div class="pagination limited-width-small">
-      <RouterLink
-        class="more-target page-previous"
-        :class="{ disabled: page < 1 }"
-        :aria-disabled="page < 1 ? true : false"
-        :tabindex="page < 1 ? -1 : undefined"
-        :to="`/links${page < 2 ? '' : `?page=${page - 1}`}`"
-        ><More :bold="page >= 1" size="m" direction="left"
-          >previous page</More
-        ></RouterLink
-      >
-      <RouterLink
-        class="more-target page-next"
-        :class="{ disabled: page >= numberOfPages - 1 }"
-        :aria-disabled="page >= numberOfPages - 1 ? true : false"
-        :tabindex="page >= numberOfPages - 1 ? -1 : undefined"
-        :to="`/links?page=${
-          page >= numberOfPages - 1 ? numberOfPages - 1 : page + 1
-        }`"
-        ><More :bold="page < numberOfPages - 1" size="m"
-          >next page</More
-        ></RouterLink
-      >
-    </div>
+    <Pagination :page="page" :number-of-pages="numberOfPages" />
   </section>
 </template>
 
@@ -118,46 +93,7 @@ watch(
 
 ul {
   padding-left: 0;
-}
 
-.pagination {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  margin-left: auto;
-  margin-top: 32px;
-  margin-right: auto;
-}
-
-.page-next {
-  align-self: flex-end;
-}
-
-.page-previous,
-.page-next {
-  color: var(--theme-900);
-}
-
-.theme-dark .page-previous,
-.theme-dark .page-next {
-  color: var(--theme-10);
-}
-
-.theme-transition .page-previous,
-.theme-transition .page-next {
-  transition: color 0.5s ease-in-out;
-}
-
-.page-previous.disabled,
-.page-next.disabled {
-  opacity: 0.6;
-  pointer-events: none;
-}
-
-@media screen and (min-width: 350px) {
-  .pagination {
-    flex-direction: row;
-  }
+  list-style-type: none;
 }
 </style>

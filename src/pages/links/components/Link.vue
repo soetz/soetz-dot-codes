@@ -66,8 +66,6 @@ const htmlDescription = computed(() => {
 <style scoped>
 li {
   margin-top: 56px;
-
-  list-style-type: none;
 }
 
 .link {

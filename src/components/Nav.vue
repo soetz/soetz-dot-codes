@@ -201,7 +201,7 @@ li:before {
   }
 
   li {
-    flex-grow: 1;
+    width: 100%;
 
     margin-right: 0;
   }
