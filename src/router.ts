@@ -12,6 +12,7 @@ import Legal from "./pages/Legal.vue";
 import LinksList from "./pages/links/LinksList.vue";
 import Miam from "./pages/work/Miam.vue";
 import MiamTeaching from "./pages/work/MiamTeaching.vue";
+import PodcastDetail from "./pages/podcast/PodcastDetail.vue";
 import PodcastList from "./pages/podcast/PodcastList.vue";
 import TactileAdaptations from "./pages/work/TactileAdaptations.vue";
 
@@ -108,6 +109,13 @@ const routes = [
       keywords:
         "podcast, artiste, regard 9, Simon Lecutiez, visuel, art visuel, discussion, illustration, France, Lyon",
       socialImage: "podcast.regard-9.0",
+    },
+  },
+  {
+    path: "/podcast/:programme/:code",
+    component: PodcastDetail,
+    meta: {
+      color: "purple",
     },
   },
   {

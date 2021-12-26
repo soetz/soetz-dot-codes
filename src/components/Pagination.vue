@@ -13,6 +13,10 @@ const props = defineProps({
     type: Number,
     default: 0,
   },
+  language: {
+    type: String,
+    default: "en",
+  },
 });
 </script>
 
@@ -24,9 +28,9 @@ const props = defineProps({
       :aria-disabled="props.page < 1 ? true : false"
       :tabindex="props.page < 1 ? -1 : undefined"
       :to="`${route.path}${props.page < 2 ? '' : `?page=${props.page - 1}`}`"
-      ><More :bold="props.page >= 1" size="m" direction="left"
-        >previous page</More
-      ></RouterLink
+      ><More :bold="props.page >= 1" size="m" direction="left">{{
+        props.language === "fr" ? "page précédente" : "previous page"
+      }}</More></RouterLink
     >
     <RouterLink
       class="more-target page-next"
@@ -38,9 +42,9 @@ const props = defineProps({
           ? props.numberOfPages - 1
           : props.page + 1
       }`"
-      ><More :bold="props.page < props.numberOfPages - 1" size="m"
-        >next page</More
-      ></RouterLink
+      ><More :bold="props.page < props.numberOfPages - 1" size="m">{{
+        props.language === "fr" ? "page suivante" : "next page"
+      }}</More></RouterLink
     >
   </div>
 </template>

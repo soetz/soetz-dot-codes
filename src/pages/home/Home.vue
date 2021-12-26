@@ -53,7 +53,7 @@ const showProjects = () => {
     <Appear>
       <h1>
         Oh, hey! <span class="waving-hand">👋</span><br />
-        <em class="my-name-is">My name’s Simon Lecutiez</em>,
+        <strong class="my-name-is">My name’s Simon Lecutiez</strong>,
       </h1>
       <p class="short-bio">
         I’m {{ age }},<br />

@@ -1,5 +1,9 @@
 <script setup lang="ts">
 /* eslint-disable vue/no-v-html */
+import {
+  formatDateNormal,
+  formatDateShort,
+} from "../../../utilities/formatDate";
 import Appear from "../../../components/Appear.vue";
 import { RouterLink } from "vue-router";
 import { computed } from "vue";
@@ -9,7 +13,7 @@ const props = defineProps({
     type: String,
     default: "sp-00-00",
   },
-  programmeSlug: {
+  programme: {
     type: String,
     default: "special",
   },
@@ -47,46 +51,12 @@ const textDuration = computed(() => {
     : `${minutes}min&nbsp;`;
 });
 
-const formatDate = (date: Date, monthsList: string[]) => {
-  const month = monthsList[date.getMonth()];
-  const displayYear = date.getFullYear() !== new Date().getFullYear();
-  return `${date.getDate()} ${month}${
-    displayYear ? ` ${date.getFullYear()}` : ""
-  }`;
-};
-
 const textDate = computed(() => {
-  return formatDate(props.date, [
-    "janvier",
-    "février",
-    "mars",
-    "avril",
-    "mai",
-    "juin",
-    "juillet",
-    "août",
-    "septembre",
-    "octobre",
-    "novembre",
-    "décembre",
-  ]);
+  return formatDateNormal(props.date);
 });
 
 const textDateShort = computed(() => {
-  return formatDate(props.date, [
-    '<abbr title="janvier">janv.</abbr>',
-    '<abbr title="février">fév.</abbr>',
-    "mars",
-    "avril",
-    "mai",
-    "juin",
-    '<abbr title="juillet">juil.</abbr>',
-    "août",
-    '<abbr title="septembre">sept.</abbr>',
-    '<abbr title="octobre">oct.</abbr>',
-    '<abbr title="novembre">nov.</abbr>',
-    '<abbr title="décembre">déc.</abbr>',
-  ]);
+  return formatDateShort(props.date);
 });
 </script>
 
@@ -94,7 +64,7 @@ const textDateShort = computed(() => {
   <li>
     <RouterLink
       class="link"
-      :to="`/podcast/${props.programmeSlug}/${props.code}`"
+      :to="`/podcast/${props.programme}/${props.code}`"
       :aria-labelledby="`title-${props.code}`"
       :aria-describedby="`description-${props.code}`"
     >

@@ -17,7 +17,10 @@ export function createApp(): { app: VueApp; router: Router } {
   router.afterEach((to, from) => {
     if (to.fullPath !== from.fullPath) {
       analyticsService.registerNavigation(to.fullPath);
-      updatePageSeo(to);
+      updatePageSeo({
+        ...to.meta,
+        path: to.path,
+      });
     }
 
     // updateViewportWidth() uses window and we can’t access it in an SSR context

@@ -9,7 +9,7 @@ import { useRoute } from "vue-router";
 
 interface PodcastSkeleton {
   code: string;
-  programmeSlug: string;
+  programme: string;
   number: number;
   title: string;
   duration: number;
@@ -85,6 +85,7 @@ watch(
         class="pagination"
         :page="page"
         :number-of-pages="numberOfPages"
+        language="fr"
       />
     </Appear>
   </section>
