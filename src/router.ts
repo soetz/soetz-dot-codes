@@ -12,6 +12,7 @@ import Legal from "./pages/Legal.vue";
 import LinksList from "./pages/links/LinksList.vue";
 import Miam from "./pages/work/Miam.vue";
 import MiamTeaching from "./pages/work/MiamTeaching.vue";
+import NotFound from "./pages/NotFound.vue";
 import PodcastDetail from "./pages/podcast/PodcastDetail.vue";
 import PodcastList from "./pages/podcast/PodcastList.vue";
 import TactileAdaptations from "./pages/work/TactileAdaptations.vue";
@@ -127,6 +128,16 @@ const routes = [
       description:
         "A collection of links that lead to cool stuff on the internet. Curated by Simon Lecutiez.",
       socialImage: "links.0",
+    },
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    component: NotFound,
+    name: "not-found",
+    meta: {
+      color: "orange",
+      title: "Not found",
+      robots: "none",
     },
   },
 ];

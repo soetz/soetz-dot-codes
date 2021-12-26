@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { ref, watch } from "vue";
+import { useRoute, useRouter } from "vue-router";
 import Appear from "../../components/Appear.vue";
 import Link from "./components/Link.vue";
 import Pagination from "../../components/Pagination.vue";
 import axios from "axios";
 import { environment } from "../../../environment.client";
-import { useRoute } from "vue-router";
 
 interface LinkData {
   title: string;
@@ -14,6 +14,7 @@ interface LinkData {
 }
 
 const route = useRoute();
+const router = useRouter();
 
 const initPage = route.query.page ? parseInt(route.query.page as string) : 0;
 
@@ -22,17 +23,21 @@ const numberOfPages = ref(0);
 const links = ref<LinkData[]>([]);
 
 const updateLinks = async () => {
-  const response = await axios.get(
-    `http://${environment.server.domain}:${environment.server.port}/links`,
-    {
-      params: {
-        page: page.value,
-      },
-    }
-  );
+  try {
+    const response = await axios.get(
+      `http://${environment.server.domain}:${environment.server.port}/links`,
+      {
+        params: {
+          page: page.value,
+        },
+      }
+    );
 
-  numberOfPages.value = response.data.numberOfPages;
-  links.value = response.data.links;
+    numberOfPages.value = response.data.numberOfPages;
+    links.value = response.data.links;
+  } catch (error) {
+    router.push("/links/not-found");
+  }
 };
 
 await updateLinks();

@@ -69,11 +69,8 @@ async function createServer(
         render = require("./dist/server/entry-server.js").render;
       }
 
-      const [appHtml, preloadLinks, sessionToken, pageSeo] = await render(
-        url,
-        manifest,
-        mongoClient
-      );
+      const [appHtml, status, preloadLinks, sessionToken, pageSeo] =
+        await render(url, manifest, mongoClient);
 
       const html = template
         .replace(`<!--page-seo-->`, pageSeo)
@@ -81,7 +78,7 @@ async function createServer(
         .replace(`<!--preload-links-->`, preloadLinks)
         .replace(`<!--app-html-->`, appHtml);
 
-      res.status(200).set({ "Content-Type": "text/html" }).end(html);
+      res.status(status).set({ "Content-Type": "text/html" }).end(html);
     } catch (e) {
       vite && vite.ssrFixStacktrace(e);
       console.log(e.stack);

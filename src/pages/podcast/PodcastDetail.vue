@@ -1,6 +1,6 @@
 <script setup lang="ts">
 /* eslint-disable vue/no-v-html */
-import { RouterLink, useRoute } from "vue-router";
+import { RouterLink, useRoute, useRouter } from "vue-router";
 import { computed, ref, watch } from "vue";
 import Appear from "../../components/Appear.vue";
 import More from "../../components/More.vue";
@@ -30,23 +30,28 @@ interface PodcastData {
 }
 
 const route = useRoute();
+const router = useRouter();
 
 const podcast = ref<PodcastData | Record<string, never>>({});
 
 const updateData = async () => {
   if (route.params.programme && route.params.code) {
-    const response = await axios.get(
-      `http://${environment.server.domain}:${environment.server.port}/podcast/${route.params.programme}/${route.params.code}`
-    );
+    try {
+      const response = await axios.get(
+        `http://${environment.server.domain}:${environment.server.port}/podcast/${route.params.programme}/${route.params.code}`
+      );
 
-    podcast.value = { ...response.data, date: new Date(response.data.date) };
-    updatePageSeo({
-      title: `${podcast.value.title} - Regard 9 #${podcast.value.number}`,
-      description: podcast.value.seo?.description,
-      keywords: podcast.value.seo?.keywords,
-      socialImage: podcast.value.seo?.socialImage,
-      path: route.path,
-    });
+      podcast.value = { ...response.data, date: new Date(response.data.date) };
+      updatePageSeo({
+        title: `${podcast.value.title} - Regard 9 #${podcast.value.number}`,
+        description: podcast.value.seo?.description,
+        keywords: podcast.value.seo?.keywords,
+        socialImage: podcast.value.seo?.socialImage,
+        path: route.path,
+      });
+    } catch (error) {
+      router.push("/podcast/not-found");
+    }
   }
 };
 

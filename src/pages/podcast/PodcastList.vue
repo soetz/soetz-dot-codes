@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { ref, watch } from "vue";
+import { useRoute, useRouter } from "vue-router";
 import Appear from "../../components/Appear.vue";
 import Pagination from "../../components/Pagination.vue";
 import PodcastLink from "./components/PodcastLink.vue";
 import axios from "axios";
 import { environment } from "../../../environment.client";
-import { useRoute } from "vue-router";
 
 interface PodcastSkeleton {
   code: string;
@@ -26,6 +26,7 @@ interface PodcastData extends PodcastSkeleton {
 }
 
 const route = useRoute();
+const router = useRouter();
 
 const initPage = route.query.page ? parseInt(route.query.page as string) : 0;
 
@@ -34,22 +35,26 @@ const numberOfPages = ref(0);
 const podcasts = ref<PodcastData[]>([]);
 
 const updatePodcasts = async () => {
-  const response = await axios.get(
-    `http://${environment.server.domain}:${environment.server.port}/podcast`,
-    {
-      params: {
-        page: page.value,
-      },
-    }
-  );
+  try {
+    const response = await axios.get(
+      `http://${environment.server.domain}:${environment.server.port}/podcast`,
+      {
+        params: {
+          page: page.value,
+        },
+      }
+    );
 
-  numberOfPages.value = response.data.numberOfPages;
-  podcasts.value = response.data.podcasts.map((podcast: PodcastResponse) => {
-    return {
-      ...podcast,
-      date: new Date(podcast.date),
-    };
-  });
+    numberOfPages.value = response.data.numberOfPages;
+    podcasts.value = response.data.podcasts.map((podcast: PodcastResponse) => {
+      return {
+        ...podcast,
+        date: new Date(podcast.date),
+      };
+    });
+  } catch (error) {
+    router.push("/podcast/not-found");
+  }
 };
 
 await updatePodcasts();

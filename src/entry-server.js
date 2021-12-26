@@ -79,7 +79,9 @@ export async function render(url, manifest, mongoClient) {
     router.currentRoute.value.path
   );
 
-  return [html, preloadLinks, sessionTokenInjection, currentPageSeo];
+  const status = router.currentRoute.value.name === "not-found" ? 404 : 200;
+
+  return [html, status, preloadLinks, sessionTokenInjection, currentPageSeo];
 }
 
 function renderPageSeo(
