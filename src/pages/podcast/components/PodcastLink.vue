@@ -210,4 +210,10 @@ li {
     display: none;
   }
 }
+
+@media (prefers-reduced-motion) {
+  .cover-container img {
+    transition: none;
+  }
+}
 </style>

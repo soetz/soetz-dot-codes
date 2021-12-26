@@ -104,4 +104,10 @@ a:hover .description,
 a:focus-visible .description {
   transform: translateX(8px);
 }
+
+@media (prefers-reduced-motion) {
+  .description {
+    transition: none;
+  }
+}
 </style>
