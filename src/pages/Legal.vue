@@ -30,8 +30,13 @@ import { RouterLink } from "vue-router";
     <h2>Article 2&nbsp;- L’hébergeur</h2>
     <p>
       L’hébergeur du Site est OVH, société par actions simplifiées dont le siège
-      social est situé au 2, rue Kellermann, ROUBAIX (59), France.
+      social est situé au
     </p>
+    <address>
+      2, rue Kellermann<br />
+      ROUBAIX 59100<br />
+      France
+    </address>
     <p>
       Tout abus peut être signalé à l’adresse
       <a
@@ -60,9 +65,9 @@ import { RouterLink } from "vue-router";
         >formulaire de contact</RouterLink
       >. Conformément au Réglement Général sur la Protection des Données, ces
       données ne sauraient être utilisées autrement que pour répondre aux
-      demande formulée par l’Utilisateur, et sont supprimées une fois que ladite
-      demande est satisfaite. Aucune autre page du Site ne recueille de données
-      concernant l’Utilisateur.
+      demandes formulées par l’Utilisateur, et sont supprimées une fois que
+      ladite demande est satisfaite. Aucune autre page du Site ne recueille de
+      données concernant l’Utilisateur.
     </p>
     <p>
       En application des articles 39 et suivants de la loi du 6 janvier 1978
@@ -75,7 +80,7 @@ import { RouterLink } from "vue-router";
     <h2>Article 5&nbsp;- Propriété intellectuelle</h2>
     <p>
       Toute utilisation, reproduction, diffusion, commercialisation,
-      modification de toute ou partie du Site, sans autorisation de l’Éditeur
+      modification de tout ou partie du Site, sans autorisation de l’Éditeur,
       est prohibée et pourra entraîner des actions et poursuites judiciaires
       telles que notamment prévues par le Code de la propriété intellectuelle et
       le Code civil.
