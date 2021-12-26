@@ -41,8 +41,8 @@ import TwitterIcon from "./icons/social/TwitterIcon.vue";
             </a>
           </li>
         </ul>
-        <RouterLink class="link-block" to="/legal">
-          Legal stuff (french)
+        <RouterLink class="link-block" to="/legal" lang="fr-FR">
+          Mentions légales
         </RouterLink>
       </div>
       <div>Made with ❤️ and Vue. Also, work.</div>
