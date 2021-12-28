@@ -1,14 +1,14 @@
 <script setup lang="ts">
+import Clippy from "../components/Clippy.vue";
 import { RouterLink } from "vue-router";
-import SadPhoto from "../components/SadPhoto.vue";
 </script>
 
 <template>
   <section class="limited-width">
-    <SadPhoto />
+    <Clippy />
     <h1>Whoops! That’s embarrassing.</h1>
     <p>
-      There’s nothing to see here&nbsp;− some people also call that a 404. Let’s
+      There’s nothing to see here&nbsp;− you can call that a 404. Let’s
       <RouterLink class="link-block" to="/">go back home</RouterLink>, shall we?
     </p>
   </section>

@@ -40,6 +40,7 @@ const updatePodcasts = async () => {
       `http://${environment.server.domain}:${environment.server.port}/podcast`,
       {
         params: {
+          programme: "regard-9",
           page: page.value,
         },
       }
@@ -79,7 +80,11 @@ watch(
       </p>
     </Appear>
     <Appear class="overflow-visible">
-      <ul>
+      <p v-if="podcasts.length <= 0" class="limited-width-small no-podcast">
+        Il semble qu’aucun épisode ne soit sorti pour le moment. Rassurez-vous,
+        ça ne saurait tarder ! :)
+      </p>
+      <ul v-if="podcasts.length > 1">
         <PodcastLink
           v-for="podcast in podcasts"
           :key="podcast.code"
@@ -87,6 +92,7 @@ watch(
         />
       </ul>
       <Pagination
+        v-if="podcasts.length > 1"
         class="pagination"
         :page="page"
         :number-of-pages="numberOfPages"
@@ -116,6 +122,13 @@ watch(
 .overflow-visible {
   overflow-x: visible;
   overflow-y: visible;
+}
+
+.no-podcast {
+  margin-top: 42px;
+
+  font-size: 20px;
+  font-style: italic;
 }
 
 ul {
