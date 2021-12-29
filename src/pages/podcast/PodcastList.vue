@@ -37,7 +37,9 @@ const podcasts = ref<PodcastData[]>([]);
 const updatePodcasts = async () => {
   try {
     const response = await axios.get(
-      `http://${environment.server.domain}:${environment.server.port}/podcast`,
+      `http${environment.server.secure ? "s" : ""}://${
+        environment.server.domain
+      }:${environment.server.port}/podcast`,
       {
         params: {
           programme: "regard-9",

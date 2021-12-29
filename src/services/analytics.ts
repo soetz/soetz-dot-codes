@@ -22,7 +22,9 @@ const analyticsServiceFactory = (): AnalyticsService => {
       if (sessionToken && sessionToken !== "error") {
         axios
           .post(
-            `http://${environment.server.domain}:${environment.server.port}/confirm`,
+            `http${environment.server.secure ? "s" : ""}://${
+              environment.server.domain
+            }:${environment.server.port}/confirm`,
             { sessionToken }
           )
           .catch(() => {
@@ -34,7 +36,9 @@ const analyticsServiceFactory = (): AnalyticsService => {
       if (sessionToken && sessionToken !== "error") {
         axios
           .post(
-            `http://${environment.server.domain}:${environment.server.port}/navigation`,
+            `http${environment.server.secure ? "s" : ""}://${
+              environment.server.domain
+            }:${environment.server.port}/navigation`,
             { sessionToken, path }
           )
           .catch(() => {

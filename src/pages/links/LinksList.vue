@@ -25,7 +25,9 @@ const links = ref<LinkData[]>([]);
 const updateLinks = async () => {
   try {
     const response = await axios.get(
-      `http://${environment.server.domain}:${environment.server.port}/links`,
+      `http${environment.server.secure ? "s" : ""}://${
+        environment.server.domain
+      }:${environment.server.port}/links`,
       {
         params: {
           page: page.value,

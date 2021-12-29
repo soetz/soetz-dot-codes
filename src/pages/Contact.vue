@@ -75,7 +75,9 @@ const checkForm = () => {
 
 // TODO: use https in production?
 const contactUrl = ref(
-  `http://${environment.server.domain}:${environment.server.port}/contact`
+  `http${environment.server.secure ? "s" : ""}://${environment.server.domain}:${
+    environment.server.port
+  }/contact`
 );
 
 const formSubmit = (event: Event) => {

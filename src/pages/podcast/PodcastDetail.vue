@@ -38,7 +38,11 @@ const updateData = async () => {
   if (route.params.programme && route.params.code) {
     try {
       const response = await axios.get(
-        `http://${environment.server.domain}:${environment.server.port}/podcast/${route.params.programme}/${route.params.code}`
+        `http${environment.server.secure ? "s" : ""}://${
+          environment.server.domain
+        }:${environment.server.port}/podcast/${route.params.programme}/${
+          route.params.code
+        }`
       );
 
       podcast.value = { ...response.data, date: new Date(response.data.date) };
