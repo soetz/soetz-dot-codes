@@ -131,7 +131,10 @@ li {
   transition: transform 0.2s ease-in-out;
 }
 
-.link:hover .cover-container img,
+.link:hover .cover-container img {
+  transform: scale(1.1);
+}
+
 .link:focus-visible .cover-container img {
   transform: scale(1.1);
 }

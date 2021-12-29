@@ -219,7 +219,10 @@ path {
 .logo-target:hover .character-6,
 .logo-target:hover .character-9,
 .logo-target:hover .character-12,
-.logo-target:hover .character-end,
+.logo-target:hover .character-end {
+  transform: translate(0);
+}
+
 .logo-target:focus-visible .character-3,
 .logo-target:focus-visible .character-6,
 .logo-target:focus-visible .character-9,
@@ -228,23 +231,39 @@ path {
   transform: translate(0);
 }
 
-.logo-target:hover path,
+.logo-target:hover path {
+  transition: opacity 0.5s 0.5s ease-in-out, transform 0.4s 0.1s ease-out;
+}
+
 .logo-target:focus-visible path {
   transition: opacity 0.5s 0.5s ease-in-out, transform 0.4s 0.1s ease-out;
 }
 
-.theme-transition .logo-target:hover path,
+.theme-transition .logo-target:hover path {
+  transition: opacity 0.5s 0.5s ease-in-out, transform 0.4s 0.1s ease-out,
+    fill 0.5s ease-in-out;
+}
+
 .theme-transition .logo-target:focus-visible path {
   transition: opacity 0.5s 0.5s ease-in-out, transform 0.4s 0.1s ease-out,
     fill 0.5s ease-in-out;
 }
 
-.logo-target:hover .should-appear,
+.logo-target:hover .should-appear {
+  opacity: 1;
+}
+
 .logo-target:focus-visible .should-appear {
   opacity: 1;
 }
 
-.logo-target:hover .should-disappear,
+.logo-target:hover .should-disappear {
+  opacity: 0;
+  transform: scale(0.6);
+
+  transition: opacity 0.2s ease-in, transform 0.5s;
+}
+
 .logo-target:focus-visible .should-disappear {
   opacity: 0;
   transform: scale(0.6);
@@ -252,7 +271,10 @@ path {
   transition: opacity 0.2s ease-in, transform 0.5s;
 }
 
-.theme-transition .logo-target:hover .should-disappear,
+.theme-transition .logo-target:hover .should-disappear {
+  transition: opacity 0.2s ease-in, transform 0.5s, fill 0.5s ease-in-out;
+}
+
 .theme-transition .logo-target:focus-visible .should-disappear {
   transition: opacity 0.2s ease-in, transform 0.5s, fill 0.5s ease-in-out;
 }
@@ -278,24 +300,38 @@ path {
     transition: opacity 0.4s 0.2s ease-out, fill 0.5s ease-in-out;
   }
 
-  .logo-target:hover path,
+  .logo-target:hover path {
+    transition: opacity 0.5s 0.5s ease-in-out;
+  }
+
   .logo-target:focus-visible path {
     transition: opacity 0.5s 0.5s ease-in-out;
   }
 
-  .theme-transition .logo-target:hover path,
+  .theme-transition .logo-target:hover path {
+    transition: opacity 0.5s 0.5s ease-in-out, fill 0.5s ease-in-out;
+  }
+
   .theme-transition .logo-target:focus-visible path {
     transition: opacity 0.5s 0.5s ease-in-out, fill 0.5s ease-in-out;
   }
 
-  .logo-target:hover .should-disappear,
+  .logo-target:hover .should-disappear {
+    transform: scale(1);
+
+    transition: opacity 0.2s ease-in;
+  }
+
   .logo-target:focus-visible .should-disappear {
     transform: scale(1);
 
     transition: opacity 0.2s ease-in;
   }
 
-  .theme-transition .logo-target:hover .should-disappear,
+  .theme-transition .logo-target:hover .should-disappear {
+    transition: opacity 0.2s ease-in, fill 0.5s ease-in-out;
+  }
+
   .theme-transition .logo-target:focus-visible .should-disappear {
     transition: opacity 0.2s ease-in, fill 0.5s ease-in-out;
   }

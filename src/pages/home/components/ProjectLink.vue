@@ -91,7 +91,10 @@ li:last-child {
   transition: transform 0.2s ease-out;
 }
 
-.project-link:hover .symbol,
+.project-link:hover .symbol {
+  transform: scale(1.2);
+}
+
 .project-link:focus-visible .symbol {
   transform: scale(1.2);
 }

@@ -111,7 +111,10 @@ onUnmounted(() => {
   transition: background-color 0.5s ease-in-out;
 }
 
-.theme-transition *:focus,
+.theme-transition *:focus {
+  transition: outline-color 0.5s ease-in-out;
+}
+
 .theme-transition *:focus-visible {
   transition: outline-color 0.5s ease-in-out;
 }
@@ -175,7 +178,12 @@ a.link-block {
 }
 
 .link-block:hover,
-a.link-block:hover,
+a.link-block:hover {
+  box-shadow: inset 0 -6px 0 rgba(var(--link-block-color), var(--link-block-opacity));
+
+  --link-block-opacity: 0.9;
+}
+
 .link-block:focus-visible,
 a.link-block:focus-visible {
   box-shadow: inset 0 -6px 0 rgba(var(--link-block-color), var(--link-block-opacity));

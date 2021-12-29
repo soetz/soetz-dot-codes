@@ -100,7 +100,10 @@ li {
   transition: transform 0.3s ease-in-out;
 }
 
-a:hover .description,
+a:hover .description {
+  transform: translateX(8px);
+}
+
 a:focus-visible .description {
   transform: translateX(8px);
 }

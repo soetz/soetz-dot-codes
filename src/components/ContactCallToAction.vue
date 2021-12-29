@@ -128,7 +128,10 @@ import { RouterLink } from "vue-router";
     background-color 0.5s ease-in-out;
 }
 
-.contact-call-to-action:hover .call-to-action-background,
+.contact-call-to-action:hover .call-to-action-background {
+  transform: translate(-50%, -50%);
+}
+
 .contact-call-to-action:focus-visible .call-to-action-background {
   transform: translate(-50%, -50%);
 }
@@ -141,7 +144,10 @@ import { RouterLink } from "vue-router";
   transition: transform 0.5s cubic-bezier(0.68, -0.6, 0.32, 1.6);
 }
 
-.contact-call-to-action:hover .mail-icon,
+.contact-call-to-action:hover .mail-icon {
+  transform: translate(-50%, -50%);
+}
+
 .contact-call-to-action:focus-visible .mail-icon {
   transform: translate(-50%, -50%);
 }
@@ -157,7 +163,10 @@ import { RouterLink } from "vue-router";
   pointer-events: none;
 }
 
-.contact-call-to-action:hover .call-to-action-text-transform-container,
+.contact-call-to-action:hover .call-to-action-text-transform-container {
+  transform: translate(-50%, -50%);
+}
+
 .contact-call-to-action:focus-visible .call-to-action-text-transform-container {
   transform: translate(-50%, -50%);
 }

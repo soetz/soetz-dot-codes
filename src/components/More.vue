@@ -120,12 +120,18 @@ if (props.direction === "down") {
   opacity: 0;
 }
 
-.more-target:hover svg,
+.more-target:hover svg {
+  transform: translate(0);
+}
+
 .more-target:focus-visible svg {
   transform: translate(0);
 }
 
-.more-target:hover svg polyline:first-child,
+.more-target:hover svg polyline:first-child {
+  opacity: 1;
+}
+
 .more-target:focus-visible svg polyline:first-child {
   opacity: 1;
 }

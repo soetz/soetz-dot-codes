@@ -67,7 +67,10 @@ const props = defineProps({
   transition: transform 0.2s ease-out;
 }
 
-.next-project:hover .symbol,
+.next-project:hover .symbol {
+  transform: scale(1.2);
+}
+
 .next-project:focus-visible .symbol {
   transform: scale(1.2);
 }
