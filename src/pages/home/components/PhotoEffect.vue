@@ -3,7 +3,24 @@ import { onMounted, onUnmounted } from "@vue/runtime-core";
 import { ref } from "@vue/reactivity";
 import { themeService } from "../../../services";
 
+const removeColorAnimation = ref(false);
 const hideEffect = ref(false);
+
+/*
+  Don’t ask me why, but it seems to me that Safari does not recalculate
+  animations that depend on css variables when they change, at least in some
+  cases.
+
+  That’s why we need to hack a bit and add and remove very quickly ("blink") a
+  class that removes the animation in question to force Safari to recalculate
+  it. It has no impact since the effect is hidden at that moment anyway.
+*/
+const forceColorAnimationRecalculation = () => {
+  removeColorAnimation.value = true;
+  setTimeout(() => {
+    removeColorAnimation.value = false;
+  }, 10);
+};
 
 const hideEffectDuringTransition = () => {
   hideEffect.value = true;
@@ -13,6 +30,7 @@ const hideEffectDuringTransition = () => {
 };
 
 onMounted(() => {
+  forceColorAnimationRecalculation();
   hideEffectDuringTransition();
   themeService.addEventListener("theme-change", hideEffectDuringTransition);
 });
@@ -24,7 +42,10 @@ onUnmounted(() => {
 
 <template>
   <svg
-    :class="{ 'hide-effect': hideEffect }"
+    :class="{
+      'hide-effect': hideEffect,
+      'remove-color-animation': removeColorAnimation,
+    }"
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -91,6 +112,10 @@ svg {
   opacity: 1;
 
   transition: opacity 0.5s ease-in-out;
+}
+
+.remove-color-animation .silhouettes > * {
+  animation-name: silhouette-wave;
 }
 
 .hide-effect .silhouettes {
