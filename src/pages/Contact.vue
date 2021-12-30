@@ -73,7 +73,6 @@ const checkForm = () => {
   );
 };
 
-// TODO: use https in production?
 const contactUrl = ref(
   `http${environment.server.secure ? "s" : ""}://${environment.server.domain}:${
     environment.server.port
@@ -127,6 +126,17 @@ const formSubmit = (event: Event) => {
         Feel free to contact me using whatever way you prefer, but you should be
         aware that this form is the only one that ensures that I read your
         message.
+      </p>
+      <p class="limited-width-small">
+        Do you want or need to put an attachment along with your message? I
+        recommend that you use
+        <a
+          class="link-block"
+          href="https://fromsmash.com/"
+          targe="_blank"
+          rel="noopener nofollow"
+          >Smash</a
+        >.
       </p>
       <form method="post" :action="contactUrl" @submit="formSubmit($event)">
         <div
