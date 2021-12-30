@@ -110,7 +110,7 @@ function renderPageSeo(
       socialImageUrl
         ? `
             <meta property="og:image" content="${socialImageUrl}" />
-            <meta name="twitter:card" content="summary_large-image" />
+            <meta name="twitter:card" content="summary_large_image" />
           `
         : `<meta name="twitter:card" content="summary" />`
     }
