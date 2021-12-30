@@ -16,7 +16,12 @@ function convertToBinaryUuid(initialUuid) {
   return new Binary(Buffer.from(stripped, "hex"), Binary.SUBTYPE_UUID);
 }
 
-async function createNewAnalyticsSession(client, sessionId, pageUrl) {
+async function createNewAnalyticsSession(
+  client,
+  sessionId,
+  pageUrl,
+  userAgent
+) {
   await client.connect();
   const database = client.db();
   const sessionsCollection = database.collection("sessions");
@@ -25,6 +30,7 @@ async function createNewAnalyticsSession(client, sessionId, pageUrl) {
   await sessionsCollection.insertOne({
     _id: convertToBinaryUuid(sessionId),
     started: timestamp,
+    userAgent,
     confirmed: false,
     navigations: [
       {
@@ -36,7 +42,7 @@ async function createNewAnalyticsSession(client, sessionId, pageUrl) {
 }
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-export async function render(url, manifest, mongoClient) {
+export async function render(url, manifest, mongoClient, userAgent) {
   const { app, router } = createApp();
 
   // set the router to the desired URL before rendering
@@ -49,7 +55,7 @@ export async function render(url, manifest, mongoClient) {
   const sessionToken = uuidv4();
 
   try {
-    await createNewAnalyticsSession(mongoClient, sessionToken, url);
+    await createNewAnalyticsSession(mongoClient, sessionToken, url, userAgent);
     ctx.sessionToken = sessionToken;
   } catch (error) {
     console.error("MongoDB session insert fail :\n", error);

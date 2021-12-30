@@ -70,7 +70,7 @@ async function createServer(
       }
 
       const [appHtml, status, preloadLinks, sessionToken, pageSeo] =
-        await render(url, manifest, mongoClient);
+        await render(url, manifest, mongoClient, req.get("User-Agent"));
 
       const html = template
         .replace(`<!--page-seo-->`, pageSeo)
