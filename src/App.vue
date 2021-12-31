@@ -8,6 +8,7 @@ import CookiesPopup from "./components/CookiesPopup.vue";
 import Footer from "./components/Footer.vue";
 import Header from "./components/Header.vue";
 import ThemeContainer from "./components/ThemeContainer.vue";
+import consoleWelcome from "./utilities/consoleWelcome";
 
 declare global {
   const SESSION_TOKEN: string;
@@ -31,6 +32,10 @@ const assignSessionTokenRoutine = () => {
 };
 
 assignSessionTokenRoutine();
+
+if (!import.meta.env.SSR) {
+  consoleWelcome();
+}
 
 const route = useRoute();
 themeService.setThemeColor(route.meta.color);
