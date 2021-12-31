@@ -1,11 +1,39 @@
-# Vue 3 + Typescript + Vite
+# soetz-dot-codes
 
-This template should help get you started developing with Vue 3 and Typescript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+This is the repo for my personal website. Thanks for stopping by :)
 
-## Recommended IDE Setup
+Before we start, you should know that there is no `LICENSE.md` file or anything similar because this is not free software. Of course you have the right to be inspired (I’d be honored, actually) and I won’t be angry if you copy individual components or techniques, but **please do not clone this entire project and just replace the content with your info**. That’s **not** OK.
 
-- [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
+## Requirements
 
-## Type Support For `.vue` Imports in TS
+- NodeJS 16+ (I don’t see any reason it wouldn’t work with eg. v14 or 12 but I’ve never tried it)
+- A reachable MongoDB 5+ instance (same)
+- A web browser, but if you’re reading this I suspect you already have one
+- That’s it
 
-Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can enable Volar's `.vue` type support plugin by running `Volar: Switch TS Plugin on/off` from VSCode command palette.
+## Installing
+
+```bash
+$ git clone git@gitlab.com:soetz/soetz-dot-codes.git
+$ cd soetz-dot-codes
+$ npm install
+$ cp environment.client.example.ts environment.client.ts && cp environment.server.example.js environment.server.js
+```
+
+Now you can replace the content of `environment.client.ts` and `environment.server.js` with what’s relevant for your setup.
+
+The backend is closed-source so you can connect to the production as a fallback. You should have a few errors in the console but nothing that prevents the site from doing its job, and you’ll be able to query podcast episodes and links.
+
+To do that, set `environment.client.ts` to:
+
+```js
+export const environment = {
+  server: {
+    domain: "server.soetz.codes",
+    port: "443",
+    secure: true,
+  },
+};
+```
+
+That’s it. You can now use `npm run dev` to benefit from hot module replacement, or `npm run preview` to build and bundle the whole thing and serve it.
