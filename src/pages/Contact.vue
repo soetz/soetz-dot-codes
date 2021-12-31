@@ -133,7 +133,7 @@ const formSubmit = (event: Event) => {
         <a
           class="link-block"
           href="https://fromsmash.com/"
-          targe="_blank"
+          target="_blank"
           rel="noopener nofollow"
           >Smash</a
         >.

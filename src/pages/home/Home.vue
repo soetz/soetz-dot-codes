@@ -11,8 +11,9 @@ import { RouterLink } from "vue-router";
 import SkillElement from "../../components/SkillElement.vue";
 import SkillsList from "../../components/SkillsList.vue";
 import { ref } from "@vue/reactivity";
-
-// TODO add resume download
+import resumeEnglish from "../../assets/resume/Simon-LECUTIEZ_en.pdf";
+import resumeFrench from "../../assets/resume/Simon-LECUTIEZ_fr.pdf";
+import resumeGerman from "../../assets/resume/Simon-LECUTIEZ_de.pdf";
 
 const birthday = new Date("1998-02-14");
 const today = new Date();
@@ -60,10 +61,16 @@ const showProjects = () => {
         and I’m a frenchy junior front-end developer.
       </p>
       <p>
-        Also, my pronouns are he/him. You can
-        <a target="_blank" class="link-block">download my resume</a> and/or
-        continue scrolling&nbsp;:)
+        You can
+        <a class="link-block" :href="resumeEnglish" target="_blank"
+          >download my resume</a
+        >
+        (also available in
+        <a class="link-block" :href="resumeGerman" target="_blank">German</a>
+        and
+        <a class="link-block" :href="resumeFrench" target="_blank">French</a>).
       </p>
+      <p> My pronouns are he/him, by the way&nbsp;:) </p>
     </Appear>
     <div class="photo-container">
       <Parallax class="parallax-container" :speed="0.4">
