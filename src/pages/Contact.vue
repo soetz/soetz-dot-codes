@@ -143,7 +143,7 @@ const formSubmit = (event: Event) => {
           class="input-group"
           :class="{ 'has-error': usernameErrors.length }"
         >
-          <label for="user-name">Your name: </label>
+          <label for="user-name">your name: </label>
           <input
             id="user-name"
             v-model="username"
@@ -157,14 +157,14 @@ const formSubmit = (event: Event) => {
             v-if="usernameErrors.includes('empty')"
             id="user-name-error-empty"
             class="error-message"
-            >You must enter a name</span
+            >you must enter a name</span
           >
         </div>
         <div
           class="input-group"
           :class="{ 'has-error': userEmailErrors.length }"
         >
-          <label for="user-email">Your email address: </label>
+          <label for="user-email">your email address: </label>
           <input
             id="user-email"
             v-model="userEmail"
@@ -178,7 +178,7 @@ const formSubmit = (event: Event) => {
             v-if="userEmailErrors.includes('empty')"
             id="user-email-error-empty"
             class="error-message"
-            >You must enter an email (you probably need an answer, right?)</span
+            >you must enter an email (you probably need an answer, right?)</span
           >
           <span
             v-if="
@@ -187,14 +187,14 @@ const formSubmit = (event: Event) => {
             "
             id="user-email-error-email"
             class="error-message"
-            >Your email doesn’t seem to be valid</span
+            >your email doesn’t seem to be valid</span
           >
         </div>
         <div
           class="input-group"
           :class="{ 'has-error': messageSubjectErrors.length }"
         >
-          <label for="message-subject">The subject of your message: </label>
+          <label for="message-subject">the subject of your message: </label>
           <input
             id="message-subject"
             v-model="messageSubject"
@@ -208,11 +208,11 @@ const formSubmit = (event: Event) => {
             v-if="messageSubjectErrors.includes('empty')"
             id="message-subject-error-empty"
             class="error-message"
-            >You must enter a subject</span
+            >you must enter a subject</span
           >
         </div>
         <div class="input-group" :class="{ 'has-error': messageErrors.length }">
-          <label for="message">Your message: </label>
+          <label for="message">your message: </label>
           <textarea
             id="message"
             v-model="message"
@@ -227,7 +227,7 @@ const formSubmit = (event: Event) => {
             v-if="messageErrors.includes('empty')"
             id="message-error-empty"
             class="error-message"
-            >You must enter a message, because doing otherwise kind of defeats
+            >you must enter a message, because doing otherwise kind of defeats
             the whole point, don’t you think?</span
           >
         </div>
@@ -240,23 +240,23 @@ const formSubmit = (event: Event) => {
           class="button-block"
           type="submit"
           :disabled="sending"
-          value="Send message"
+          value="send message"
           aria-describedby="status-sending status-success status-failure"
         />
         <div v-if="sending" id="status-sending" class="status-message"
-          >Sending…</div
+          >sending…</div
         >
         <div
           v-if="sent"
           id="status-success"
           class="status-message status-success"
-          >Sent!</div
+          >sent!</div
         >
         <div
           v-if="sendError"
           id="status-failure"
           class="status-message status-failure"
-          >There was an error sending your message… sorry!</div
+          >there was an error sending your message… sorry!</div
         >
       </form>
     </Appear>
@@ -306,11 +306,11 @@ form {
 }
 
 .input-group.has-error label {
-  color: var(--red-100);
+  color: var(--red-400);
 }
 
 .theme-dark .input-group.has-error label {
-  color: var(--red-90);
+  color: var(--red-60);
 }
 
 .theme-transition .input-group.has-error label {
@@ -388,14 +388,29 @@ form {
   border-bottom-color: var(--red-100);
 }
 
+.theme-dark .input-group.has-error input,
+.theme-dark .input-group.has-error textarea {
+  border-left-color: var(--red-90);
+  border-top-color: var(--red-90);
+  border-right-color: var(--red-90);
+  border-bottom-color: var(--red-90);
+}
+
+.theme-transition .input-group.has-error input,
+.theme-transition .input-group.has-error textarea {
+  transition: border-left-color 0.5s ease-in-out,
+    border-top-color 0.5s ease-in-out, border-right-color 0.5s ease-in-out,
+    border-bottom-color 0.5s ease-in-out;
+}
+
 .error-message {
-  color: var(--red-100);
+  color: var(--red-400);
 
   font-style: italic;
 }
 
 .theme-dark .error-message {
-  color: var(--red-90);
+  color: var(--red-60);
 }
 
 .theme-transition .error-message {

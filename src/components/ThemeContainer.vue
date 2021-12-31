@@ -62,8 +62,8 @@ onUnmounted(() => {
   --link-block-opacity: 0.5;
   --link-block-color: var(--theme-60-rgb);
 
-  --button-block-color: var(--theme-90);
-  --button-block-side-color: var(--theme-100);
+  --button-block-color: var(--theme-400);
+  --button-block-side-color: var(--theme-700);
 }
 
 .theme-container * {
@@ -191,7 +191,6 @@ a.link-block:focus-visible {
   --link-block-opacity: 0.9;
 }
 
-/* TODO button-block shadow */
 .button-block,
 button.button-block {
   margin-top: 12px;
@@ -209,6 +208,10 @@ button.button-block {
   background-color: var(--button-block-color);
 
   color: var(--theme-10);
+
+  box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.02),
+    7px 14px 15px rgba(0, 0, 0, 0.032), 15px 30px 33px rgba(0, 0, 0, 0.044),
+    50px 100px 120px rgba(0, 0, 0, 0.07);
 
   font-size: 16px;
   font-weight: 700;
