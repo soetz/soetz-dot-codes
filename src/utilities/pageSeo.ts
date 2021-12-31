@@ -25,7 +25,7 @@ const pageDescription = (description?: string): string => {
   if (description) {
     return description;
   } else {
-    return "Hi, this is Simon Lecutiez. I’m a french junior front-end developer and I love when interfaces spark joy.";
+    return "Your average web technologies enthusiast. I work with people so they can have nice, accessible websites. Can I help you?";
   }
 };
 
