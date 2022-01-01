@@ -158,10 +158,9 @@ const showProjects = () => {
           ><abbr title="Scalable Vector Graphics">SVG</abbr></SkillElement
         >
         <transition name="appear">
-          <SkillElement v-show="moreTechonologiesShown">d3</SkillElement>
-        </transition>
-        <transition name="appear">
-          <SkillElement v-show="moreTechonologiesShown">three.js</SkillElement>
+          <SkillElement v-show="moreTechonologiesShown"
+            ><abbr title="GreenSock Animation Program">GSAP</abbr></SkillElement
+          >
         </transition>
         <transition name="appear">
           <SkillElement v-show="moreTechonologiesShown"
@@ -174,23 +173,16 @@ const showProjects = () => {
           >
         </transition>
         <transition name="appear">
-          <SkillElement v-show="moreTechonologiesShown">PHP</SkillElement>
-        </transition>
-        <transition name="appear">
           <SkillElement v-show="moreTechonologiesShown">Laravel</SkillElement>
         </transition>
         <transition name="appear">
-          <SkillElement v-show="moreTechonologiesShown">Wordpress</SkillElement>
-        </transition>
-        <transition name="appear">
-          <SkillElement v-show="moreTechonologiesShown">Webflow</SkillElement>
-        </transition>
-        <transition name="appear">
-          <SkillElement v-show="moreTechonologiesShown">MySQL</SkillElement>
+          <SkillElement v-show="moreTechonologiesShown"
+            >Wordpress/Webflow</SkillElement
+          >
         </transition>
         <transition name="appear">
           <SkillElement v-show="moreTechonologiesShown"
-            >PostgreSQL</SkillElement
+            ><abbr title="Structured Query Language">SQL</abbr></SkillElement
           >
         </transition>
         <transition name="appear">
