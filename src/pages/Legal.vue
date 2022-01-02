@@ -43,7 +43,7 @@ import { RouterLink } from "vue-router";
         class="link-block"
         href="https://www.ovh.com/abuse/"
         target="_blank"
-        rel="nofollow noopener norefferer"
+        rel="nofollow noopener noreferer"
         >https://www.ovh.com/abuse/</a
       >.
     </p>
