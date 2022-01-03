@@ -60,6 +60,8 @@ import SkillElement from "../../components/SkillElement.vue";
       <p>
         It was a great experience to work on this project with my whole year
         group, especially since we were building software for the greater good!
+        The system is still used by Entrepreneurs du Monde to this day so it’s
+        always good to know you did something useful :)
       </p>
     </template>
     <template #choices>
