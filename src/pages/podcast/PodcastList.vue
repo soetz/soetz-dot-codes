@@ -86,7 +86,7 @@ watch(
         Il semble qu’aucun épisode ne soit sorti pour le moment. Rassurez-vous,
         ça ne saurait tarder ! :)
       </p>
-      <ul v-if="podcasts.length > 1">
+      <ul v-if="podcasts.length >= 1">
         <PodcastLink
           v-for="podcast in podcasts"
           :key="podcast.code"
@@ -94,7 +94,7 @@ watch(
         />
       </ul>
       <Pagination
-        v-if="podcasts.length > 1"
+        v-if="podcasts.length >= 1"
         class="pagination"
         :page="page"
         :number-of-pages="numberOfPages"

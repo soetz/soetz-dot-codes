@@ -250,6 +250,25 @@ h1 {
   font-size: 2em;
 }
 
+hr {
+  height: 2px;
+
+  background-color: var(--theme-900);
+
+  border-left-style: none;
+  border-top-style: none;
+  border-right-style: none;
+  border-bottom-style: none;
+}
+
+.theme-dark hr {
+  background-color: var(--theme-10);
+}
+
+.theme-transition hr {
+  transition: background-color 0.5s ease-in-out;
+}
+
 code {
   padding-left: 6px;
   padding-right: 6px;
