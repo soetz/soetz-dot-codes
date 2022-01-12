@@ -4,6 +4,7 @@ import { useRoute, useRouter } from "vue-router";
 import Appear from "../../components/Appear.vue";
 import Pagination from "../../components/Pagination.vue";
 import PodcastLink from "./components/PodcastLink.vue";
+import RssIcon from "../../components/icons/RssIcon.vue";
 import axios from "axios";
 import { environment } from "../../../environment.client";
 
@@ -76,7 +77,17 @@ watch(
 <template>
   <section class="limited-width" lang="fr-FR">
     <Appear class="overflow-visible">
-      <h1>Regard 9</h1>
+      <div class="title-container">
+        <h1>Regard&nbsp;9</h1>
+        <a
+          href="https://rss.soetz.codes/podcast/regard-9"
+          target="_blank"
+          rel="noopener"
+        >
+          <RssIcon class="rss-icon" />
+        </a>
+      </div>
+
       <p class="limited-width-small">
         Le podcast qui t’en met plein la vue ! Je pars à la rencontre d’artistes
         d’horizons divers mais qui ont une chose en commun : leur travail
@@ -138,6 +149,23 @@ watch(
   overflow-y: visible;
 }
 
+.title-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rss-icon {
+  width: 64px;
+  height: 64px;
+
+  margin-left: 16px;
+  padding-left: 8px;
+  padding-top: 8px;
+  padding-right: 8px;
+  padding-bottom: 8px;
+}
+
 .no-podcast {
   margin-top: 42px;
 
@@ -159,6 +187,12 @@ ul {
 
 .pagination {
   margin-top: 48px;
+}
+
+@media screen and (min-width: 400px) {
+  .title-container {
+    justify-content: initial;
+  }
 }
 
 @media screen and (min-width: 600px) {
