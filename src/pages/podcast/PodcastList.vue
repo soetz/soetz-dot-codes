@@ -62,6 +62,8 @@ const updatePodcasts = async () => {
 
 await updatePodcasts();
 
+// TODO add link to RSS feed in the page
+
 watch(
   () => route.query,
   async (query) => {
@@ -79,6 +81,16 @@ watch(
         Le podcast qui t’en met plein la vue ! Je pars à la rencontre d’artistes
         d’horizons divers mais qui ont une chose en commun : leur travail
         s’apprécie avec les yeux.
+      </p>
+      <p>
+        Écoutez Regard 9 sur votre plateforme préférée : tous les liens
+        <a
+          class="link-block"
+          href="https://linktr.ee/regard9"
+          target="_blank"
+          rel="noopener"
+          >ici</a
+        >.
       </p>
     </Appear>
     <Appear class="overflow-visible">

@@ -110,6 +110,10 @@ const routes = [
       keywords:
         "podcast, artiste, regard 9, Simon Lecutiez, visuel, art visuel, discussion, illustration, France, Lyon",
       socialImage: "podcast.regard-9.0",
+      rssLink: {
+        title: "Regard 9",
+        url: "https://rss.soetz.codes/podcast/regard-9",
+      },
     },
   },
   {

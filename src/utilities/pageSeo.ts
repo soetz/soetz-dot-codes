@@ -119,6 +119,30 @@ const updatePageUrl = (path?: string): void => {
   }
 };
 
+const updateRssLink = (rssLink?: RssLink): void => {
+  const currentRssLink = document.querySelector(
+    'link[type="application/rss+xml"][rel=alternate]'
+  );
+  if (currentRssLink && rssLink) {
+    currentRssLink.setAttribute("title", rssLink.title);
+    currentRssLink.setAttribute("href", rssLink.url);
+  } else if (currentRssLink && !rssLink) {
+    document.head.removeChild(currentRssLink);
+  } else if (!currentRssLink && rssLink) {
+    const newRssLink = document.createElement("link");
+    newRssLink.setAttribute("type", "application/rss+xml");
+    newRssLink.setAttribute("rel", "alternate");
+    newRssLink.setAttribute("title", rssLink.title);
+    newRssLink.setAttribute("href", rssLink.url);
+    document.head.appendChild(newRssLink);
+  }
+};
+
+interface RssLink {
+  title: string;
+  url: string;
+}
+
 interface SeoProperties {
   title?: string;
   description?: string;
@@ -126,6 +150,7 @@ interface SeoProperties {
   socialImage?: string;
   robots?: string;
   path?: string;
+  rssLink?: RssLink;
 }
 
 const updatePageSeo = (seoProperties: SeoProperties): void => {
@@ -136,6 +161,7 @@ const updatePageSeo = (seoProperties: SeoProperties): void => {
     updatePageSocialImage(seoProperties.socialImage);
     updateRobots(seoProperties.robots);
     updatePageUrl(seoProperties.path);
+    updateRssLink(seoProperties.rssLink);
   }
 };
 
@@ -147,4 +173,5 @@ export {
   pageUrl,
   pageRobots,
   updatePageSeo,
+  RssLink,
 };

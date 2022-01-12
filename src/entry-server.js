@@ -82,6 +82,7 @@ export async function render(url, manifest, mongoClient, userAgent) {
     router.currentRoute.value.meta?.keywords,
     router.currentRoute.value.meta?.socialImage,
     router.currentRoute.value.meta?.robots,
+    router.currentRoute.value.meta?.rssLink,
     router.currentRoute.value.path
   );
 
@@ -96,6 +97,7 @@ function renderPageSeo(
   routeMetaKeywords,
   routeMetaSocialImage,
   routeMetaRobots,
+  routeMetaRssLink,
   routePath
 ) {
   const title = pageTitle(routeMetaTitle);
@@ -119,6 +121,13 @@ function renderPageSeo(
             <meta name="twitter:card" content="summary_large_image" />
           `
         : `<meta name="twitter:card" content="summary" />`
+    }
+    ${
+      routeMetaRssLink
+        ? `
+            <link type="application/rss+xml" rel="alternate" title="${routeMetaRssLink.title}" href="${routeMetaRssLink.url}" />
+          `
+        : ``
     }
     <meta name="robots" content="${robots}" />
   `;
